@@ -1,0 +1,31 @@
+<Project>
+	<Name>Inmob</Name>
+	<Description>Sitio de Negocios Inmobiliarios</Description>
+	<Prefix>Inmob</Prefix>
+	<Domain>com.ajlopez</Domain>
+	<CompanyName>ajlopez</CompanyName>
+	<HasUsers>true</HasUsers>
+	<HasTests>true</HasTests>
+	<Model>
+		<Entities>
+			<Entity Source="Entities/Propiedad.xml"/>
+			<Entity Source="Entities/Zona.xml"/>
+			<Entity Source="Entities/User.xml"/>
+		</Entities>
+		<Lists>
+			<List Entity="User" />
+			<List Entity="Propiedad" />
+			<List Entity="Zona" />
+		</Lists>
+		<Forms>
+			<Form Entity="User" />
+			<Form Entity="Propiedad" />
+			<Form Entity="Zona" />
+		</Forms>
+		<Views>
+			<View Entity="User" />
+			<View Entity="Propiedad" />
+			<View Entity="Zona" />
+		</Views>		
+	</Model>
+</Project>

@@ -1,0 +1,15 @@
+<Technology>
+	<UserInterface Language="es">
+	</UserInterface>
+	<Programming>
+		<Dialect>Php</Dialect>
+		<Strategy>Functions</Strategy>
+	</Programming>
+	<Database>
+		<Dialect>MySql</Dialect>
+		<Name>inmob</Name>
+		<Username>root</Username>
+		<Host>localhost</Host>
+		<MySql Directory="\xampp\mysql"/>
+	</Database>
+</Technology>

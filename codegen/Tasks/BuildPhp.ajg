@@ -1,0 +1,78 @@
+<#
+
+PrintLine "Creating Directories"
+
+include "Utilities/TransformUtilities.ajg"
+
+FileManager.CreateDirectory("${Project.BuildDir}")
+FileManager.CreateDirectory("${Project.BuildDir}/Web")
+FileManager.CreateDirectory("${Project.BuildDir}/Web/includes")
+
+if Project.HasTests then
+    FileManager.CreateDirectory("${Project.BuildDir}/Web/tests")
+    FileManager.CreateDirectory("${Project.BuildDir}/Web/simpletest")
+end if
+
+if Project.HasUsers then
+	FileManager.CreateDirectory("${Project.BuildDir}/Web/admin")
+	FileManager.CreateDirectory("${Project.BuildDir}/Web/users")
+	WebDir = 'admin/'
+end if
+
+if Technology.Programming.Strategy="Service" then
+	FileManager.CreateDirectory("${Project.BuildDir}/Web/includes/services")
+end if
+
+if Technology.Programming.Strategy="Model" then
+	FileManager.CreateDirectory("${Project.BuildDir}/Web/includes/model")
+	FileManager.CreateDirectory("${Project.BuildDir}/Web/includes/data")
+	FileManager.CreateDirectory("${Project.BuildDir}/Web/includes/services")
+end if
+
+PrintLine "Creating PHP Project ${Project.Name}"
+
+for each Entity in Project.Model.Entities	
+	if Technology.Programming.Strategy="Functions" then
+		TransformFile("Templates/Php/EntityFunctions.tpl", "${Project.BuildDir}/Web/includes/${Entity.Name}Functions.inc.php", TransformerManager, Environment)
+        
+        if Project.HasTests then
+            TransformFile("Templates/Php/EntityFunctionsTests.tpl", "${Project.BuildDir}/Web/tests/${Entity.Name}FunctionsTests.php", TransformerManager, Environment)
+        end if
+	end if
+end for
+
+if Project.HasTests and Technology.Programming.Strategy = "Functions" then
+    TransformFile("Templates/Php/AllFunctionsTests.tpl", "${Project.BuildDir}/Web/tests/AllFunctionsTests.php", TransformerManager, Environment)
+end if
+
+for each List in Project.Model.Lists
+	TransformFile("Templates/Php/EntityList.tpl", "${Project.BuildDir}/Web/${WebDir}${List.Entity.Name}List.php", TransformerManager, Environment)
+end for
+
+for each Form in Project.Model.Forms
+	TransformFile("Templates/Php/EntityForm.tpl", "${Project.BuildDir}/Web/${WebDir}${Form.Entity.Name}Form.php", TransformerManager, Environment)
+	TransformFile("Templates/Php/EntityUpdate.tpl", "${Project.BuildDir}/Web/${WebDir}${Form.Entity.Name}Update.php", TransformerManager, Environment)
+end for
+
+for each View in Project.Model.Views
+	TransformFile("Templates/Php/EntityView.tpl", "${Project.BuildDir}/Web/${WebDir}${View.Entity.Name}View.php", TransformerManager, Environment)
+	Entity = View.Entity
+	TransformFile("Templates/Php/EntityDelete.tpl", "${Project.BuildDir}/Web/${WebDir}${View.Entity.Name}Delete.php", TransformerManager, Environment)
+end for
+
+TransformFile("Templates/Php/Security.tpl", "${Project.BuildDir}/Web/Security.inc.php", TransformerManager, Environment)
+
+if WebDir then
+	TransformFile("Templates/Php/Security.tpl", "${Project.BuildDir}/Web/${WebDir}Security.inc.php", TransformerManager, Environment)
+end if
+
+TransformFile("Templates/Php/Index.tpl", "${Project.BuildDir}/Web/index.php", TransformerManager, Environment)
+TransformFile("Templates/Php/Menu.tpl", "${Project.BuildDir}/Web/includes/MenuLeft.inc.php", TransformerManager, Environment)
+TransformFile("Templates/Php/Configuration.tpl", "${Project.BuildDir}/Web/includes/Configuration.inc.php", TransformerManager, Environment)
+TransformFile("Templates/Php/Enumerations.tpl", "${Project.BuildDir}/Web/includes/Enumerations.inc.php", TransformerManager, Environment)
+
+if Project.HasTests then
+    CopyDirectory("SourceCode/simpletest", "${Project.BuildDir}/Web/simpletest", false)
+end if
+
+#>

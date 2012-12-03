@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<Entity>
+	<Name>Zona</Name>
+	<Description>Zona</Description>
+	<SetName>Zonas</SetName>
+	<Descriptor>Zona</Descriptor>
+	<SetDescriptor>Zonas</SetDescriptor>
+	<SqlTable>zonas</SqlTable>
+	
+	<Properties>
+
+		<Property>
+			<Name>Id</Name>
+			<Type>Id</Type>
+		</Property>
+
+		<Property>
+			<Name>Nombre</Name>
+			<Type>Text</Type>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+	</Properties>
+</Entity>

@@ -1,0 +1,1 @@
+rmdir c:\xampp\htdocs\Inmob

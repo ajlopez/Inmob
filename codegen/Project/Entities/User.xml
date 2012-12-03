@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<Entity>
+	<Name>User</Name>
+	<Description>Usuario</Description>
+	<SetName>Users</SetName>
+	<Descriptor>Usuario</Descriptor>
+	<SetDescriptor>Usuarios</SetDescriptor>
+	<SqlTable>users</SqlTable>
+	
+	<Properties>
+
+		<Property>
+			<Name>Id</Name>
+			<Type>Id</Type>
+		</Property>
+
+		<Property>
+			<Name>UserName</Name>
+			<Description>Código</Description>
+			<Type>Text</Type>
+			<SqlType>varchar(16)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Password</Name>
+			<Description>Contraseña</Description>
+			<Type>Text</Type>
+			<Subtype>Password</Subtype>
+			<Hidden>true</Hidden>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>FirstName</Name>
+			<Description>Nombre</Description>
+			<Type>Text</Type>
+			<SqlType>varchar(40)</SqlType>
+		</Property>
+		
+		<Property>
+			<Name>LastName</Name>
+			<Description>Apellido</Description>
+			<Type>Text</Type>
+			<SqlType>varchar(40)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Email</Name>
+			<Description>Correo Electrónico</Description>
+			<Type>Text</Type>
+			<SqlType>varchar(100)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Genre</Name>
+			<Description>Género</Description>
+			<Type>Text</Type>
+			<SqlType>varchar(20)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>IsAdministrator</Name>
+			<Description>Es Administrador</Description>
+			<Type>Boolean</Type>
+			<SqlType>tinyint(4)</SqlType>
+		</Property>
+		
+		<Property>
+			<Name>DateTimeInsert</Name>
+			<Description>Fecha/Hora Creación</Description>
+			<Type>DateTime</Type>
+			<ReadOnly>true</ReadOnly>
+			<Subtype>CreationDateTime</Subtype>
+			<SqlType>datetime</SqlType>
+		</Property>
+
+		<Property>
+			<Name>DateTimeUpdate</Name>
+			<Description>Fecha/Hora Ultima Actualización</Description>
+			<Type>DateTime</Type>
+			<ReadOnly>true</ReadOnly>
+			<Subtype>UpdateDateTime</Subtype>
+			<SqlType>datetime</SqlType>
+		</Property>
+
+		<Property>
+			<Name>DateTimeLastLogin</Name>
+			<Description>Fecha/Hora Ultimo Ingreso</Description>
+			<ReadOnly>true</ReadOnly>
+			<Type>DateTime</Type>
+			<SqlType>datetime</SqlType>
+		</Property>
+
+		<Property>
+			<Name>LoginCount</Name>
+			<Description>Cantidad de Ingresos</Description>
+			<ReadOnly>true</ReadOnly>
+			<Type>Number</Type>
+			<SqlType>int(11)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Verified</Name>
+			<Description>Verificado</Description>
+			<Type>Boolean</Type>
+			<SqlType>tinyint(4)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Notas</Name>
+			<Type>Memo</Type>
+			<SqlType>text</SqlType>
+		</Property>
+
+		<Property>
+			<Name>NoReserva</Name>
+			<Description>No Puede Reservar SUM</Description>
+			<Type>Boolean</Type>
+			<SqlType>tinyint(4)</SqlType>
+		</Property>
+	</Properties>
+</Entity>

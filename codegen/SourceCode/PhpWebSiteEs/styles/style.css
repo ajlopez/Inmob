@@ -1,0 +1,235 @@
+
+BODY {
+	Font-Family: Verdana, Helvetica, sans-serif;
+	Font-size: 12pt;
+	Color: black;	
+	BACKGROUND-COLOR: white;
+	margin: 0.5em;
+	min-width:1600px;
+}
+
+P {
+	Font-Family: Verdana, Helvetica, sans-serif;
+	Color: black;	
+}
+
+H1 {
+	Font-size: 20px;
+	Font-Weight: normal;
+	Font-Family: Verdana, Helvetica, sans-serif;
+	color: #000080;
+}
+
+H2 {
+	Font-size: 16px;
+	color: #000080;
+	Font-Weight: normal;
+	Font-Family: Verdana, Helvetica, sans-serif;
+}
+
+H3 {
+	Font-size: 11px;
+	color: #000080;
+	Font-Weight: normal;
+	Font-Family: Verdana, Helvetica, sans-serif;
+}
+
+table {
+	font-size: 12px;
+}
+
+td {
+	margin: 1px 1px;
+	Background: #eeeeee;
+}
+
+th {
+	margin: 1px 1px;
+	background: #dddddd;
+	text-align: center;
+}
+
+A:link {
+	Font-Family: Verdana, Helvetica, sans-serif;
+/*	Font-size: 12px; */
+	COLOR: darkblue; TEXT-DECORATION: none
+}
+A:visited {
+	Font-Family: Verdana, Helvetica, sans-serif;
+	COLOR: darkblue; TEXT-DECORATION: none
+}
+A:active {
+	Font-Family: Verdana, Helvetica, sans-serif;
+	COLOR: darkblue; TEXT-DECORATION: none
+}
+A:hover {
+	Font-Family: Verdana, Helvetica, sans-serif;
+	COLOR: darkblue; TEXT-DECORATION: underline
+}
+
+A.option {
+	color: rgb(0,0,155);
+	text-decoration: none;
+}
+
+A.option:hover {
+	COLOR: #ff0000;
+}
+
+XMP {
+	background: #eeeeee;
+}
+
+.code {
+	background: #f1f1f1;
+}
+
+.error {
+	color: red;
+}
+
+.normal {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; LINE-HEIGHT: 12px; FONT-FAMILY: Verdana, Helvetica, sans-serif
+}
+
+.form {
+/*
+	background: black;
+	*/
+}
+
+.data 
+{
+}
+
+.report {
+	background: black;
+}
+
+.top {
+	background: rgb(255,255,255);
+	color: rgb(0,0,0);
+	Font-Family: Arial;
+	Font-size: 10pt;
+}
+
+.left {
+	background: #eeeeee;
+}
+
+.datum {
+	Font-Family: Verdana, Arial, Helvetica;
+	Font-size: 9pt;
+	color: rgb(0,0,0);
+	background: rgb(230,230,230);
+}
+
+.legend {
+	Font-Family: Verdana, Arial, Helvetica;
+	Font-size: 9pt;
+	color: rgb(0,0,0);
+	background: rgb(210,210,210);
+}
+
+.option {
+	Font-Family: Arial;
+	Font-size: 10pt;
+	color: rgb(255,255,255);
+	background: #c0c0c0;
+}
+
+.text {
+	Font-Family: Verdana, Arial, Helvetica;
+	Font-size: 9pt;
+	color: rgb(0,128,0);
+}
+
+.pagetext {
+	Font-Family: Verdana, Arial;
+	Font-size: 10pt;
+	Color: black;	
+}
+
+.menu {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #000000;
+	text-decoration: none;	
+	background: black;	
+	width: 120px;
+	margin-left: 10px;
+}
+
+.menutitle {
+	color: #000080;
+	background: #bbbbbb;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	letter-spacing: 0.05em;
+	text-decoration: none;
+}
+
+.menuoption {
+	font-family: Verdana, Helvetica, sans-serif;
+	font-size: 10pt;
+	color: #000000;
+	background: #ffffff;
+	text-decoration: none;
+	letter-spacing: 0.05em;
+	line-height: 1.4;
+}
+
+.menuoption:visited {
+	color: #000000;
+	text-decoration: none;
+}
+
+.menuoption:active {
+	color: rgb(0,54,99);
+	text-decoration: none;
+}
+
+/* MSIE display:inline-block is to make sure MSIE doesn't paint the backround above the containers, the overflow declaration is to make sure the containers do not drop below siblings if content pushes the width (in modern browsers it doesn't drop, but it spawns an orizontal scrollbar)  */
+#header,#subheader,#menu,#content,#footer {overflow:hidden;display:inline-block}
+#header,#subheader,#footer {width:100%} /* safari and opera need this */
+
+#header {
+	Font-Family: Arial;
+	Font-size: 20pt;
+	font-weight: bold;
+	color: black;
+	padding: 10px 0;
+}
+
+#content {
+	padding-left: 0.5em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	float:left;
+}
+
+#menu {
+	width: 140px;
+	float:left;
+	padding: 10px 0;
+}
+
+#subheader {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	color: #FFFFFF;
+	background: #000066;
+	text-decoration: none;
+	padding-left: 0.5em;
+}
+
+#footer {
+	Font-Family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	background: #c0c0c0;
+	color: rgb(0,0,0);
+	padding: 0.1em;
+	text-align: center;
+	clear: left;
+}
