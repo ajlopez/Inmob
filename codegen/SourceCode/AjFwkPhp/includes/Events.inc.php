@@ -28,13 +28,16 @@ function EventWrite($parameter,$type='PG',$idpar=0) {
 		Ip = '$REMOTE_ADDR',
 		IdParameter = $idpar,
 		IdUser = $IdUser";
-
+		
+// TODO save event
+		
+/*
 	if (!DbExecuteQuery($sql)) {
 		echo DbLastSqlError();
 		echo "<br>";
 		echo $sql;
 	}
-
+*/
 	DbDisconnect();
 }
 

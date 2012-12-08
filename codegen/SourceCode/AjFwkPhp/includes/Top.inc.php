@@ -16,4 +16,4 @@
 </div>			
 
 <div id=content>
-<h1><? echo $Page->Title ?></h1>
+<h2><? echo $Page->Title ?></h2>

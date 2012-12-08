@@ -1,6 +1,8 @@
 <?
 	include_once($Page->Prefix.'includes/Users.inc.php');
 ?>
+<br>
+
 <?
 function MenuLeftOpen($title)
 {
@@ -12,7 +14,7 @@ function MenuLeftOpen($title)
 <? echo $title; ?>
 </td>
 </tr>
-</tr>
+<tr>
 <td valign="top" class="menuoption">
 <?
 }
@@ -21,7 +23,7 @@ function MenuLeftOption($text,$link)
 {
 	global $Page;
 
-	echo "&nbsp;&nbsp;<strong>·</strong>&nbsp;&nbsp;";
+	echo "&nbsp;";
 	echo "<a target='_top' href='$Page->Prefix$link' class='menuoption'>$text</a>";
 	echo "<br>\n";
 }
@@ -32,6 +34,7 @@ function MenuLeftClose()
 </td>
 </tr>
 </table>
+
 <br>
 
 </div>
@@ -42,24 +45,31 @@ function MenuLeftClose()
 
 <?
 	MenuLeftOpen($Cfg['SiteName']);
-	MenuLeftOption('Main','index.php');
-	MenuLeftOption('Notes','Notes.php');
+	MenuLeftOption('Inicio','index.php');
 	MenuLeftClose();
 
+	if (UserIdentified() && UserIsAdministrator()) {
+		MenuLeftOpen('Entidades');
+		MenuLeftOption('Consorcios','admin/ConsorcioList.php');
+		MenuLeftOption('Unidades','admin/UnidadList.php');
+		MenuLeftOption('Documentos','admin/DocumentoConsorcioList.php');
+		MenuLeftOption('Usuarios','admin/UserList.php');
+		MenuLeftClose();
+	}
+	
 	if (UserIdentified()) {
 		MenuLeftOpen(UserName());
-		MenuLeftOption('Your Profile', 'users/User.php');
-		If (UserIsAdministrator()) {
-			MenuLeftOption('Administrator','admin/index.php');
-		}
-		MenuLeftOption('Logout','users/Logout.php');
+		MenuLeftOption('Mis Datos', 'users/User.php');
+		MenuLeftOption('Mis Documentos', 'users/DocumentoList.php');
+		if (UserHasMultiple())
+			MenuLeftOption('Mis Reservas', 'users/ReservaListEx.php');
+		MenuLeftOption('Salir','users/Logout.php');
 		MenuLeftClose();
 	}
 	else {
-		MenuLeftOpen('User');
-		MenuLeftOption('Login','users/Login.php');
-		MenuLeftOption('Register','users/Register.php');
+		MenuLeftOpen('Usuarios');
+		MenuLeftOption('Ingreso','users/Login.php');
+		MenuLeftOption('Registración','users/Register.php');
 		MenuLeftClose();
 	}
-
 ?>

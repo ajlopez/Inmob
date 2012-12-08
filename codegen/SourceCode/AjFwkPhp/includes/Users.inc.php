@@ -2,6 +2,7 @@
 include_once($Page->Prefix.'ajfwk/Pages.inc.php');
 include_once($Page->Prefix.'ajfwk/Database.inc.php');
 include_once($Page->Prefix.'ajfwk/Session.inc.php');
+include_once($Page->Prefix.'includes/UsoMultipleFunctionsEx.inc.php');
 include_once('Events.inc.php');
 
 function UserControl($link='') {
@@ -18,7 +19,7 @@ function UserControl($link='') {
 				$enlace .= "?" . $HTTP_SERVER_VARS["QUERY_STRING"];
 		}
 		SessionPut("UserLink", $link);
-		PageRedirect('users/login.php');
+		PageRedirect(PageLogin());
 		exit;
 	}
 }
@@ -46,6 +47,16 @@ function UserCurrent() {
 function UserId() {
 	$User = UserCurrent();
 	return($User->Id);
+}
+
+function UserHasMultiple() {
+	$User = UserCurrent();
+	return($User->HasMultiple && !$User->NoReserva);
+}
+
+function UserHasManyMultiple() {
+	$User = UserCurrent();
+	return($User->HasManyMultiple);
 }
 
 function UserName() {
@@ -111,6 +122,15 @@ function UserLogin($user) {
 	EventLogin();
 	DbConnect();
 	DbExecuteUpdate("update users set DateTimeLastLogin = now(), LoginCount = LoginCount+1 where Id = " . UserId());
+	$rs = UsoMultipleGetListByUser($user->Id);
+	$multiple = DbNextRow($rs);
+	if ($multiple) {
+		$user->HasMultiple = $multiple;
+		$second = DbNextRow($rs);
+		if ($second)
+			$user->HasManyMultiple = true;
+	}
+	DbFreeResult($rs);
 	DbDisconnect();
 }
 
