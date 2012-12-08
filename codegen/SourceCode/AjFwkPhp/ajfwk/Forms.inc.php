@@ -11,6 +11,15 @@ $Months = array(
   9 => Set, 10 => Oct, 11 => Nov, 12 => Dic
 );
 
+$Hours = array(
+	'00:00', '00:30', '01:00', '01:30', '02:00', '02:30', '03:00', '03:30',  
+	'04:00', '04:30', '05:00', '05:30', '06:00', '06:30', '07:00', '07:30',  
+	'08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',  
+	'12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30',  
+	'16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30',  
+	'20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30', '24:00'
+);
+
 $Genres = array( 1 => Masculino, 2 => Femenino );
 
 function FieldRowOpen() {
@@ -44,11 +53,11 @@ function LegendGenerate($legend='&nbsp;',$required=false) {
 }
 
 function StaticGenerate($legend) {
-		echo "$legend\n";
+	echo "$legend\n";
 }
 
 function LinkGenerate($legend,$link) {
-		echo "<a href='$link'>$legend</a>";
+	echo "<a href='$link'>$legend</a>";
 }
 
 function StaticMemoGenerate($legend,$eshtml=0) {
@@ -98,8 +107,21 @@ function PasswordGenerate($name,$value,$tamanio) {
 		echo "<input type=password name=\"$name\" value=\"$value\" size=$tamanio>\n";
 }
 
+function HourGenerate($name,$value, $novalor=0) {
+	global $Hours;
+    reset($Hours);
+	echo "<select name='$name' class='dateinput' style='width: 100px'>\n";
+	if ($novalor)
+		 echo "<option value=''></option>\n";
+	while (list($k, $v) = each($Hours))  {
+				$s = $v == $value ? " selected" : "";
+			echo "<option $s>$v</option>\n";
+	}
+	echo "</select>\n";
+}
+
 function DayGenerate($name,$value, $novalor=0) {
-		echo "<select name='$name'>\n";
+		echo "<select name='$name' class='dateinput' style='width: 100px'>\n";
 		if ($novalor)
 			 echo "<option value=''></option>\n";
 		for ($k=1; $k<=31; $k++) {
@@ -110,7 +132,7 @@ function DayGenerate($name,$value, $novalor=0) {
 }
 
 function MonthGenerate($name,$value, $novalor=0) {
-		echo "<select name='$name'>\n";
+		echo "<select name='$name' class='dateinput' style='width: 100px'>\n";
 	  global $Months;
     reset($Months);
 
@@ -124,10 +146,10 @@ function MonthGenerate($name,$value, $novalor=0) {
 }
 
 function YearGenerate($name,$value, $novalor=0) {
-		echo "<select name='$name'>\n";
+		echo "<select name='$name' class='dateinput' style='width: 100px'>\n";
 		if ($novalor)
 			 echo "<option value=''></option>\n";
-  for ($i=2010; $i>=1900; $i--)
+  for ($i=2030; $i>=1900; $i--)
   { $s = $i == $value ? " selected" : "";
     echo "<option $s value=$i>$i</option>\n";
   }
@@ -209,6 +231,18 @@ function FieldTextGenerate($name,$legend,$value,$tamanio=30,$required=false) {
 		LegendGenerate($legend,$required);
 		FieldOpen();
 		TextGenerate($name,$value,$tamanio);
+		FieldClose();
+		FieldRowClose();
+}
+
+function FieldHourGenerate($name,$legend,$value,$required=false) {
+		$anio = substr($fecha,0,4);
+		$mes = substr($fecha,5,2);
+		$dia = substr($fecha,8,2);
+		FieldRowOpen();
+		LegendGenerate($legend,$required);
+		FieldOpen();
+		HourGenerate($name,$value);
 		FieldClose();
 		FieldRowClose();
 }
@@ -352,17 +386,17 @@ function FieldCheckGenerate($name,$legend,$value,$required=false) {
 }
 
 function FieldOkGenerate() {
-		echo "<td colspan=2 class='legend' align=center><input type='submit' value='Accept'></td>\n";
+		echo "<td colspan=2 class='legend' align=center><input class='btn-primary btn-large' type='submit' value='Accept'></td>\n";
 }
 
 function FieldOkCancelGenerate() {
-	echo "<td colspan=2 class='legend' align=center><input type='submit' name='Ok' value='Accept'>\n";
-	echo "<input type='submit' name='Cancel' value='Cancel'></td>\n";
+	echo "<td colspan=2 class='legend' align=center><input class='btn-primary btn-large' type='submit' name='Ok' value='Accept'>\n";
+	echo "<input type='submit' class='btn-large' name='Cancel' value='Cancel'></td>\n";
 }
 
 function FieldOkDeleteGenerate() {
 	echo "<td colspan=2 class='legend' align=center><input type='submit' name='Ok' value='Accept'>\n";
-	echo "<input type='submit' name='Delete' value='Delete'></td>\n";
+	echo "<input class='btn-primary btn-large' type='submit' name='Delete' value='Delete'></td>\n";
 }
 
 function FormOpen($action='',$method='post') {

@@ -88,7 +88,7 @@
 </div>
 
 <?		
-	TableOpen($titles,"98%");
+	TableOpen($titles);
 
 	while ($reg=DbNextRow($rs)) {
 		RowOpen();
