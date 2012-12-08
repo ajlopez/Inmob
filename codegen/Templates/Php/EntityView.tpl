@@ -239,7 +239,7 @@
 ?>
 
 <?		
-	TableOpen($titles,"98%");
+	TableOpen($titles);
 
 	while ($reg=DbNextRow($rs)) {
 		RowOpen();
@@ -324,7 +324,7 @@
 			ncol = ncol+1
 		end for #>);
 
-	TableOpen($titles,"98%");
+	TableOpen($titles);
 
 	while ($reg=DbNextRow($rs${Relation.Entity.SetName})) {
 		RowOpen();

@@ -11,6 +11,19 @@ FileManager.CreateDirectory("${Project.BuildDir}/Web/includes")
 if Project.HasTests then
     FileManager.CreateDirectory("${Project.BuildDir}/Web/tests")
     FileManager.CreateDirectory("${Project.BuildDir}/Web/simpletest")
+    CopyDirectory("SourceCode/simpletest", "${Project.BuildDir}/Web/simpletest", false)
+end if
+
+' Initial Web Files
+
+CopyDirectory("SourceCode/PhpWebSite", "${Project.BuildDir}/Web", true)
+
+' Using AjFwkPhp
+
+CopyDirectory("SourceCode/AjFwkPhp", "${Project.BuildDir}/Web", true)
+
+if Project.Language = "es" then
+	CopyDirectory("SourceCode/PhpWebSiteEs", "${Project.BuildDir}/Web", true)
 end if
 
 if Project.HasUsers then
@@ -73,9 +86,5 @@ TransformFile("Templates/Php/MenuLeft.tpl", "${Project.BuildDir}/Web/includes/Me
 TransformFile("Templates/Php/MenuTop.tpl", "${Project.BuildDir}/Web/includes/MenuTop.inc.php", TransformerManager, Environment)
 TransformFile("Templates/Php/Configuration.tpl", "${Project.BuildDir}/Web/includes/Configuration.inc.php", TransformerManager, Environment)
 TransformFile("Templates/Php/Enumerations.tpl", "${Project.BuildDir}/Web/includes/Enumerations.inc.php", TransformerManager, Environment)
-
-if Project.HasTests then
-    CopyDirectory("SourceCode/simpletest", "${Project.BuildDir}/Web/simpletest", false)
-end if
 
 #>

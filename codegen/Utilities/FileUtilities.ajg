@@ -1,28 +1,23 @@
 <#
 Sub CopyDirectory(from,to,recursive)
-    Message "CopyDirectory"
-    
-	Message "From Directory " & from
-	Message "To Directory " & to
-	
 	fromdir = new System.IO.DirectoryInfo(from.ToString())
 	todir = new System.IO.DirectoryInfo(to.ToString())
     
     if not todir.Exists() then
-        Message "Creating directory " + to
+        'Message "Creating directory " + to
         System.IO.Directory.CreateDirectory(to)
     end if
 	
 	for each fi in fromdir.GetFiles()
-        fromfile = fi.FullName
-        tofile = System.IO.Path.Combine(to, fi.Name)
-		Message "Copying " & fi.FullName & " to " & System.IO.Path.Combine(to, fi.Name)
-        System.IO.File.Copy(fromfile, tofile, true)
+		fromfile = fi.FullName
+		tofile = System.IO.Path.Combine(to, fi.Name)
+		'Message "Copying " & fi.FullName & " to " & System.IO.Path.Combine(to, fi.Name)
+		System.IO.File.Copy(fromfile, tofile, true)
 	end for
     
     if recursive then
         for each di in fromdir.GetDirectories()
-            CopyDirectory(di.FullName, System.IO.Path.Combine(to, di.Name))
+            CopyDirectory(di.FullName, System.IO.Path.Combine(to, di.Name), recursive)
         end for
     end if
 End Sub

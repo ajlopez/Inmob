@@ -6,6 +6,7 @@
 	<CompanyName>ajlopez</CompanyName>
 	<HasUsers>true</HasUsers>
 	<HasTests>true</HasTests>
+	<Language>es</Language>
 	<Model>
 		<Entities>
 			<Entity Source="Entities/Propiedad.xml"/>
