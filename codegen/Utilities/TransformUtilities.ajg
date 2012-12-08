@@ -14,14 +14,136 @@ Sub TransformFile(tpl, target, tm, env)
 	end if
 End Sub
 
-Sub TransformFileAscii(tpl, target, tm, env)
-
+Sub TransformFileWithEncoding(tpl, target, tm, env, encoding)
 	utf8 = New System.Text.UTF8Encoding(false)
 	
 	if System.IO.File.Exists(target) then
 		target2 = target & ".tmp"
 		
+		input = New System.IO.StreamReader(tpl, encoding)
+        output = New System.IO.StreamWriter(target2, false, encoding)
+        tm.Transform(input, output, env)
+        input.Close()
+        output.Close()
+
+		rem  tm.Transform(tpl, target2, env)
+		
+		content1 = System.IO.File.ReadAllText(target, encoding)
+		content2 = System.IO.File.ReadAllText(target2, encoding)
+		if content1 <> content2 then
+			System.IO.File.Copy(target2, target, true)
+		end if
+		System.IO.File.Delete(target2)
+	else
+		input = New System.IO.StreamReader(tpl, encoding)
+        output = New System.IO.StreamWriter(target, false, encoding)
+        tm.Transform(input, output, env)
+        input.Close()
+        output.Close()
+		rem tm.Transform(tpl, target, env)
+	end if
+End Sub
+
+Sub TransformFileUtf8(tpl, target, tm, env)
+	utf8 = New System.Text.UTF8Encoding(false)
+	
+	if System.IO.File.Exists(target) then
+		target2 = target & ".tmp"
+		
+		input = New System.IO.StreamReader(tpl, utf8)
+        output = New System.IO.StreamWriter(target2, false, utf8)
+        tm.Transform(input, output, env)
+        input.Close()
+        output.Close()
+
+		rem  tm.Transform(tpl, target2, env)
+		
+		content1 = System.IO.File.ReadAllText(target)
+		content2 = System.IO.File.ReadAllText(target2)
+		if content1 <> content2 then
+			System.IO.File.Copy(target2, target, true)
+		end if
+		System.IO.File.Delete(target2)
+	else
 		input = New System.IO.StreamReader(tpl)
+        output = New System.IO.StreamWriter(target, false, utf8)
+        tm.Transform(input, output, env)
+        input.Close()
+        output.Close()
+		rem tm.Transform(tpl, target, env)
+	end if
+End Sub
+
+Sub TransformFileUtf7(tpl, target, tm, env)
+
+	utf8 = New System.Text.UTF7Encoding()
+	
+	if System.IO.File.Exists(target) then
+		target2 = target & ".tmp"
+		
+		input = New System.IO.StreamReader(tpl, utf8)
+        output = New System.IO.StreamWriter(target2, false)
+        tm.Transform(input, output, env)
+        input.Close()
+        output.Close()
+
+		rem  tm.Transform(tpl, target2, env)
+		
+		content1 = System.IO.File.ReadAllText(target)
+		content2 = System.IO.File.ReadAllText(target2)
+		if content1 <> content2 then
+			System.IO.File.Copy(target2, target, true)
+		end if
+		System.IO.File.Delete(target2)
+	else
+		input = New System.IO.StreamReader(tpl)
+        output = New System.IO.StreamWriter(target, false, utf8)
+        tm.Transform(input, output, env)
+        input.Close()
+        output.Close()
+		rem tm.Transform(tpl, target, env)
+	end if
+End Sub
+
+Sub TransformFileAscii(tpl, target, tm, env)
+
+	utf8 = New System.Text.ASCIIEncoding()
+	
+	if System.IO.File.Exists(target) then
+		target2 = target & ".tmp"
+		
+		input = New System.IO.StreamReader(tpl, utf8)
+        output = New System.IO.StreamWriter(target2, false, utf8)
+        tm.Transform(input, output, env)
+        input.Close()
+        output.Close()
+
+		rem  tm.Transform(tpl, target2, env)
+		
+		content1 = System.IO.File.ReadAllText(target)
+		content2 = System.IO.File.ReadAllText(target2)
+		if content1 <> content2 then
+			System.IO.File.Copy(target2, target, true)
+		end if
+		System.IO.File.Delete(target2)
+	else
+		input = New System.IO.StreamReader(tpl)
+        output = New System.IO.StreamWriter(target, false, utf8)
+        tm.Transform(input, output, env)
+        input.Close()
+        output.Close()
+		rem tm.Transform(tpl, target, env)
+	end if
+End Sub
+
+Sub TransformFileUnicode(tpl, target, tm, env)
+
+	utf8 = New System.Text.UnicodeEncoding()
+	
+	if System.IO.File.Exists(target) then
+		target2 = target & ".tmp"
+		
+		input = New System.IO.StreamReader(tpl, utf8)
         output = New System.IO.StreamWriter(target2, false, utf8)
         tm.Transform(input, output, env)
         input.Close()

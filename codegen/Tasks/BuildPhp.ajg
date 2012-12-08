@@ -82,8 +82,13 @@ end if
 TransformFile("Templates/Php/Index.tpl", "${Project.BuildDir}/Web/index.php", TransformerManager, Environment)
 TransformFile("Templates/Php/Top.tpl", "${Project.BuildDir}/Web/includes/Top.inc.php", TransformerManager, Environment)
 TransformFile("Templates/Php/Bottom.tpl", "${Project.BuildDir}/Web/includes/Bottom.inc.php", TransformerManager, Environment)
-TransformFile("Templates/Php/MenuLeft.tpl", "${Project.BuildDir}/Web/includes/MenuLeft.inc.php", TransformerManager, Environment)
-TransformFile("Templates/Php/MenuTop.tpl", "${Project.BuildDir}/Web/includes/MenuTop.inc.php", TransformerManager, Environment)
+if Project.Language = "es" then
+	TransformFileWithEncoding("Templates/Php/MenuLeftEs.tpl", "${Project.BuildDir}/Web/includes/MenuLeft.inc.php", TransformerManager, Environment, System.Text.Encoding.GetEncoding(1252))
+	TransformFileWithEncoding("Templates/Php/MenuTopEs.tpl", "${Project.BuildDir}/Web/includes/MenuTop.inc.php", TransformerManager, Environment, System.Text.Encoding.GetEncoding(1252))
+else
+	TransformFile("Templates/Php/MenuLeft.tpl", "${Project.BuildDir}/Web/includes/MenuLeft.inc.php", TransformerManager, Environment)
+	TransformFile("Templates/Php/MenuTop.tpl", "${Project.BuildDir}/Web/includes/MenuTop.inc.php", TransformerManager, Environment)
+end if
 TransformFile("Templates/Php/Configuration.tpl", "${Project.BuildDir}/Web/includes/Configuration.inc.php", TransformerManager, Environment)
 TransformFile("Templates/Php/Enumerations.tpl", "${Project.BuildDir}/Web/includes/Enumerations.inc.php", TransformerManager, Environment)
 

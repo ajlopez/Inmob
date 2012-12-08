@@ -1,0 +1,13 @@
+
+'Message System.IO.File.ReadAllText("test.txt")
+text = System.IO.File.ReadAllText("test.txt", System.Text.Encoding.GetEncoding(1252))
+Message text
+'Message System.IO.File.ReadAllText("test.txt", new System.Text.UTF8Encoding())
+'Message System.IO.File.ReadAllText("test.txt", new System.Text.ASCIIEncoding())
+
+System.IO.File.WriteAllText("test2.txt", text, System.Text.Encoding.GetEncoding(1252))
+text2 = System.IO.File.ReadAllText("test2.txt", System.Text.Encoding.GetEncoding(1252))
+Message text2
+
+
+
