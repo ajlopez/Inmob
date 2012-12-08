@@ -2,7 +2,6 @@
 include_once($Page->Prefix.'ajfwk/Pages.inc.php');
 include_once($Page->Prefix.'ajfwk/Database.inc.php');
 include_once($Page->Prefix.'ajfwk/Session.inc.php');
-include_once($Page->Prefix.'includes/UsoMultipleFunctionsEx.inc.php');
 include_once('Events.inc.php');
 
 function UserControl($link='') {

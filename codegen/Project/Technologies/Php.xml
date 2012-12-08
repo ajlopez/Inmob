@@ -12,4 +12,7 @@
 		<Host>localhost</Host>
 		<MySql Directory="\xampp\mysql"/>
 	</Database>
+	<Web>
+		<Menu>Top</Menu>
+	</Web>
 </Technology>

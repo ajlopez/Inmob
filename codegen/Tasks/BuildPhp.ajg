@@ -67,7 +67,10 @@ if WebDir then
 end if
 
 TransformFile("Templates/Php/Index.tpl", "${Project.BuildDir}/Web/index.php", TransformerManager, Environment)
-TransformFile("Templates/Php/Menu.tpl", "${Project.BuildDir}/Web/includes/MenuLeft.inc.php", TransformerManager, Environment)
+TransformFile("Templates/Php/Top.tpl", "${Project.BuildDir}/Web/includes/Top.inc.php", TransformerManager, Environment)
+TransformFile("Templates/Php/Bottom.tpl", "${Project.BuildDir}/Web/includes/Bottom.inc.php", TransformerManager, Environment)
+TransformFile("Templates/Php/MenuLeft.tpl", "${Project.BuildDir}/Web/includes/MenuLeft.inc.php", TransformerManager, Environment)
+TransformFile("Templates/Php/MenuTop.tpl", "${Project.BuildDir}/Web/includes/MenuTop.inc.php", TransformerManager, Environment)
 TransformFile("Templates/Php/Configuration.tpl", "${Project.BuildDir}/Web/includes/Configuration.inc.php", TransformerManager, Environment)
 TransformFile("Templates/Php/Enumerations.tpl", "${Project.BuildDir}/Web/includes/Enumerations.inc.php", TransformerManager, Environment)
 
