@@ -18,19 +18,8 @@
 	if ($Password2 != $Password)
 		ErrorAdd('No coinciden las contraseñas ingresadas');
 
-	if (!DateValidate($DateBornYear,$DateBornMonth,$DateBornDay))
-		$mensaje .= "Fecha de Nacimiento inválida<br>";
-	else
-		$DateBorn = DateMakeSql($DateBornYear,$DateBornMonth,$DateBornDay);
-
-	if (!SexValidate($IdGenre))
-		ErrorAdd('Debe ingresar Sexo');
-
 	if (!$Email)
 		ErrorAdd('Debe ingresar Email');
-
-	if (!$IdCountry)
-		ErrorAdd('Debe ingresar Pais');
 
 	DbConnect();
 
@@ -42,8 +31,8 @@
 	}
 
 	if (ErrorHas()) {
-		Disconnect();
-		include('register.php');
+		DbDisconnect();
+		include('Register.php');
 		exit;
 	}
 
@@ -53,18 +42,10 @@
 	$IdGenre += 0;
 
 	$sql = "Insert users set UserName = '$UserName',
-			Password = '$Password',
+			Password = Password('$Password'),
 			FirstName = '$FirstName',
 			LastName = '$LastName',
 			Email = '$Email',
-			IdCountry = $IdCountry,
-			State = '$State',
-			City = '$City',
-			ZipCode = '$ZipCode',
-			DateBorn = '$DateBorn',
-			IdGenre = $IdGenre,
-			Reference = '$Reference',
-			Comments = '$Comments',
 			DateTimeInsert = now()
 			";
 

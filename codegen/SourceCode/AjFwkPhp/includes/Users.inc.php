@@ -121,15 +121,6 @@ function UserLogin($user) {
 	EventLogin();
 	DbConnect();
 	DbExecuteUpdate("update users set DateTimeLastLogin = now(), LoginCount = LoginCount+1 where Id = " . UserId());
-	$rs = UsoMultipleGetListByUser($user->Id);
-	$multiple = DbNextRow($rs);
-	if ($multiple) {
-		$user->HasMultiple = $multiple;
-		$second = DbNextRow($rs);
-		if ($second)
-			$user->HasManyMultiple = true;
-	}
-	DbFreeResult($rs);
 	DbDisconnect();
 }
 

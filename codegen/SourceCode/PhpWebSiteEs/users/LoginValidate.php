@@ -9,27 +9,36 @@
 	include_once($Page->Prefix.'includes/Users.inc.php');
 
 	if (empty($UserName))
-		ErrorShow('Debe ingresar Código');
+		ErrorAdd('Debe ingresar Código');
 
 	if (empty($Password))
-		ErrorShow('Debe ingresar Contraseña');
+		ErrorAdd('Debe ingresar Contraseña');
+
+	if (ErrorHas()) {
+		include('Login.php');
+		exit;
+	}
 
 	DbConnect();
 
-	$sql = "Select * from $Cfg[SqlPrefix]users where UserName = '$UserName'";
+	$sql = "Select *, Password('$Password') as Password2 from $Cfg[SqlPrefix]users where UserName = '$UserName'";
 	$res = mysql_query($sql);
 
 	if (!$res || mysql_num_rows($res)==0) {
-		Disconnect();
-		ErrorShow('Usuario inexistente');
+		DbDisconnect();
+		ErrorAdd('Usuario inexistente');
+		include('Login.php');
+		exit;
 	}
 
 	$user = mysql_fetch_object($res);
 	mysql_free_result($res);
 
-	if ($user->Password != $Password) {
-		Disconnect();
-		ErrorShow('Contraseña incorrecta');
+	if ($user->Password != $user->Password2) {
+		DbDisconnect();
+		ErrorAdd('Contraseña incorrecta');
+		include('Login.php');
+		exit;
 	}
 
 	UserLogin($user);
@@ -39,6 +48,7 @@
 	$UserLink = SessionGet("UserLink");
 	SessionRemove("UserLink");
 
-	PageAbsoluteRedirect($UserLink);
+	//PageRedirect($UserLink);
+	PageRedirect(PageMain());
 	exit;
 ?>
