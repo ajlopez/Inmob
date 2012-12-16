@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<Entity>
+	<Name>TipoPropiedad</Name>
+	<Description>Tipo de Propiedad</Description>
+	<SetName>TiposPropiedad</SetName>
+	<Descriptor>Tipo de Propiedad</Descriptor>
+	<SetDescriptor>Tipos de Propiedad</SetDescriptor>
+	<SqlTable>tipospropiedad</SqlTable>
+	
+	<Properties>
+
+		<Property>
+			<Name>Id</Name>
+			<Type>Id</Type>
+		</Property>
+
+		<Property>
+			<Name>Nombre</Name>
+			<Type>Text</Type>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+	</Properties>
+</Entity>

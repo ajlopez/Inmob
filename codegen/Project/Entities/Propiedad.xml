@@ -42,6 +42,14 @@
 		</Property>
 
 		<Property>
+			<Name>IdTipo</Name>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>TipoPropiedad</Reference>
+            <Required>True</Required>
+		</Property>
+        
+		<Property>
 			<Name>Descripcion</Name>
 			<Description>Descripción</Description>
 			<Type>Memo</Type>

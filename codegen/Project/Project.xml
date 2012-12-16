@@ -15,12 +15,14 @@
 			<Entity Source="Entities/Moneda.xml"/>
 			<Entity Source="Entities/Comentario.xml"/>
 			<Entity Source="Entities/User.xml"/>
+			<Entity Source="Entities/TipoPropiedad.xml"/>
 		</Entities>
 		<Lists>
 			<List Entity="User" />
 			<List Entity="Inmobiliaria" />
 			<List Entity="Propiedad" />
 			<List Entity="Zona" />
+			<List Entity="TipoPropiedad" />
 			<List Entity="Moneda" />
 		</Lists>
 		<Forms>
@@ -28,6 +30,7 @@
 			<Form Entity="Inmobiliaria" />
 			<Form Entity="Propiedad" />
 			<Form Entity="Zona" />
+			<Form Entity="TipoPropiedad" />
 			<Form Entity="Moneda" />
 			<Form Entity="Comentario" />
 		</Forms>
@@ -36,6 +39,7 @@
 			<View Entity="Inmobiliaria" />
 			<View Entity="Propiedad" />
 			<View Entity="Zona" />
+			<View Entity="TipoPropiedad" />
 			<View Entity="Moneda" />
 			<View Entity="Comentario" />
 		</Views>
