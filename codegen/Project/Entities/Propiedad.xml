@@ -21,6 +21,26 @@
 		</Property>
 
 		<Property>
+			<Name>Domicilio</Name>
+			<Type>Text</Type>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Metros</Name>
+			<Description>Metros Cuadrados</Description>
+			<Type>Integer</Type>
+			<SqlType>int</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Ambientes</Name>
+			<Description>Ambientes</Description>
+			<Type>Integer</Type>
+			<SqlType>int</SqlType>
+		</Property>
+
+		<Property>
 			<Name>Descripcion</Name>
 			<Description>Descripción</Description>
 			<Type>Memo</Type>
@@ -28,10 +48,34 @@
 		</Property>
 
 		<Property>
+			<Name>Precio</Name>
+			<Description>Precio</Description>
+			<Type>Integer</Type>
+			<SqlType>int</SqlType>
+		</Property>
+        
+		<Property>
+			<Name>Operacion</Name>
+			<Type>Integer</Type>
+			<SqlType>int</SqlType>
+			<Enumeration>Operacion</Enumeration>
+            <Required>True</Required>
+		</Property>
+        
+		<Property>
 			<Name>IdZona</Name>
 			<Type>IdRef</Type>
 			<SqlType>int</SqlType>
 			<Reference>Zona</Reference>
+            <Required>True</Required>
+		</Property>
+        
+		<Property>
+			<Name>IdInmobiliaria</Name>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>Inmobiliaria</Reference>
+            <Required>True</Required>
 		</Property>
 
 		<Property>

@@ -1,0 +1,49 @@
+<#
+Function TextForUpdate(Language)
+    return TextTranslate(Language, "Update")
+End Function
+
+Function TextForNew(Language, Gender)
+    if Language = "es" and GenderIsFemale(Gender) then
+        return "Nueva"
+    end if
+  
+    return TextTranslate(Language, "New")
+End Function
+
+Function TextForDelete(Language)
+    return TextTranslate(Language, "Delete")
+End Function
+
+Function TextTranslate(Language, Text)
+    if Language and Language = "es" then
+        return TextTranslateToSpanish(Text)
+    end if
+
+    return Text
+End Function
+
+Function TextTranslateToSpanish(Text)
+    if Text = "New" then
+        return "Nuevo"
+    end if
+    
+    if Text = "Delete" then
+        return "Elimina"
+    end if
+    
+    if Text = "Update" then
+        return "Actualiza"
+    end if
+    
+    return Text
+End Function
+
+Function GenderIsFemale(Gender)
+    if Gender and Gender.ToString().ToLowerCase().StartsWith("f") then
+        return True
+    end if
+    
+    return False
+End Function
+#>

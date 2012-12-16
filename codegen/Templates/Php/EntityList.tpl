@@ -1,8 +1,10 @@
 <#
 	include "Utilities/EntityUtilities.ajg"
+	include "Utilities/TextUtilities.ajg"
 
 	Entity = List.Entity
 	EntityIdProperty = IdProperty(Entity)
+    NewText = TextForNew(Project.Language, Entity.Gender)
 #>
 <?
 	$Page->Title = '${List.Title}';
@@ -84,7 +86,7 @@
 ?>
 
 <div class="actions">
-<a href="${Entity.Name}Form.php">New ${Entity.Descriptor}...</a>
+<a href="${Entity.Name}Form.php">${NewText} ${Entity.Descriptor}...</a>
 </div>
 
 <?		

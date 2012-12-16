@@ -126,20 +126,20 @@
 	for each Field in Form.Fields where Field.Property.Type<>"Id"
 		if Field.Property.Reference then
 #>
-	FieldComboRsGenerate("${Field.Property.Name}", "${Field.Description}", $rs${Field.Property.Name}, $${Field.Property.Name},"${Field.Property.Reference.IdProperty.Name}","${Field.Property.Reference.DescriptorProperty.Name}", false, ${Field.Required});
+	FieldComboRsGenerate("${Field.Property.Name}", "${Field.Description}", $rs${Field.Property.Name}, $${Field.Property.Name},"${Field.Property.Reference.IdProperty.Name}","${Field.Property.Reference.DescriptorProperty.Name}", ${not Field.Required}, ${Field.Required});
 <#
 		else
 		if Field.Property.Enumeration then
 #>
-	FieldComboHashGenerate("${Field.Property.Name}", "${Field.Description}", $Enum${Field.Property.Enumeration.Name}, $${Field.Property.Name}, false, ${Field.Required});
+	FieldComboHashGenerate("${Field.Property.Name}", "${Field.Description}", $Enum${Field.Property.Enumeration.Name}, $${Field.Property.Name}, ${not Field.Required}, ${Field.Required});
 <#
 		else
-			if Field.Type="Text" then
+			if Field.Type="Text" and not Field.Subtype="Password" then
 #>
 	FieldTextGenerate("${Field.Property.Name}", "${Field.Description}", $${Field.Property.Name}, ${Field.Size}, ${Field.Required});
 <#
 			end if
-			if Field.Type="Password" then
+			if Field.Type="Text" and Field.Subtype="Password" then
 #>
 	FieldPasswordGenerate("${Field.Property.Name}", "${Field.Description}", $${Field.Property.Name}, ${Field.Size}, ${Field.Required});
 <#

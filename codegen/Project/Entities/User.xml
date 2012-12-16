@@ -113,10 +113,10 @@
 		</Property>
 
 		<Property>
-			<Name>NoReserva</Name>
-			<Description>No Puede Reservar SUM</Description>
-			<Type>Boolean</Type>
-			<SqlType>tinyint(4)</SqlType>
+			<Name>IdInmobiliaria</Name>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>Inmobiliaria</Reference>
 		</Property>
 	</Properties>
 </Entity>

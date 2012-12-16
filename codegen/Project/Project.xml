@@ -11,22 +11,35 @@
 		<Entities>
 			<Entity Source="Entities/Propiedad.xml"/>
 			<Entity Source="Entities/Zona.xml"/>
+			<Entity Source="Entities/Inmobiliaria.xml"/>
 			<Entity Source="Entities/User.xml"/>
 		</Entities>
 		<Lists>
 			<List Entity="User" />
+			<List Entity="Inmobiliaria" />
 			<List Entity="Propiedad" />
 			<List Entity="Zona" />
 		</Lists>
 		<Forms>
 			<Form Entity="User" />
+			<Form Entity="Inmobiliaria" />
 			<Form Entity="Propiedad" />
 			<Form Entity="Zona" />
 		</Forms>
 		<Views>
 			<View Entity="User" />
+			<View Entity="Inmobiliaria" />
 			<View Entity="Propiedad" />
 			<View Entity="Zona" />
-		</Views>		
+		</Views>
+        <Enumerations>
+            <Enumeration Name="Operacion" Type="Number">
+                <Items>
+                    <Item Key="1" Value="Venta" />
+                    <Item Key="2" Value="Alquiler" />
+                    <Item Key="3" Value="Compra" />
+                </Items>
+            </Enumeration>
+        </Enumerations>
 	</Model>
 </Project>

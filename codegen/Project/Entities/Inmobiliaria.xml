@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<Entity>
+	<Name>Inmobiliaria</Name>
+	<Description>Inmobiliaria</Description>
+	<SetName>Inmobiliarias</SetName>
+	<Descriptor>Inmobiliaria</Descriptor>
+	<SetDescriptor>Inmobiliarias</SetDescriptor>
+	<SqlTable>inmobiliarias</SqlTable>
+	
+	<Properties>
+
+		<Property>
+			<Name>Id</Name>
+			<Type>Id</Type>
+		</Property>
+
+		<Property>
+			<Name>Nombre</Name>
+			<Type>Text</Type>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Domicilio</Name>
+			<Type>Text</Type>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Descripcion</Name>
+			<Description>Descripción</Description>
+			<Type>Memo</Type>
+			<SqlType>text</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Contacto</Name>
+			<Description>Datos de Contacto</Description>
+			<Type>Memo</Type>
+			<SqlType>text</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Notas</Name>
+			<Type>Memo</Type>
+			<SqlType>text</SqlType>
+		</Property>
+        
+		<Property>
+			<Name>IdInmobiliaria</Name>
+			<Description>Sucursal de</Description>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>Inmobiliaria</Reference>
+            <Required>True</Required>
+		</Property>
+		
+		<Property>
+			<Name>Verificada</Name>
+			<Description>Verificada</Description>
+			<Type>Boolean</Type>
+			<SqlType>tinyint(4)</SqlType>
+		</Property>
+	</Properties>
+</Entity>
