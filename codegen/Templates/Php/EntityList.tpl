@@ -113,9 +113,15 @@
 		DatumLinkGenerate($ColumnDescription, "${Column.Property.Reference.Name}View.php?Id=".$reg['${Column.Property.Name}']);
 <#
 			else
+                if Column.Property.Enumeration then
+#>
+		DatumGenerate(TranslateEnumeration($Enum${Column.Property.Enumeration.Name},$reg['${Column.Property.Name}']));
+<#
+                else
 #>
 		DatumGenerate($reg['${Column.Property.Name}']);
 <#
+                end if
 			end if
 		end if
 		ncol=ncol+1
