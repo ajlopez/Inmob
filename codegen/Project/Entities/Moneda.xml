@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<Entity>
+	<Name>Moneda</Name>
+	<Description>Moneda</Description>
+	<SetName>Monedas</SetName>
+	<Descriptor>Moneda</Descriptor>
+	<SetDescriptor>Monedas</SetDescriptor>
+	<SqlTable>monedas</SqlTable>
+    <Gender>Female</Gender>
+	
+	<Properties>
+
+		<Property>
+			<Name>Id</Name>
+			<Type>Id</Type>
+		</Property>
+
+		<Property>
+			<Name>Nombre</Name>
+			<Type>Text</Type>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+	</Properties>
+</Entity>

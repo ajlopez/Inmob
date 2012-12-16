@@ -12,6 +12,8 @@
 			<Entity Source="Entities/Propiedad.xml"/>
 			<Entity Source="Entities/Zona.xml"/>
 			<Entity Source="Entities/Inmobiliaria.xml"/>
+			<Entity Source="Entities/Moneda.xml"/>
+			<Entity Source="Entities/Comentario.xml"/>
 			<Entity Source="Entities/User.xml"/>
 		</Entities>
 		<Lists>
@@ -19,18 +21,23 @@
 			<List Entity="Inmobiliaria" />
 			<List Entity="Propiedad" />
 			<List Entity="Zona" />
+			<List Entity="Moneda" />
 		</Lists>
 		<Forms>
 			<Form Entity="User" />
 			<Form Entity="Inmobiliaria" />
 			<Form Entity="Propiedad" />
 			<Form Entity="Zona" />
+			<Form Entity="Moneda" />
+			<Form Entity="Comentario" />
 		</Forms>
 		<Views>
 			<View Entity="User" />
 			<View Entity="Inmobiliaria" />
 			<View Entity="Propiedad" />
 			<View Entity="Zona" />
+			<View Entity="Moneda" />
+			<View Entity="Comentario" />
 		</Views>
         <Enumerations>
             <Enumeration Name="Operacion" Type="Number">

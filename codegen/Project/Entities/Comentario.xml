@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<Entity>
+	<Name>Comentario</Name>
+	<Description>Comentario</Description>
+	<SetName>Comentarios</SetName>
+	<Descriptor>Comentario</Descriptor>
+	<SetDescriptor>Comentarios</SetDescriptor>
+	<SqlTable>comentarios</SqlTable>
+	
+	<Properties>
+
+		<Property>
+			<Name>Id</Name>
+			<Type>Id</Type>
+		</Property>
+
+		<Property>
+			<Name>Texto</Name>
+			<Type>Memo</Type>
+			<SqlType>text</SqlType>
+		</Property>
+        
+		<Property>
+			<Name>IdPropiedad</Name>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>Propiedad</Reference>
+            <Required>True</Required>
+		</Property>
+        
+		<Property>
+			<Name>IdUser</Name>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>User</Reference>
+		</Property>
+
+	</Properties>
+</Entity>

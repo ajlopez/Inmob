@@ -56,6 +56,14 @@
 		</Property>
         
 		<Property>
+			<Name>IdMoneda</Name>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>Moneda</Reference>
+            <Required>True</Required>
+		</Property>
+        
+		<Property>
 			<Name>Operacion</Name>
 			<Type>Integer</Type>
 			<SqlType>int</SqlType>
