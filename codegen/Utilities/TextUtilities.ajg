@@ -15,6 +15,10 @@ Function TextForDelete(Language)
     return TextTranslate(Language, "Delete")
 End Function
 
+Function TextForView(Language)
+    return TextTranslate(Language, "View")
+End Function
+
 Function TextTranslate(Language, Text)
     if Language and Language = "es" then
         return TextTranslateToSpanish(Text)
@@ -26,6 +30,10 @@ End Function
 Function TextTranslateToSpanish(Text)
     if Text = "New" then
         return "Nuevo"
+    end if
+    
+    if Text = "View" then
+        return "Ver"
     end if
     
     if Text = "Delete" then
@@ -40,7 +48,7 @@ Function TextTranslateToSpanish(Text)
 End Function
 
 Function GenderIsFemale(Gender)
-    if Gender and Gender.ToString().ToLowerCase().StartsWith("f") then
+    if Gender and Gender.ToString().ToLower().StartsWith("f") then
         return True
     end if
     

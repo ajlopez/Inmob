@@ -1,10 +1,14 @@
 <#
 	include "Utilities/EntityUtilities.ajg"
+	include "Utilities/TextUtilities.ajg"
 
 	Entity = View.Entity
 	EntityIdProperty = IdProperty(Entity)
 
 	Included = new System.Collections.ArrayList()
+    UpdateText = TextForUpdate(Project.Language)
+    DeleteText = TextForDelete(Project.Language)
+    ViewText = TextForView(Project.Language)
 #>
 <?
 	$Page->Title = '${View.Title}';
@@ -154,14 +158,14 @@
 <a href="${Entity.Name}List.php">${Entity.SetDescriptor}</a>
 &nbsp;
 &nbsp;
-<a href="${Entity.Name}Form.php?Id=<? echo $Id; ?>">Update</a>
+<a href="${Entity.Name}Form.php?Id=<? echo $Id; ?>">${UpdateText}</a>
 &nbsp;
 &nbsp;
-<a href="${Entity.Name}Delete.php?Id=<? echo $Id; ?>">Delete</a>
+<a href="${Entity.Name}Delete.php?Id=<? echo $Id; ?>">${DeleteText}</a>
 </div>
 
 <?
-	TableOpen('', '80%');
+	TableOpen('', '');
 <#
 	for each Field in View.Fields
 		if Field.Property.Reference or Field.Property.Enumeration then
@@ -189,12 +193,13 @@
 	for each List in View.Lists
 		Entity = List.Entity
 		EntityIdProperty = IdProperty(Entity)
+        NewText = TextForNew(Project.Language, Entity.Gender)
 #>
 <br>
 <br>
 <h2>${List.Title}</h2>
 <div class="actions">
-<a href='${List.Entity.Name}Form.php?${List.KeyProperty.Name}=<?=$Id?>'>New ${List.Entity.Descriptor}...</a>
+<a href='${List.Entity.Name}Form.php?${List.KeyProperty.Name}=<?=$Id?>'>${NewText} ${List.Entity.Descriptor}...</a>
 </div>
 <?
 	$sql = "select <# 
@@ -228,7 +233,11 @@
 			if ncol then
 				print ", "
 			end if
-			print "'" & Column.Title & "'"
+            if Column.Title = "Id" then
+                print "''"
+            else
+                print "'" & Column.Title & "'"
+            end if
 			ncol = ncol+1
 		end for 
 	
@@ -249,7 +258,7 @@
 	for each Column in List.Columns
 		if ncol=0 then
 #>
-		DatumLinkGenerate($reg['${Column.Property.Name}'],"${Entity.Name}View.php?Id=".$reg['Id']);
+		DatumLinkGenerate("${ViewName}...","${Entity.Name}View.php?Id=".$reg['Id']);
 <#
 		else
 			if Column.Property.Reference then
@@ -302,10 +311,11 @@
 	nrel = 0
 	for each Relation in Entity.Relations where Relation.RelationType="Referenced"
 		nrel = nrel+1
+        NewText = TextForNew(Project.Language, Relation.Entity.Gender)
 #>
 <h2>${Relation.Entity.SetDescriptor}</h2>
 <div class="actions">
-<a href='${Relation.Entity.Name}Form.php?${Relation.Property.Name}=<?=$Id?>'>New ${Relation.Entity.Descriptor}...</a>
+<a href='${Relation.Entity.Name}Form.php?${Relation.Property.Name}=<?=$Id?>'>${NewText} ${Relation.Entity.Descriptor}...</a>
 </div>
 
 <br />
@@ -320,7 +330,11 @@
 			if ncol then
 				print ", "
 			end if
-			print "'" & Column.Title & "'"
+            if Column.Title = "Id" then
+                print "''"
+            else
+                print "'" & Column.Title & "'"
+            end if
 			ncol = ncol+1
 		end for #>);
 
@@ -333,7 +347,7 @@
 	for each Column in Relation.Entity.List.Columns where Column.Property.Name <> Relation.Property.Name
 		if ncol=0 then
 #>
-		DatumLinkGenerate($reg['${Column.Property.Name}'],"${Relation.Entity.Name}View.php?Id=".$reg['Id']);
+		DatumLinkGenerate("${ViewText}...","${Relation.Entity.Name}View.php?Id=".$reg['Id']);
 <#
 		else
 			if Column.Property.Reference then

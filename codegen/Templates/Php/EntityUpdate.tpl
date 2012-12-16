@@ -26,10 +26,16 @@
 #>
 	if (empty($${Field.Property.Name}))
 		ErrorAdd('Debe ingresar ${Field.Property.Description}');
+<#
+	end for
 
+	for each Field in Form.Fields where Field.Type = "Integer" or Field.Type = "Number" or Field.Type = "IdRef"
+#>
+	$${Field.Property.Name} += 0;
 <#
 	end for
 #>
+
 	DbConnect();
 	DbTransactionBegin();
 
@@ -97,6 +103,14 @@
 		$sql .= " where Id=$Id";
 
 	DbExecuteUpdate($sql);
+    
+    $dberror = DbLastSqlError();
+    
+    if ($dberror) {
+        DbTransactionRollback();
+        DbDisconnect();
+        echo $dberror;
+    }
 
 	DbTransactionCommit();
 	DbDisconnect();

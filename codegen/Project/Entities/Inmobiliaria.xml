@@ -6,6 +6,7 @@
 	<Descriptor>Inmobiliaria</Descriptor>
 	<SetDescriptor>Inmobiliarias</SetDescriptor>
 	<SqlTable>inmobiliarias</SqlTable>
+    <Gender>Female</Gender>
 	
 	<Properties>
 
@@ -52,7 +53,6 @@
 			<Type>IdRef</Type>
 			<SqlType>int</SqlType>
 			<Reference>Inmobiliaria</Reference>
-            <Required>True</Required>
 		</Property>
 		
 		<Property>

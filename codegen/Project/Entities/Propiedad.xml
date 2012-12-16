@@ -6,6 +6,7 @@
 	<Descriptor>Propiedad</Descriptor>
 	<SetDescriptor>Propiedades</SetDescriptor>
 	<SqlTable>propiedades</SqlTable>
+    <Gender>Female</Gender>
 	
 	<Properties>
 

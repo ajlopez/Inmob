@@ -5,6 +5,7 @@
 	Entity = List.Entity
 	EntityIdProperty = IdProperty(Entity)
     NewText = TextForNew(Project.Language, Entity.Gender)
+    ViewText = TextForView(Project.Language)
 #>
 <?
 	$Page->Title = '${List.Title}';
@@ -78,7 +79,11 @@
 			if ncol then
 				print ", "
 			end if
-			print "'" & Column.Title & "'"
+            if Column.Title = "Id" then
+                print "''"
+            else
+                print "'" & Column.Title & "'"
+            end if
 			ncol = ncol+1
 		end for #>);
 
@@ -99,7 +104,7 @@
 	for each Column in List.Columns
 		if ncol=0 then
 #>
-		DatumLinkGenerate($reg['${Column.Property.Name}'],"${Entity.Name}View.php?Id=".$reg['Id']);
+		DatumLinkGenerate("${ViewText}...", "${Entity.Name}View.php?Id=".$reg['Id']);
 <#
 		else
 			if Column.Property.Reference then

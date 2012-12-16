@@ -134,7 +134,7 @@
 	FieldComboHashGenerate("${Field.Property.Name}", "${Field.Description}", $Enum${Field.Property.Enumeration.Name}, $${Field.Property.Name}, ${not Field.Required}, ${Field.Required});
 <#
 		else
-			if Field.Type="Text" and not Field.Subtype="Password" then
+			if Field.Type="Text" and not Field.Subtype="Password" or Field.Type = "Integer" or Field.Type = "Number" then
 #>
 	FieldTextGenerate("${Field.Property.Name}", "${Field.Description}", $${Field.Property.Name}, ${Field.Size}, ${Field.Required});
 <#

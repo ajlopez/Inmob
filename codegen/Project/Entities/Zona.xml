@@ -6,6 +6,7 @@
 	<Descriptor>Zona</Descriptor>
 	<SetDescriptor>Zonas</SetDescriptor>
 	<SqlTable>zonas</SqlTable>
+    <Gender>Female</Gender>
 	
 	<Properties>
 

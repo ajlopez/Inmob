@@ -10,6 +10,7 @@ PrintLine "Completing Project ${Project.Name}"
 include "Utilities/EntityUtilities.ajg"
 include "Utilities/Utilities.ajg"
 include "Utilities/FileUtilities.ajg"
+include "Utilities/TextUtilities.ajg"
 
 if not Project.Title then
 	Project.Title = Project.Name
@@ -244,11 +245,11 @@ for each Form in Project.Model.Forms
 	end if
 
 	if not Form.Title then
-		Form.Title = "Actualiza " & Form.Entity.Descriptor
+		Form.Title = TextForUpdate(Project.Language) & " " & Form.Entity.Descriptor
 	end if
 
 	if not Form.NewTitle then
-		Form.NewTitle = "Nuevo " & Form.Entity.Descriptor
+		Form.NewTitle = TextForNew(Project.Language, Form.Entity.Gender) & " " & Form.Entity.Descriptor
 	end if
 	
 	if not Form.Fields then
