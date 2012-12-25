@@ -41,12 +41,6 @@
 		</Property>
 
 		<Property>
-			<Name>Notas</Name>
-			<Type>Memo</Type>
-			<SqlType>text</SqlType>
-		</Property>
-
-		<Property>
 			<Name>Habilitada</Name>
 			<Description>Habilitada</Description>
 			<Type>Boolean</Type>

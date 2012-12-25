@@ -41,7 +41,7 @@
 	$IdCountry += 0;
 	$IdGenre += 0;
 
-	$sql = "Insert users set UserName = '$UserName',
+	$sql = "Insert $Cfg[SqlPrefix]users set UserName = '$UserName',
 			Password = Password('$Password'),
 			FirstName = '$FirstName',
 			LastName = '$LastName',

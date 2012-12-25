@@ -10,6 +10,7 @@
 	<Model>
 		<Entities>
 			<Entity Source="Entities/Propiedad.xml"/>
+			<Entity Source="Entities/ImagenPropiedad.xml"/>
 			<Entity Source="Entities/Zona.xml"/>
 			<Entity Source="Entities/Inmobiliaria.xml"/>
 			<Entity Source="Entities/Moneda.xml"/>
@@ -21,6 +22,7 @@
 			<List Entity="User" />
 			<List Entity="Inmobiliaria" />
 			<List Entity="Propiedad" />
+			<List Entity="ImagenPropiedad"/>
 			<List Entity="Zona" />
 			<List Entity="TipoPropiedad" />
 			<List Entity="Moneda" />
@@ -29,6 +31,7 @@
 			<Form Entity="User" />
 			<Form Entity="Inmobiliaria" />
 			<Form Entity="Propiedad" />
+			<Form Entity="ImagenPropiedad"/>
 			<Form Entity="Zona" />
 			<Form Entity="TipoPropiedad" />
 			<Form Entity="Moneda" />
@@ -38,6 +41,7 @@
 			<View Entity="User" />
 			<View Entity="Inmobiliaria" />
 			<View Entity="Propiedad" />
+			<View Entity="ImagenPropiedad" />
 			<View Entity="Zona" />
 			<View Entity="TipoPropiedad" />
 			<View Entity="Moneda" />

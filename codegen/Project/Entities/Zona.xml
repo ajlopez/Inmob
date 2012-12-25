@@ -27,7 +27,6 @@
 			<Type>IdRef</Type>
 			<SqlType>int</SqlType>
 			<Reference>Zona</Reference>
-            <Required>False</Required>
 		</Property>
 	</Properties>
 </Entity>
