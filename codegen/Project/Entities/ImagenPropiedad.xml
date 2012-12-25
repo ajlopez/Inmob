@@ -33,6 +33,15 @@
 			<Type>Text</Type>
 			<SqlType>varchar(200)</SqlType>
 		</Property>
+        
+		<Property>
+			<Name>IdPropiedad</Name>
+			<Description>Propiedad</Description>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>Propiedad</Reference>
+			<Required>true</Required>
+		</Property>
 
 		<Property>
 			<Name>Notas</Name>
