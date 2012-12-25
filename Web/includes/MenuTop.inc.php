@@ -60,10 +60,10 @@ function MenuTopClose()
 
 	if (UserIdentified()) {
 		MenuTopOpen(UserName());
-		MenuTopOption('Mi Página', 'users/User.php');
-		If (UserIsAdministrator()) {
-			MenuTopOption('Administración','admin/index.php');
-		}
+//		MenuTopOption('Mi Página', 'users/User.php');
+		// If (UserIsAdministrator()) {
+			// MenuTopOption('Administración','admin/index.php');
+		// }
 		MenuTopOption('Salir','users/Logout.php');
 		MenuTopClose();
 	}
