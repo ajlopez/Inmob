@@ -102,6 +102,13 @@
 		</Property>
 
 		<Property>
+			<Name>Habilitada</Name>
+			<Description>Habilitada</Description>
+			<Type>Boolean</Type>
+			<SqlType>tinyint(4)</SqlType>
+		</Property>		
+
+		<Property>
 			<Name>AceptaComentarios</Name>
 			<Description>Acepta Comentarios</Description>
 			<Type>Boolean</Type>

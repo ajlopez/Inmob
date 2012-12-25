@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<Entity>
+	<Name>ImagenPropiedad</Name>
+	<Description>Imagen de Propiedad</Description>
+	<SetName>ImagenesPropiedad</SetName>
+	<Descriptor>Imagen de Propiedad</Descriptor>
+	<SetDescriptor>Imágenes de Propiedades</SetDescriptor>
+	<SqlTable>propiedadimagenes</SqlTable>
+    <Gender>Female</Gender>
+	
+	<Properties>
+		<Property>
+			<Name>Id</Name>
+			<Type>Id</Type>
+		</Property>
+
+		<Property>
+			<Name>Nombre</Name>
+			<Type>Text</Type>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Descripcion</Name>
+			<Description>Descripción</Description>
+			<Type>Memo</Type>
+			<SqlType>text</SqlType>
+		</Property>
+
+		<Property>
+			<Name>NombreArchivo</Name>
+			<Description>Nombre de Archivo</Description>
+			<Type>Text</Type>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Notas</Name>
+			<Type>Memo</Type>
+			<SqlType>text</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Notas</Name>
+			<Type>Memo</Type>
+			<SqlType>text</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Habilitada</Name>
+			<Description>Habilitada</Description>
+			<Type>Boolean</Type>
+			<SqlType>tinyint(4)</SqlType>
+		</Property>		
+	</Properties>
+</Entity>
