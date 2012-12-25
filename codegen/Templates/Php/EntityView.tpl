@@ -154,14 +154,10 @@
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
 
-<div class="actions">
-<a href="${Entity.Name}List.php">${Entity.SetDescriptor}</a>
-&nbsp;
-&nbsp;
-<a href="${Entity.Name}Form.php?Id=<? echo $Id; ?>">${UpdateText}</a>
-&nbsp;
-&nbsp;
-<a href="${Entity.Name}Delete.php?Id=<? echo $Id; ?>">${DeleteText}</a>
+<div class="btn-group">
+<a class="btn" href="${Entity.Name}List.php">${Entity.SetDescriptor}</a>
+<a class="btn" href="${Entity.Name}Form.php?Id=<? echo $Id; ?>">${UpdateText}</a>
+<a class="btn" href="${Entity.Name}Delete.php?Id=<? echo $Id; ?>">${DeleteText}</a>
 </div>
 
 <?
@@ -198,8 +194,8 @@
 <br>
 <br>
 <h2>${List.Title}</h2>
-<div class="actions">
-<a href='${List.Entity.Name}Form.php?${List.KeyProperty.Name}=<?=$Id?>'>${NewText} ${List.Entity.Descriptor}...</a>
+<div class="btn-group">
+<a class="btn" href='${List.Entity.Name}Form.php?${List.KeyProperty.Name}=<?=$Id?>'>${NewText} ${List.Entity.Descriptor}...</a>
 </div>
 <?
 	$sql = "select <# 
@@ -314,8 +310,8 @@
         NewText = TextForNew(Project.Language, Relation.Entity.Gender)
 #>
 <h2>${Relation.Entity.SetDescriptor}</h2>
-<div class="actions">
-<a href='${Relation.Entity.Name}Form.php?${Relation.Property.Name}=<?=$Id?>'>${NewText} ${Relation.Entity.Descriptor}...</a>
+<div class="btn-group">
+<a class="btn" href='${Relation.Entity.Name}Form.php?${Relation.Property.Name}=<?=$Id?>'>${NewText} ${Relation.Entity.Descriptor}...</a>
 </div>
 
 <br />

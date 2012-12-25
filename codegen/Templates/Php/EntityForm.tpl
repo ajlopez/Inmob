@@ -95,16 +95,12 @@
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
 
-<div class="actions">
-<a href="${Entity.Name}List.php">${Entity.SetDescriptor}</a>
-&nbsp;
-&nbsp;
+<div class="btn-group">
+<a class="btn" href="${Entity.Name}List.php">${Entity.SetDescriptor}</a>
 <?
 	if (!$IsNew) {
 ?>
-<a href="${Entity.Name}View.php?Id=<? echo $Id; ?>">${Entity.Descriptor}</a>
-&nbsp;
-&nbsp;
+<a class="btn" href="${Entity.Name}View.php?Id=<? echo $Id; ?>">${Entity.Descriptor}</a>
 <?
 	}
 ?>

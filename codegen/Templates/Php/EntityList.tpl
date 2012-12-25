@@ -90,8 +90,8 @@
 	include_once($Page->Prefix . 'includes/Header.inc.php');
 ?>
 
-<div class="actions">
-<a href="${Entity.Name}Form.php">${NewText} ${Entity.Descriptor}...</a>
+<div class="btn-group">
+<a class="btn" href="${Entity.Name}Form.php">${NewText} ${Entity.Descriptor}...</a>
 </div>
 
 <?		
