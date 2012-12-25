@@ -55,6 +55,7 @@
                     <Column Property="Id"/>
                     <Column Property="Nombre"/>
                     <Column Property="IdPropiedad"/>
+                    <Column Property="Principal"/>
                     <Column Property="Habilitada"/>
                 </Columns>
             </List>

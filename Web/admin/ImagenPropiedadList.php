@@ -21,7 +21,7 @@
 
 	$rs = ImagenPropiedadGetListView();
 
-	$titles = array('', 'Nombre', 'Propiedad', 'Habilitada');
+	$titles = array('', 'Nombre', 'Propiedad', 'Es Principal', 'Habilitada');
 
 	include_once($Page->Prefix . 'includes/Header.inc.php');
 ?>
@@ -39,6 +39,7 @@
 		DatumGenerate($reg['Nombre']);
 		$ColumnDescription = PropiedadTranslate($reg['IdPropiedad']);
 		DatumLinkGenerate($ColumnDescription, "PropiedadView.php?Id=".$reg['IdPropiedad']);
+		DatumGenerate(TranslateBoolean($reg['Principal'], 'S&iacute;', 'No'));
 		DatumGenerate(TranslateBoolean($reg['Habilitada'], 'S&iacute;', 'No'));
 		RowClose();
 	}

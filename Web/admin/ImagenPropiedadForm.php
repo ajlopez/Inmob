@@ -22,6 +22,7 @@
 		$Nombre = $rs['Nombre'];
 		$Descripcion = $rs['Descripcion'];
 		$NombreArchivo = $rs['NombreArchivo'];
+		$Uuid = $rs['Uuid'];
 		$IdPropiedad = $rs['IdPropiedad'];
 		$Notas = $rs['Notas'];
 		$Principal = $rs['Principal'];
@@ -57,7 +58,7 @@
 	ErrorRender();
 ?>
 
-<form action="ImagenPropiedadUpdate.php" method=post>
+<form action="ImagenPropiedadUpdate.php" method=post enctype="multipart/form-data">
 
 <?
 	TableOpen('','','form');
@@ -66,7 +67,7 @@
 
 	FieldTextGenerate("Nombre", "Nombre", $Nombre, 30, False);
 	FieldMemoGenerate("Descripcion", "Descripción", $Descripcion, 10, 30, False);
-	FieldTextGenerate("NombreArchivo", "Nombre de Archivo", $NombreArchivo, 30, False);
+	FieldFileGenerate("Archivo", "Archivo");
 	FieldComboRsGenerate("IdPropiedad", "Propiedad", $rsIdPropiedad, $IdPropiedad,"Id","Nombre", False, true);
 	FieldMemoGenerate("Notas", "Notas", $Notas, 10, 30, False);
 	FieldCheckGenerate("Principal", "Es La Foto Principal", $Principal, False);
@@ -78,7 +79,11 @@
 
 <?
 	if (!$IsNew)
+    {
 		FieldIdGenerate($Id);
+        FieldHiddenGenerate("Uuid", $Uuid);
+        FieldHiddenGenerate("NombreArchivo", $NombreArchivo);
+    }
 ?>
 
 </form>

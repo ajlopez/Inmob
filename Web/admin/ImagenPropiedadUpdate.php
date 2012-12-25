@@ -22,6 +22,20 @@
 		include('ImagenPropiedadForm.php');
 		exit;
 	}
+    
+    if ($_FILES['Archivo'] && $_FILES['Archivo']['name'])
+    {
+        $NuevoNombreArchivo = $_FILES['Archivo']['name'];
+        $ext = strtolower(pathinfo($NuevoNombreArchivo, PATHINFO_EXTENSION));
+        
+        if ($ext == 'bmp' || $ext == 'jpg' || $ext == 'gif' || $ext == 'png') {
+            $NombreArchivo = $NuevoNombreArchivo;
+            if (empty($Uuid))
+                $Uuid = uniqid();
+            $filename = $Uuid . '.' . $ext;
+            copy($_FILES['Archivo']['tmp_name'], '../images/photos/' . $filename);
+        }
+    }
 
 	if (empty($Id))
 		$sql = "Insert";
@@ -37,8 +51,9 @@
 		Principal = '$Principal' , 
 		Habilitada = '$Habilitada' 		";
 		
-	if (empty($Id))
+	if (empty($Id) || !empty($Uuid))
 	{
+		$sql .= ", Uuid = '$Uuid'";
 	}
 	else
 	{
@@ -55,6 +70,13 @@
         DbTransactionRollback();
         DbDisconnect();
         echo $dberror;
+    }
+    
+    if ($Principal) {
+        if (!$Id)
+            $Id = DbLastId();
+        $sql = "Update $Cfg[SqlPrefix]propiedadimagenes set Principal = 0 where IdPropiedad = $IdPropiedad and Id <> $Id";
+        DbExecuteUpdate($sql);
     }
 
 	DbTransactionCommit();

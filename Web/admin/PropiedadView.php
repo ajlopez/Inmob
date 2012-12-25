@@ -85,7 +85,7 @@
 <?
 	$rsImagenesPropiedad = ImagenPropiedadGetByPropiedad($Id);
 
-	$titles = array('', 'Nombre', 'Habilitada');
+	$titles = array('', 'Nombre', 'Principal', 'Habilitada');
 
 	TableOpen($titles);
 
@@ -93,6 +93,7 @@
 		RowOpen();
 		DatumLinkGenerate("Ver...","ImagenPropiedadView.php?Id=".$reg['Id']);
 		DatumGenerate($reg['Nombre']);
+		DatumGenerate(TranslateBoolean($reg['Principal'], 'S&iacute;', 'No'));
 		DatumGenerate(TranslateBoolean($reg['Habilitada'], 'S&iacute;', 'No'));
 		RowClose();
 	}

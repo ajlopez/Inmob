@@ -28,6 +28,7 @@
 	$Nombre = $rs['Nombre'];
 	$Descripcion = $rs['Descripcion'];
 	$NombreArchivo = $rs['NombreArchivo'];
+	$Uuid = $rs['Uuid'];
 	$IdPropiedad = $rs['IdPropiedad'];
 	$Notas = $rs['Notas'];
 	$Principal = $rs['Principal'];
@@ -43,12 +44,20 @@
 <a class="btn btn-primary" href="ImagenPropiedadForm.php?Id=<? echo $Id; ?>">Actualiza</a>
 <a class="btn btn-danger" href="ImagenPropiedadDelete.php?Id=<? echo $Id; ?>">Elimina</a>
 </div>
-
 <?
+    if ($Uuid && $NombreArchivo) {
+?>
+<div>
+<img src="<?= $Page->Prefix ?>images/photos/<?= $Uuid . '.' . pathinfo($NombreArchivo, PATHINFO_EXTENSION)?>" border="0"/>
+</div>
+<?
+    }
+    
 	TableOpen('', '', 'view');
 	FieldStaticGenerate("Nombre",$Nombre);
 	FieldStaticMemoGenerate("Descripción",$Descripcion);
 	FieldStaticGenerate("Nombre de Archivo",$NombreArchivo);
+	FieldStaticGenerate("Código Interno",$Uuid);
 	FieldStaticGenerate("Propiedad",$TranslationIdPropiedad);
 	FieldStaticMemoGenerate("Notas",$Notas);
 	FieldStaticGenerate("Es La Foto Principal",TranslateBoolean($Principal, 'S&iacute;', 'No'));

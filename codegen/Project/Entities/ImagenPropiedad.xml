@@ -33,6 +33,13 @@
 			<Type>Text</Type>
 			<SqlType>varchar(200)</SqlType>
 		</Property>
+
+		<Property>
+			<Name>Uuid</Name>
+			<Description>Código Interno</Description>
+			<Type>Text</Type>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
         
 		<Property>
 			<Name>IdPropiedad</Name>

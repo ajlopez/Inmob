@@ -49,6 +49,7 @@ create table inmob_propiedadimagenes (
 		Nombre varchar(200),
 		Descripcion text,
 		NombreArchivo varchar(200),
+		Uuid varchar(200),
 		IdPropiedad int,
 		Notas text,
 		Principal tinyint(4),

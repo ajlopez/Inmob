@@ -12,7 +12,7 @@
 function ImagenPropiedadGetById($Id) {
 	global $Cfg;
 
-	$sql = "select Id, Nombre, Descripcion, NombreArchivo, IdPropiedad, Notas, Principal, Habilitada from $Cfg[SqlPrefix]propiedadimagenes where Id = $Id";
+	$sql = "select Id, Nombre, Descripcion, NombreArchivo, Uuid, IdPropiedad, Notas, Principal, Habilitada from $Cfg[SqlPrefix]propiedadimagenes where Id = $Id";
 
 	$rs = DbExecuteQuery($sql);
 	return DbNextRow($rs);
@@ -21,7 +21,7 @@ function ImagenPropiedadGetById($Id) {
 function ImagenPropiedadGetList($where='',$order='') {
 	global $Cfg;
 
-	$sql = "select Id, Nombre, Descripcion, NombreArchivo, IdPropiedad, Notas, Principal, Habilitada from $Cfg[SqlPrefix]propiedadimagenes";
+	$sql = "select Id, Nombre, Descripcion, NombreArchivo, Uuid, IdPropiedad, Notas, Principal, Habilitada from $Cfg[SqlPrefix]propiedadimagenes";
 
 	if ($where)
 		$sql .= " where $where";
@@ -35,7 +35,7 @@ function ImagenPropiedadGetList($where='',$order='') {
 function ImagenPropiedadGetListView($where='',$order='') {
 	global $Cfg;
 
-	$sql = "select Id, Id, Nombre, IdPropiedad, Habilitada from $Cfg[SqlPrefix]propiedadimagenes";
+	$sql = "select Id, Id, Nombre, IdPropiedad, Principal, Habilitada from $Cfg[SqlPrefix]propiedadimagenes";
 
 	if ($where)
 		$sql .= " where $where";
@@ -54,13 +54,14 @@ function ImagenPropiedadGetView($where='',$order='') {
 //	function GetListBy...
 //	function GetViewBy...
 
-function ImagenPropiedadInsert($Nombre, $Descripcion, $NombreArchivo, $IdPropiedad, $Notas, $Principal, $Habilitada) {
+function ImagenPropiedadInsert($Nombre, $Descripcion, $NombreArchivo, $Uuid, $IdPropiedad, $Notas, $Principal, $Habilitada) {
 	global $Cfg;
 
 	$sql = "insert $Cfg[SqlPrefix]propiedadimagenes set
 		Nombre = '$Nombre',
 		Descripcion = '$Descripcion',
 		NombreArchivo = '$NombreArchivo',
+		Uuid = '$Uuid',
 		IdPropiedad = $IdPropiedad,
 		Notas = '$Notas',
 		Principal = '$Principal',
@@ -71,13 +72,14 @@ function ImagenPropiedadInsert($Nombre, $Descripcion, $NombreArchivo, $IdPropied
 	return DbLastId();
 }
 
-function ImagenPropiedadUpdate($Id, $Nombre, $Descripcion, $NombreArchivo, $IdPropiedad, $Notas, $Principal, $Habilitada) {
+function ImagenPropiedadUpdate($Id, $Nombre, $Descripcion, $NombreArchivo, $Uuid, $IdPropiedad, $Notas, $Principal, $Habilitada) {
 	global $Cfg;
 
 	$sql = "update $Cfg[SqlPrefix]propiedadimagenes set
 		Nombre = '$Nombre',
 		Descripcion = '$Descripcion',
 		NombreArchivo = '$NombreArchivo',
+		Uuid = '$Uuid',
 		IdPropiedad = $IdPropiedad,
 		Notas = '$Notas',
 		Principal = '$Principal',
