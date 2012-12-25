@@ -8,6 +8,7 @@
 	<Database>
 		<Dialect>MySql</Dialect>
 		<Name>inmob</Name>
+        <Prefix>inmob_</Prefix>
 		<Username>root</Username>
 		<Host>localhost</Host>
 		<MySql Directory="\xampp\mysql"/>

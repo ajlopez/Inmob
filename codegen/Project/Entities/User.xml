@@ -100,8 +100,8 @@
 		</Property>
 
 		<Property>
-			<Name>Verified</Name>
-			<Description>Verificado</Description>
+			<Name>Habilitado</Name>
+			<Description>Habilitado</Description>
 			<Type>Boolean</Type>
 			<SqlType>tinyint(4)</SqlType>
 		</Property>
@@ -117,6 +117,13 @@
 			<Type>IdRef</Type>
 			<SqlType>int</SqlType>
 			<Reference>Inmobiliaria</Reference>
+		</Property>
+
+		<Property>
+			<Name>EsAdmInmobiliaria</Name>
+			<Description>Es Administrador de Inmobiliaria</Description>
+			<Type>Boolean</Type>
+			<SqlType>tinyint(4)</SqlType>
 		</Property>
 	</Properties>
 </Entity>

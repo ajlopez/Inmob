@@ -100,6 +100,12 @@
 			<Type>Memo</Type>
 			<SqlType>text</SqlType>
 		</Property>
-		
+
+		<Property>
+			<Name>AceptaComentarios</Name>
+			<Description>Acepta Comentarios</Description>
+			<Type>Boolean</Type>
+			<SqlType>tinyint(4)</SqlType>
+		</Property>		
 	</Properties>
 </Entity>

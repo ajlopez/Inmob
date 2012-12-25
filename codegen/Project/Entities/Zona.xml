@@ -20,6 +20,14 @@
 			<Type>Text</Type>
 			<SqlType>varchar(200)</SqlType>
 		</Property>
-
+        
+		<Property>
+			<Name>IdZonaPadre</Name>
+            <Description>Zona Padre</Description>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>Zona</Reference>
+            <Required>False</Required>
+		</Property>
 	</Properties>
 </Entity>
