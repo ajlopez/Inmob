@@ -96,11 +96,11 @@
 ?>
 
 <div class="btn-group">
-<a class="btn" href="${Entity.Name}List.php">${Entity.SetDescriptor}</a>
+<a class="btn btn-info" href="${Entity.Name}List.php">${Entity.SetDescriptor}</a>
 <?
 	if (!$IsNew) {
 ?>
-<a class="btn" href="${Entity.Name}View.php?Id=<? echo $Id; ?>">${Entity.Descriptor}</a>
+<a class="btn btn-info" href="${Entity.Name}View.php?Id=<? echo $Id; ?>">${Entity.Descriptor}</a>
 <?
 	}
 ?>

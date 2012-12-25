@@ -91,7 +91,7 @@
 ?>
 
 <div class="btn-group">
-<a class="btn" href="${Entity.Name}Form.php">${NewText} ${Entity.Descriptor}...</a>
+<a class="btn btn-primary" href="${Entity.Name}Form.php">${NewText} ${Entity.Descriptor}...</a>
 </div>
 
 <?		

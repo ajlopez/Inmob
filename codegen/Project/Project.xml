@@ -19,9 +19,36 @@
 			<Entity Source="Entities/TipoPropiedad.xml"/>
 		</Entities>
 		<Lists>
-			<List Entity="User" />
-			<List Entity="Inmobiliaria" />
-			<List Entity="Propiedad" />
+			<List Entity="User">
+                <Columns>
+                    <Column Property="Id"/>
+                    <Column Property="UserName"/>
+                    <Column Property="FirstName"/>
+                    <Column Property="LastName"/>
+                    <Column Property="IdInmobiliaria"/>
+                    <Column Property="Habilitado"/>
+                </Columns>
+            </List>
+			<List Entity="Inmobiliaria">
+                <Columns>
+                    <Column Property="Id"/>
+                    <Column Property="Nombre"/>
+                    <Column Property="Domicilio"/>
+                    <Column Property="IdInmobiliaria"/>
+                    <Column Property="Habilitada"/>
+                </Columns>
+            </List>
+			<List Entity="Propiedad">
+                <Columns>
+                    <Column Property="Id"/>
+                    <Column Property="Nombre"/>
+                    <Column Property="Domicilio"/>
+                    <Column Property="IdZona"/>
+                    <Column Property="IdInmobiliaria"/>
+                    <Column Property="IdTipo"/>
+                    <Column Property="Habilitada"/>
+                </Columns>
+            </List>
 			<List Entity="ImagenPropiedad"/>
 			<List Entity="Zona" />
 			<List Entity="TipoPropiedad" />

@@ -155,9 +155,9 @@
 ?>
 
 <div class="btn-group">
-<a class="btn" href="${Entity.Name}List.php">${Entity.SetDescriptor}</a>
-<a class="btn" href="${Entity.Name}Form.php?Id=<? echo $Id; ?>">${UpdateText}</a>
-<a class="btn" href="${Entity.Name}Delete.php?Id=<? echo $Id; ?>">${DeleteText}</a>
+<a class="btn btn-info" href="${Entity.Name}List.php">${Entity.SetDescriptor}</a>
+<a class="btn btn-primary" href="${Entity.Name}Form.php?Id=<? echo $Id; ?>">${UpdateText}</a>
+<a class="btn btn-danger" href="${Entity.Name}Delete.php?Id=<? echo $Id; ?>">${DeleteText}</a>
 </div>
 
 <?
@@ -311,7 +311,7 @@
 #>
 <h2>${Relation.Entity.SetDescriptor}</h2>
 <div class="btn-group">
-<a class="btn" href='${Relation.Entity.Name}Form.php?${Relation.Property.Name}=<?=$Id?>'>${NewText} ${Relation.Entity.Descriptor}...</a>
+<a class="btn btn-primary" href='${Relation.Entity.Name}Form.php?${Relation.Property.Name}=<?=$Id?>'>${NewText} ${Relation.Entity.Descriptor}...</a>
 </div>
 
 <br />
