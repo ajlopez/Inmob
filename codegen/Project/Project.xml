@@ -49,7 +49,14 @@
                     <Column Property="Habilitada"/>
                 </Columns>
             </List>
-			<List Entity="ImagenPropiedad"/>
+			<List Entity="ImagenPropiedad">
+                <Columns>
+                    <Column Property="Id"/>
+                    <Column Property="Nombre"/>
+                    <Column Property="IdPropiedad"/>
+                    <Column Property="Habilitada"/>
+                </Columns>
+            </List>
 			<List Entity="Zona" />
 			<List Entity="TipoPropiedad" />
 			<List Entity="Moneda" />
