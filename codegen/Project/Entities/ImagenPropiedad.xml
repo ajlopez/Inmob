@@ -50,6 +50,13 @@
 		</Property>
 
 		<Property>
+			<Name>Principal</Name>
+			<Description>Es La Foto Principal</Description>
+			<Type>Boolean</Type>
+			<SqlType>tinyint(4)</SqlType>
+		</Property>
+        
+		<Property>
 			<Name>Habilitada</Name>
 			<Description>Habilitada</Description>
 			<Type>Boolean</Type>

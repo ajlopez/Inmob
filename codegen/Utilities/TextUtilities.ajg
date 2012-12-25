@@ -53,7 +53,7 @@ Function TextTranslateToSpanish(Text)
     end if
     
     if Text = "Yes" then
-        return "S&acute;"
+        return "S&iacute;"
     end if
     
     return Text

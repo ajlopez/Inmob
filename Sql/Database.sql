@@ -51,6 +51,7 @@ create table inmob_propiedadimagenes (
 		NombreArchivo varchar(200),
 		IdPropiedad int,
 		Notas text,
+		Principal tinyint(4),
 		Habilitada tinyint(4),
 		primary key (Id)
 ) TYPE=InnoDB;

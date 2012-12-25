@@ -1,0 +1,74 @@
+
+.menuoption {
+	font-family: Verdana, Helvetica, sans-serif;
+	font-size: 10pt;
+	text-decoration: none;
+	letter-spacing: 0.05em;
+	line-height: 1.4;
+}
+
+table {
+	font-size: 13px;
+}
+
+/* MSIE display:inline-block is to make sure MSIE doesn't paint the backround above the containers, the overflow declaration is to make sure the containers do not drop below siblings if content pushes the width (in modern browsers it doesn't drop, but it spawns an orizontal scrollbar)  */
+#header,#subheader,#menu,#content,#footer {overflow:hidden;}
+/*
+#header,#subheader,#menu,#content,#footer {overflow:hidden;}
+#header,#subheader,#menu,#content,#footer {overflow:visible;}
+#header,#subheader,#menu,#content,#footer {overflow:hidden;display:inline-block}
+*/
+#header,#subheader,#footer {width:100%} /* safari and opera need this */
+
+#header {
+	Font-Family: Arial;
+	Font-size: 20pt;
+	font-weight: bold;
+	color: black;
+	padding: 10px 0;
+}
+
+#content {
+	padding-left: 0.5em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+#menu {
+	width: 140px;
+	float:left;
+	padding: 10px 0;
+}
+
+#subheader {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	color: #FFFFFF;
+	background: #00aacc;
+	text-decoration: none;
+	padding-left: 0.5em;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+}
+
+#footer {
+	Font-Family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	background: #c0c0c0;
+	color: rgb(0,0,0);
+	padding: 0.1em;
+	text-align: center;
+	clear: left;
+}
+
+.view {
+    min-width: 500px;
+}
+
+.list {
+    min-width: 800px;
+}
+
+.form {
+    min-width: 500px;
+}
