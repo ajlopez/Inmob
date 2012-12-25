@@ -185,6 +185,9 @@ for each View in Project.Model.Views
 		if not Field.Description then
 			Field.Description = Field.Property.Description
 		end if
+        if not Field.Type then
+            Field.Type = Field.Property.Type
+        end if
 		if not Field.Type then
 			Field.Type = "Text"
 		end if

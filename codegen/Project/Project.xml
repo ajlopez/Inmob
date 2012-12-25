@@ -17,6 +17,7 @@
 			<Entity Source="Entities/Comentario.xml"/>
 			<Entity Source="Entities/User.xml"/>
 			<Entity Source="Entities/TipoPropiedad.xml"/>
+			<Entity Source="Entities/Evento.xml"/>
 		</Entities>
 		<Lists>
 			<List Entity="User">

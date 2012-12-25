@@ -6,6 +6,8 @@
 	EntityIdProperty = IdProperty(Entity)
     NewText = TextForNew(Project.Language, Entity.Gender)
     ViewText = TextForView(Project.Language)
+    YesText = TextForYes(Project.Language)
+    NoText = TextForNo(Project.Language)
 #>
 <?
 	$Page->Title = '${List.Title}';
@@ -24,6 +26,7 @@
 	include_once($Page->Prefix . 'ajfwk/Tables.inc.php');
 	include_once($Page->Prefix . 'ajfwk/Pages.inc.php');
 	include_once($Page->Prefix . 'ajfwk/Session.inc.php');
+	include_once($Page->Prefix . 'ajfwk/Translations.inc.php');
 
 	include_once($Page->Prefix . 'includes/Enumerations.inc.php');
 <#
@@ -95,7 +98,7 @@
 </div>
 
 <?		
-	TableOpen($titles);
+	TableOpen($titles, '', 'list');
 
 	while ($reg=DbNextRow($rs)) {
 		RowOpen();
@@ -118,9 +121,15 @@
 		DatumGenerate(TranslateEnumeration($Enum${Column.Property.Enumeration.Name},$reg['${Column.Property.Name}']));
 <#
                 else
+                    if Column.Property.Type = "Boolean" then
+#>
+		DatumGenerate(TranslateBoolean($reg['${Column.Property.Name}'], '${YesText}', '${NoText}'));
+<#
+                    else
 #>
 		DatumGenerate($reg['${Column.Property.Name}']);
 <#
+                    else
                 end if
 			end if
 		end if

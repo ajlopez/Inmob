@@ -174,3 +174,22 @@ create table inmob_tipospropiedad (
 		primary key (Id)
 ) TYPE=InnoDB;
 
+
+--
+--		Entity:		Evento
+--		Description:	Evento
+--
+
+
+drop table if exists inmob_eventos;
+
+
+create table inmob_eventos (
+		Id int NOT NULL auto_increment,
+		Tipo varchar(4),
+		IdParametro int,
+		IdUsuario int,
+		FechaHora datetime,
+		primary key (Id)
+) TYPE=InnoDB;
+

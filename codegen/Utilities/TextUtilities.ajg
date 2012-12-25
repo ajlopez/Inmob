@@ -19,6 +19,14 @@ Function TextForView(Language)
     return TextTranslate(Language, "View")
 End Function
 
+Function TextForYes(Language)
+    return TextTranslate(Language, "Yes")
+End Function
+
+Function TextForNo(Language)
+    return TextTranslate(Language, "No")
+End Function
+
 Function TextTranslate(Language, Text)
     if Language and Language = "es" then
         return TextTranslateToSpanish(Text)
@@ -42,6 +50,10 @@ Function TextTranslateToSpanish(Text)
     
     if Text = "Update" then
         return "Actualiza"
+    end if
+    
+    if Text = "Yes" then
+        return "S&acute;"
     end if
     
     return Text

@@ -77,3 +77,4 @@ INSERT INTO `inmob_zonas` (`Id`, `Nombre`, `IdZonaPadre`) VALUES
 (2, 'Villa Pueyrredón', 1),
 (3, 'Villa Devoto', 1),
 (4, 'Villa Urquiza', 1);
+

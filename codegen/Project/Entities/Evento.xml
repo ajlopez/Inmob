@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<Entity>
+	<Name>Evento</Name>
+	<Description>Evento</Description>
+	<SetName>Eventos</SetName>
+	<Descriptor>Evento</Descriptor>
+	<SetDescriptor>Eventos</SetDescriptor>
+	<SqlTable>eventos</SqlTable>
+	
+	<Properties>
+
+		<Property>
+			<Name>Id</Name>
+			<Type>Id</Type>
+		</Property>
+
+		<Property>
+			<Name>Tipo</Name>
+			<Description>Tipo</Description>
+			<Type>Text</Type>
+			<SqlType>varchar(4)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>IdParametro</Name>
+			<Description>Entidad</Description>
+			<Type>Integer</Type>
+			<SqlType>int</SqlType>
+		</Property>
+
+		<Property>
+			<Name>IdUsuario</Name>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>User</Reference>
+		</Property>
+		
+		<Property>
+			<Name>FechaHora</Name>
+			<Description>Fecha/Hora</Description>
+			<Type>DateTime</Type>
+			<ReadOnly>true</ReadOnly>
+			<Subtype>CreationDateTime</Subtype>
+			<SqlType>datetime</SqlType>
+		</Property>
+	</Properties>
+</Entity>

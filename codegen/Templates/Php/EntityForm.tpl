@@ -114,7 +114,7 @@
 <form action="${Entity.Name}Update.php" method=post>
 
 <?
-	TableOpen();
+	TableOpen('','','form');
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
 

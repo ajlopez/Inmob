@@ -9,6 +9,8 @@
     UpdateText = TextForUpdate(Project.Language)
     DeleteText = TextForDelete(Project.Language)
     ViewText = TextForView(Project.Language)
+    YesText = TextForYes(Project.Language)
+    NoText = TextForNo(Project.Language)
 #>
 <?
 	$Page->Title = '${View.Title}';
@@ -161,7 +163,7 @@
 </div>
 
 <?
-	TableOpen('', '');
+	TableOpen('', '', 'view');
 <#
 	for each Field in View.Fields
 		if Field.Property.Reference or Field.Property.Enumeration then
@@ -169,6 +171,11 @@
 	FieldStaticGenerate("${Field.Description}",$Translation${Field.Property.Name});
 <#
 		else 
+			if Field.Type="Boolean" then
+#>
+	FieldStaticGenerate("${Field.Description}",TranslateBoolean($${Field.Property.Name}, '${YesText}', '${NoText}'));
+<#
+			end if
 			if Field.Type="Text" then
 #>
 	FieldStaticGenerate("${Field.Description}",$${Field.Property.Name});
@@ -352,9 +359,15 @@
 		DatumLinkGenerate($ColumnDescription, "${Column.Property.Reference.Name}View.php?Id=".$reg['${Column.Property.Name}']);
 <#
 			else
+                if Column.Property.Type = "Boolean" then
+#>
+		DatumGenerate(TranslateBoolean($reg['${Column.Property.Name}'], '${YesText}', '${NoText}'));
+<#
+                else
 #>
 		DatumGenerate($reg['${Column.Property.Name}']);
 <#
+                end if
 			end if
 		end if
 		ncol=ncol+1

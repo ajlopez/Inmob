@@ -37,4 +37,11 @@ function TranslateEnumeration(&$values,$value)
 	return $value;
 }
 
+function TranslateBoolean($value, $yes='Yes', $no='No')
+{
+    if ($value)
+        return $yes;
+    return $no;
+}
+
 ?>
