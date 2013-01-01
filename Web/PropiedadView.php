@@ -13,6 +13,7 @@
 
 	include_once($Page->Prefix.'includes/Enumerations.inc.php');
 	include_once($Page->Prefix.'includes/PropiedadFunctions.inc.php');
+	include_once($Page->Prefix.'includes/MonedaFunctions.inc.php');
 	include_once($Page->Prefix.'includes/ImagenPropiedadFunctions.inc.php');
 	include_once($Page->Prefix.'includes/ComentarioFunctions.inc.php');
 
@@ -49,27 +50,58 @@
     $regImagen = DbNextRow($rsImagen);
     DbFreeResult($rsImagen);
 
+    $regMoneda = MonedaGetById($IdMoneda);
+
     if ($Nombre)
         $Page->Title = $Nombre;
 
 	include_once($Page->Prefix.'includes/Header.inc.php');
-
+?>
+<div class='propiedad'>
+<div class="prop1">
+<div>
+<span class='proptipo'><?= $TranslationIdTipo ?></span> <span class='propoper'>en <?= $TranslationOperacion ?></span>
+</div>
+<div class='propzona'><?= $TranslationIdZona ?></div>
+<div>
+<?= $Domicilio ?>
+</div>
+<?
+    if ($Precio) {
+?>
+<div>
+<?= $Precio ? $regMoneda['Simbolo'] . ' ' . $Precio: '' ?>
+</div>
+<?
+    }
+?>
+</div>
+<div class="prop2">
+<div class="caption">Descripción</div>
+<div>
+<?= $Ambientes ? $Ambientes : '' ?>
+<?= $Ambientes == 1 ? ' Ambiente. ' : ($Ambientes ? ' Ambientes. ' : ' ') ?>
+<?= $Metros ? $Metros : '' ?>
+<?= $Metros ? ' Metros Cuadrados. ' : '' ?>
+</div>
+<div>
+<?= $Descripcion ?>
+</div>
+</div>
+<?
     if ($regImagen) {
         $Uuid = $regImagen['Uuid'];
         $NombreArchivo = $regImagen['NombreArchivo'];
 ?>
-<div>
+<div class="propimagen">
 <img src="<?= $Page->Prefix ?>images/photos/<?= $Uuid . '.' . pathinfo($NombreArchivo, PATHINFO_EXTENSION)?>" border="0"/>
 </div>
 <?
     }
 ?>
 
-<div class='propiedad'>
-<div>
-<span class='proptipo'><?= $TranslationIdTipo ?></span> <span class='propoper'>en <?= $TranslationOperacion ?></span>
+<div class="prop2">
 </div>
-<div class='propzona'><?= $TranslationIdZona ?></div>
 </div>
 
 <?

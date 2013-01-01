@@ -74,24 +74,24 @@ table {
 }
 
 .propitem {
-    width: 220px;
+    width: 200px;
+    margin-right: 20px;
     min-height: 250px;
     align: center;
     float: left;
+    border-top: 1px dotted #7F7F7F;
+    padding-top: 5px;
 }
 
 .propitem .proptipo {
-    color: black;
-    font-weight: bold;
+    font-size: 12pt;
 }
 
 .propitem .propoper {
-    font-weight: bold;
     color: #084;
 }
 
 .propitem .propzona {
-    font-weight: bold;
     color: #0AC;
 }
 
@@ -100,16 +100,45 @@ table {
 }
 
 .proptipo {
-    color: black;
+    font-size: 12pt;
     font-weight: bold;
+    color: #606060;
 }
 
 .propoper {
-    font-weight: bold;
     color: #084;
 }
 
 .propzona {
-    font-weight: bold;
     color: #0AC;
+}
+
+.prop1 {
+    clear: both;
+    float: left;
+    margin-right: 10px;
+    min-width: 300px;
+}
+
+.prop2 {
+    float: left;
+    vertical-align: top;
+}
+
+.propimagen {
+    border: 1px dotted #7F7F7F;
+    padding: 5px;
+    clear: both;
+    float: left;
+    margin-right: 10px;
+}
+
+.search {
+    vertical-align: top;
+}
+
+.caption {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #606060;
 }
