@@ -74,7 +74,22 @@ table {
 }
 
 .propitem {
-    width: 250px;
+    width: 220px;
+    min-height: 250px;
     align: center;
     float: left;
+}
+
+.propitem .proptipo {
+    font-weight: bold;
+}
+
+.propitem .propoper {
+    font-weight: bold;
+    color: #084;
+}
+
+.propitem .propzona {
+    font-weight: bold;
+    color: #0AC;
 }
