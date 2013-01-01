@@ -81,6 +81,7 @@ table {
 }
 
 .propitem .proptipo {
+    color: black;
     font-weight: bold;
 }
 
@@ -90,6 +91,25 @@ table {
 }
 
 .propitem .propzona {
+    font-weight: bold;
+    color: #0AC;
+}
+
+.propiedad {
+    color: black;
+}
+
+.proptipo {
+    color: black;
+    font-weight: bold;
+}
+
+.propoper {
+    font-weight: bold;
+    color: #084;
+}
+
+.propzona {
     font-weight: bold;
     color: #0AC;
 }

@@ -20,6 +20,7 @@
 	if (!ErrorHas() && isset($Id)) {
 		$rs = MonedaGetById($Id);
 		$Nombre = $rs['Nombre'];
+		$Simbolo = $rs['Simbolo'];
 
 		$IsNew = 0;
 	}	
@@ -58,6 +59,7 @@
 		FieldStaticGenerate("Id",$Id);
 
 	FieldTextGenerate("Nombre", "Nombre", $Nombre, 30, False);
+	FieldTextGenerate("Simbolo", "Símbolo", $Simbolo, 30, False);
 
 	FieldOkGenerate();
 	TableClose();

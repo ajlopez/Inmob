@@ -16,34 +16,14 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inmob_monedas`
---
-
-CREATE TABLE IF NOT EXISTS `inmob_monedas` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Nombre` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
 -- Dumping data for table `inmob_monedas`
 --
 
-INSERT INTO `inmob_monedas` (`Id`, `Nombre`) VALUES
-(1, 'Pesos'),
-(2, 'Dólares Estadounidenses');
+INSERT INTO `inmob_monedas` (`Id`, `Nombre`, `Simbolo`) VALUES
+(1, 'Pesos', '$'),
+(2, 'Dólares Estadounidenses', 'u$s');
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `inmob_tipospropiedad`
---
-
-CREATE TABLE IF NOT EXISTS `inmob_tipospropiedad` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Nombre` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `inmob_tipospropiedad`
@@ -56,17 +36,6 @@ INSERT INTO `inmob_tipospropiedad` (`Id`, `Nombre`) VALUES
 (4, 'Lote');
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `inmob_zonas`
---
-
-CREATE TABLE IF NOT EXISTS `inmob_zonas` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Nombre` varchar(200) DEFAULT NULL,
-  `IdZonaPadre` int(11) DEFAULT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `inmob_zonas`

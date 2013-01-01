@@ -21,5 +21,12 @@
 			<SqlType>varchar(200)</SqlType>
 		</Property>
 
+		<Property>
+			<Name>Simbolo</Name>
+			<Description>Símbolo</Description>
+			<Type>Text</Type>
+			<SqlType>varchar(10)</SqlType>
+		</Property>
+
 	</Properties>
 </Entity>

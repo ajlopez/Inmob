@@ -26,7 +26,8 @@
 		$sql = "Update";
 
 	$sql .= " $Cfg[SqlPrefix]monedas set
-		Nombre = '$Nombre' 		";
+		Nombre = '$Nombre' , 
+		Simbolo = '$Simbolo' 		";
 		
 	if (empty($Id))
 	{

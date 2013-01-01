@@ -12,7 +12,7 @@
 function MonedaGetById($Id) {
 	global $Cfg;
 
-	$sql = "select Id, Nombre from $Cfg[SqlPrefix]monedas where Id = $Id";
+	$sql = "select Id, Nombre, Simbolo from $Cfg[SqlPrefix]monedas where Id = $Id";
 
 	$rs = DbExecuteQuery($sql);
 	return DbNextRow($rs);
@@ -21,7 +21,7 @@ function MonedaGetById($Id) {
 function MonedaGetList($where='',$order='') {
 	global $Cfg;
 
-	$sql = "select Id, Nombre from $Cfg[SqlPrefix]monedas";
+	$sql = "select Id, Nombre, Simbolo from $Cfg[SqlPrefix]monedas";
 
 	if ($where)
 		$sql .= " where $where";
@@ -35,7 +35,7 @@ function MonedaGetList($where='',$order='') {
 function MonedaGetListView($where='',$order='') {
 	global $Cfg;
 
-	$sql = "select Id, Id, Nombre from $Cfg[SqlPrefix]monedas";
+	$sql = "select Id, Id, Nombre, Simbolo from $Cfg[SqlPrefix]monedas";
 
 	if ($where)
 		$sql .= " where $where";
@@ -54,22 +54,24 @@ function MonedaGetView($where='',$order='') {
 //	function GetListBy...
 //	function GetViewBy...
 
-function MonedaInsert($Nombre) {
+function MonedaInsert($Nombre, $Simbolo) {
 	global $Cfg;
 
 	$sql = "insert $Cfg[SqlPrefix]monedas set
-		Nombre = '$Nombre'";
+		Nombre = '$Nombre',
+		Simbolo = '$Simbolo'";
 
 	DbExecuteUpdate($sql);
 
 	return DbLastId();
 }
 
-function MonedaUpdate($Id, $Nombre) {
+function MonedaUpdate($Id, $Nombre, $Simbolo) {
 	global $Cfg;
 
 	$sql = "update $Cfg[SqlPrefix]monedas set
-		Nombre = '$Nombre' where Id = $Id";
+		Nombre = '$Nombre',
+		Simbolo = '$Simbolo' where Id = $Id";
 
 	DbExecuteUpdate($sql);
 }

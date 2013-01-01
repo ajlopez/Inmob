@@ -109,6 +109,7 @@ drop table if exists inmob_monedas;
 create table inmob_monedas (
 		Id int NOT NULL auto_increment,
 		Nombre varchar(200),
+		Simbolo varchar(10),
 		primary key (Id)
 ) TYPE=InnoDB;
 

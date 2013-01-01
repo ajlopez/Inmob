@@ -30,6 +30,7 @@
 
 	$rs = MonedaGetById($Id);
 	$Nombre = $rs['Nombre'];
+	$Simbolo = $rs['Simbolo'];
 
 
 	include_once($Page->Prefix.'includes/Header.inc.php');
@@ -44,6 +45,7 @@
 <?
 	TableOpen('', '', 'view');
 	FieldStaticGenerate("Nombre",$Nombre);
+	FieldStaticGenerate("Símbolo",$Simbolo);
 	TableClose();
 ?>
 
