@@ -72,3 +72,9 @@ table {
 .form {
     min-width: 500px;
 }
+
+.propitem {
+    width: 250px;
+    align: center;
+    float: left;
+}
