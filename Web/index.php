@@ -10,10 +10,24 @@
 
 	DbConnect();
 
-    $sql = "select prop.Id, prop.Nombre, prop.Domicilio, prop.IdTipo, tipo.Nombre as TipoNombre, zona.Nombre as ZonaNombre, prop.Operacion, prop.IdZona, prop.Precio, prop.Ambientes, prop.Metros, prop.IdMoneda, moneda.Simbolo, imagen.NombreArchivo, imagen.Uuid from $Cfg[SqlPrefix]propiedades as prop left join $Cfg[SqlPrefix]propiedadimagenes as imagen on prop.Id = imagen.IdPropiedad and imagen.Principal = 1 and imagen.Habilitada = 1, $Cfg[SqlPrefix]zonas as zona, $Cfg[SqlPrefix]tipospropiedad as tipo, $Cfg[SqlPrefix]monedas as moneda  where prop.Habilitada = 1 and prop.IdTipo = tipo.Id and prop.IdZona = zona.Id and prop.IdMoneda = moneda.Id";
+    $sql = "select prop.Id, prop.Nombre, prop.Domicilio, prop.IdTipo,
+                prop.Operacion, prop.IdZona, prop.Precio, prop.Ambientes,
+                prop.Metros, prop.IdMoneda,
+                tipo.Nombre as TipoNombre, zona.Nombre as ZonaNombre, 
+                moneda.Simbolo, imagen.NombreArchivo, imagen.Uuid 
+            from 
+                $Cfg[SqlPrefix]propiedades as prop 
+                    left join $Cfg[SqlPrefix]propiedadimagenes as imagen on prop.Id = imagen.IdPropiedad and imagen.Principal = 1 and imagen.Habilitada = 1,
+                $Cfg[SqlPrefix]zonas as zona,
+                $Cfg[SqlPrefix]tipospropiedad as tipo, $Cfg[SqlPrefix]monedas as moneda  
+            where 
+                prop.Habilitada = 1 and 
+                prop.IdTipo = tipo.Id and 
+                prop.IdZona = zona.Id and 
+                prop.IdMoneda = moneda.Id";
 
     if ($IdZona)
-        $sql .= " and prop.IdZona = $IdZona";
+        $sql .= " and (prop.IdZona = $IdZona or zona.IdZonaPadre = $IdZona)";
     if ($IdTipo)
         $sql .= " and prop.IdTipo = $IdTipo";
     if ($Operacion)
