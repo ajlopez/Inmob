@@ -67,7 +67,13 @@
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
 
-	FieldTextGenerate("UserName", "Código", $UserName, 30, False);
+	FieldTextGenerate("UserName", "Código", $UserName, 30, True);
+
+	if ($IsNew) {
+		FieldPasswordGenerate("Password", "Contraseña", '', 10, True);
+		FieldPasswordGenerate("Password2", "Reingrese Contraseña", '', 10, True);
+	}
+
 	FieldTextGenerate("FirstName", "Nombre", $FirstName, 30, False);
 	FieldTextGenerate("LastName", "Apellido", $LastName, 30, False);
 	FieldTextGenerate("Email", "Correo Electrónico", $Email, 30, False);

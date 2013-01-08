@@ -49,8 +49,9 @@
 
 <div class="btn-group">
 <a class="btn btn-info" href="UserList.php">Usuarios</a>
-<a class="btn btn-primary" href="UserForm.php?Id=<? echo $Id; ?>">Actualiza</a>
-<a class="btn btn-danger" href="UserDelete.php?Id=<? echo $Id; ?>">Elimina</a>
+<a class="btn btn-primary" href="UserForm.php?Id=<? echo $Id; ?>">Actualiza Datos</a>
+<a class="btn btn-primary" href="UserPasswordForm.php?Id=<? echo $Id; ?>">Cambia Contraseña</a>
+<a class="btn btn-danger" href="UserDelete.php?Id=<? echo $Id; ?>">Elimina Usuario</a>
 </div>
 
 <?
