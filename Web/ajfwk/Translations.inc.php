@@ -21,10 +21,14 @@ function TranslateDescription($table,$id,$description='DESCRIPTION',$idfld='ID')
 	return $IdDescription;
 }
 
-function TranslateQuery($table,$description='Description')
+function TranslateQuery($table,$description='Description', $where='')
 {
 	DbConnect();
-	$rs = DbExecuteQuery("select Id, $description from $table order by 2");
+    $sql = "select Id, $description from $table";
+    if ($where)
+        $sql .= " where $where";
+    $sql .= " order by 2";
+	$rs = DbExecuteQuery($sql);
 	DbDisconnect();
 	return $rs;
 }

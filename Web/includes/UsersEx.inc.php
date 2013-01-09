@@ -21,7 +21,7 @@ function InmobiliariaControl($link='') {
 function AdminInmobiliariaControl($link='') {
 	UserControl($link);
 
-	if (!UserEsAdminInmobiliaria())
+	if (!UserEsAdmInmobiliaria())
 		PageRedirect(PageMain());
 }
 
