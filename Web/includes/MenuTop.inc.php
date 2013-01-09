@@ -64,8 +64,7 @@ function MenuTopClose()
         MenuTopOpen('Datos');
 		MenuTopOption('Inmobiliaria','iadmin/InmobiliariaView.php');
 		MenuTopOption('Propiedades','iadmin/PropiedadList.php');
-		MenuTopOption('Usuarios','iadmin/UsuarioList.php');
-		MenuTopOption('Mis Datos','iadmin/UserView.php');
+		MenuTopOption('Usuarios','iadmin/UserList.php');
         MenuTopClose();
     }
     else if (UserIdentified()) {
