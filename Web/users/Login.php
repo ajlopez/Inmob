@@ -29,10 +29,6 @@ Ingrese su c&oacute;digo de usuario y su contrase&ntilde;a.
 ?>
 </form>
 
-<p>
-Si no es usuario, puede <a href="Register.php">registrarse</a> gratuitamente en l&iacute;nea.
-</p>
-
 </center>
 
 <?

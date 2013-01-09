@@ -9,11 +9,18 @@
 	include_once($Page->Prefix.'ajfwk/Errors.inc.php');
 	include_once($Page->Prefix.'ajfwk/Validations.inc.php');
 	include_once($Page->Prefix.'ajfwk/Pages.inc.php');
+	include_once($Page->Prefix.'includes/UserFunctionsEx.inc.php');
 
 	$IdInmobiliaria += 0;
 
 	if (empty($UserName))
 		ErrorAdd('Debe ingresar Código');
+
+    for ($k = 0; $k < strlen($UserName); $k++) 
+        if (!($UserName[$k] >= 'a' && $UserName[$k] <= 'z' || $UserName[$k] >= '0' && $UserName[$k] <= '9')) {
+            ErrorAdd('Sólo puede usar letras minúsculas o dígitos en Código');
+            break;
+        }
 		
 	if (empty($Id)) {
 		if (empty($Password))
@@ -36,6 +43,9 @@
 
 	DbConnect();
 	DbTransactionBegin();
+
+    if (UserGetByUserName($UserName, $Id))
+        ErrorAdd('Ya existe Usuario con ese Código');
 
 	if (ErrorHas()) {
 		DbDisconnect();

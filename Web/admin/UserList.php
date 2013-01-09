@@ -21,7 +21,7 @@
 
 	$rs = UserGetListView();
 
-	$titles = array('', 'Código', 'Nombre', 'Apellido', 'Inmobiliaria', 'Habilitado');
+	$titles = array('', 'Código', 'Nombre', 'Apellido', 'Inmobiliaria', 'Habilitado', 'Administrador de Inmobiliaria');
 
 	include_once($Page->Prefix . 'includes/Header.inc.php');
 ?>
@@ -42,6 +42,7 @@
 		$ColumnDescription = InmobiliariaTranslate($reg['IdInmobiliaria']);
 		DatumLinkGenerate($ColumnDescription, "InmobiliariaView.php?Id=".$reg['IdInmobiliaria']);
 		DatumGenerate(TranslateBoolean($reg['Habilitado'], 'S&iacute;', 'No'));
+		DatumGenerate(TranslateBoolean($reg['EsAdmInmobiliaria'], 'S&iacute;', 'No'));
 		RowClose();
 	}
 

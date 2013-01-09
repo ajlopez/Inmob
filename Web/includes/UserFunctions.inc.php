@@ -35,7 +35,7 @@ function UserGetList($where='',$order='') {
 function UserGetListView($where='',$order='') {
 	global $Cfg;
 
-	$sql = "select Id, Id, UserName, FirstName, LastName, IdInmobiliaria, Habilitado from $Cfg[SqlPrefix]users";
+	$sql = "select Id, Id, UserName, FirstName, LastName, IdInmobiliaria, Habilitado, EsAdmInmobiliaria from $Cfg[SqlPrefix]users";
 
 	if ($where)
 		$sql .= " where $where";

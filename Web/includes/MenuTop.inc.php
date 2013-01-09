@@ -1,5 +1,6 @@
 <?
 	include_once($Page->Prefix.'includes/Users.inc.php');
+	include_once($Page->Prefix.'includes/UsersEx.inc.php');
 ?>
 <div class="navbar">
 <div class="navbar-inner">
@@ -48,30 +49,46 @@ function MenuTopClose()
 <?
 	MenuTop($Cfg['SiteName'], 'index.php');
 
-	MenuTopOpen('Entidades');
-	MenuTopOption('Usuarios','admin/UserList.php');
-	MenuTopOption('Inmobiliarias','admin/InmobiliariaList.php');
-	MenuTopOption('Propiedades','admin/PropiedadList.php');
-	MenuTopOption('Imágenes de Propiedades','admin/ImagenPropiedadList.php');
-	MenuTopOption('Zonas','admin/ZonaList.php');
-	MenuTopOption('Tipos de Propiedad','admin/TipoPropiedadList.php');
-	MenuTopOption('Monedas','admin/MonedaList.php');
-	MenuTopClose();
+    if (UserIsAdministrator()) {
+        MenuTopOpen('Entidades');
+        MenuTopOption('Usuarios','admin/UserList.php');
+        MenuTopOption('Inmobiliarias','admin/InmobiliariaList.php');
+        MenuTopOption('Propiedades','admin/PropiedadList.php');
+        MenuTopOption('Imágenes de Propiedades','admin/ImagenPropiedadList.php');
+        MenuTopOption('Zonas','admin/ZonaList.php');
+        MenuTopOption('Tipos de Propiedad','admin/TipoPropiedadList.php');
+        MenuTopOption('Monedas','admin/MonedaList.php');
+        MenuTopClose();
+    }
+    else if (UserEsAdmInmobiliaria()) {
+        MenuTopOpen('Datos');
+		MenuTopOption('Inmobiliaria','iadmin/InmobiliariaView.php');
+		MenuTopOption('Propiedades','iadmin/PropiedadList.php');
+		MenuTopOption('Usuarios','iadmin/UsuarioList.php');
+		MenuTopOption('Mis Datos','iadmin/UserView.php');
+        MenuTopClose();
+    }
+    else if (UserIdentified()) {
+        MenuTopOpen('Datos');
+		MenuTopOption('Inmobiliaria','iusers/InmobiliariaView.php');
+		MenuTopOption('Propiedades','iusers/PropiedadList.php');
+        MenuTopClose();
+    }
 
 	if (UserIdentified()) {
 		MenuTopOpen(UserName());
-//		MenuTopOption('Mi Página', 'users/User.php');
-		// If (UserIsAdministrator()) {
-			// MenuTopOption('Administración','admin/index.php');
-		// }
-		MenuTopOption('Salir','users/Logout.php');
+        if (UserIdentified()) {
+            MenuTopOption('Mis Datos','iusers/UserView.php');
+        }
+		//MenuTopOption('Salir','users/Logout.php');
 		MenuTopClose();
+		MenuTop('Salir','users/Logout.php');
 	}
 	else {
-		MenuTopOpen('Usuarios');
-		MenuTopOption('Ingreso','users/Login.php');
-		MenuTopOption('Registración','users/Register.php');
-		MenuTopClose();
+		// MenuTopOpen('Usuarios');
+		MenuTop('Ingreso','users/Login.php');
+		// MenuTopOption('Registración','users/Register.php');
+		// MenuTopClose();
 	}
 ?>
 </ul>
