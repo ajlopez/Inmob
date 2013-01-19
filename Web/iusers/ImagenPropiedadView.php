@@ -49,6 +49,7 @@
 
 <div class="btn-group">
 <a class="btn btn-info" href="ImagenPropiedadList.php">Imágenes de Propiedades</a>
+<a class="btn btn-info" href="PropiedadView.php?Id=<? echo $IdPropiedad; ?>">Propiedad</a>
 <a class="btn btn-primary" href="ImagenPropiedadForm.php?Id=<? echo $Id; ?>">Actualiza</a>
 </div>
 <?

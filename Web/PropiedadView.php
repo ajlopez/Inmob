@@ -12,6 +12,7 @@
 	include_once($Page->Prefix.'ajfwk/Translations.inc.php');
 
 	include_once($Page->Prefix.'includes/Enumerations.inc.php');
+	include_once($Page->Prefix.'includes/InmobiliariaFunctions.inc.php');
 	include_once($Page->Prefix.'includes/PropiedadFunctions.inc.php');
 	include_once($Page->Prefix.'includes/MonedaFunctions.inc.php');
 	include_once($Page->Prefix.'includes/ImagenPropiedadFunctions.inc.php');
@@ -52,6 +53,8 @@
 
     $regMoneda = MonedaGetById($IdMoneda);
 
+    $inmobiliaria = InmobiliariaGetById($IdInmobiliaria);
+
     if ($Nombre)
         $Page->Title = $Nombre;
 
@@ -86,6 +89,13 @@
 </div>
 <div>
 <?= $Descripcion ?>
+</div>
+<div class="caption">Inmobiliaria</div>
+<div>
+<?= $inmobiliaria['Nombre'] ?>
+</div>
+<div>
+<?= $inmobiliaria['Contacto'] ?>
 </div>
 </div>
 <?
