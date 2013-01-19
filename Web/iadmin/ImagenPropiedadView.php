@@ -14,12 +14,12 @@
 	include_once($Page->Prefix.'ajfwk/Translations.inc.php');
 
 	include_once($Page->Prefix.'includes/Enumerations.inc.php');
+	include_once($Page->Prefix.'includes/PropiedadFunctions.inc.php');
 	include_once($Page->Prefix.'includes/ImagenPropiedadFunctions.inc.php');
 
 	DbConnect();
 	
 	SessionPut('ImagenPropiedadLink',PageCurrent());
-
 
 	if (!isset($Id))
 		PageExit();
@@ -33,6 +33,13 @@
 	$Notas = $rs['Notas'];
 	$Principal = $rs['Principal'];
 	$Habilitada = $rs['Habilitada'];
+
+    $propiedad = PropiedadGetById($IdPropiedad);
+
+    if ($propiedad) {
+        $Domicilio = $propiedad['Domicilio'];
+        $NotasPropiedad = $propiedad['Notas'];
+    }
 
 	$TranslationIdPropiedad = "<a href='PropiedadView.php?Id=".$IdPropiedad. "'>".TranslateDescription("$Cfg[SqlPrefix]propiedades",$IdPropiedad,"Nombre","Id")."</a>";
 
@@ -58,8 +65,10 @@
 	FieldStaticMemoGenerate("Descripción",$Descripcion);
 	FieldStaticGenerate("Nombre de Archivo",$NombreArchivo);
 	FieldStaticGenerate("Código Interno",$Uuid);
-	FieldStaticGenerate("Propiedad",$TranslationIdPropiedad);
-	FieldStaticMemoGenerate("Notas",$Notas);
+	FieldStaticGenerate("Propiedad", $TranslationIdPropiedad);
+	FieldStaticGenerate("Domicilio", $Domicilio);
+	FieldStaticMemoGenerate("Notas de la Propiedad", $NotasPropiedad);
+	FieldStaticMemoGenerate("Notas de la Imagen", $Notas);
 	FieldStaticGenerate("Es La Foto Principal",TranslateBoolean($Principal, 'S&iacute;', 'No'));
 	FieldStaticGenerate("Habilitada",TranslateBoolean($Habilitada, 'S&iacute;', 'No'));
 	TableClose();
