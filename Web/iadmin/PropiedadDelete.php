@@ -16,9 +16,17 @@
 	if (!isset($Id))
 		PageExit();
 
-	$sql = "delete from $Cfg[SqlPrefix]propiedades where Id = $Id";
+    $IdInmobiliaria = UserIdInmobiliaria();
 
 	DbConnect();
+
+    $propiedad = PropiedadGetById($Id);
+
+    if (!$propiedad)
+        PageExit();
+
+    if ($propiedad['IdInmobiliaria'] <> $IdInmobiliaria)
+        PageExit();
 
     $imagenes = ImagenPropiedadGetList("IdPropiedad = $Id");
 
@@ -41,7 +49,7 @@
 	$sql = "delete from $Cfg[SqlPrefix]propiedadimagenes where IdPropiedad = $Id";
 	DbExecuteUpdate($sql);
 
-	$sql = "delete from $Cfg[SqlPrefix]propiedades where Id = $Id";
+	$sql = "delete from $Cfg[SqlPrefix]propiedades where Id = $Id and IdInmobiliaria = $IdInmobiliaria";
 	DbExecuteUpdate($sql);
 
 	DbDisconnect();

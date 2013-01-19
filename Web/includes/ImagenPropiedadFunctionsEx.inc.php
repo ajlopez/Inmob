@@ -37,4 +37,9 @@ function ImagenPropiedadInmobiliariaGetListView($IdInmobiliaria, $where='',$orde
 	return DbExecuteQuery($sql);
 }
 
+function ImagenPropiedadNombreArchivo($Uuid, $NombreArchivo)
+{
+    return $Uuid . '.' . pathinfo($NombreArchivo, PATHINFO_EXTENSION);
+}
+
 ?>

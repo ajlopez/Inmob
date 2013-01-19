@@ -22,6 +22,7 @@
 	DbConnect();
 	
 	SessionPut('PropiedadLink',PageCurrent());
+	SessionPut('ImagenPropiedadLink',PageCurrent());
 
 	if (!isset($Id))
 		PageExit();
@@ -57,6 +58,7 @@
 <div class="btn-group">
 <a class="btn btn-info" href="PropiedadList.php">Propiedades</a>
 <a class="btn btn-primary" href="PropiedadForm.php?Id=<? echo $Id; ?>">Actualiza</a>
+<a class="btn btn-danger" href="PropiedadDelete.php?Id=<? echo $Id; ?>">Elimina</a>
 </div>
 
 <?

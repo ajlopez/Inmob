@@ -15,6 +15,7 @@
 
 	include_once($Page->Prefix.'includes/Enumerations.inc.php');
 	include_once($Page->Prefix.'includes/ImagenPropiedadFunctions.inc.php');
+	include_once($Page->Prefix.'includes/ImagenPropiedadFunctionsEx.inc.php');
 
 	DbConnect();
 	
@@ -58,6 +59,8 @@
 	FieldStaticMemoGenerate("Descripción",$Descripcion);
 	FieldStaticGenerate("Nombre de Archivo",$NombreArchivo);
 	FieldStaticGenerate("Código Interno",$Uuid);
+    if ($Uuid)
+        FieldStaticGenerate("Nombre Interno de Archivo", ImagenPropiedadNombreArchivo($Uuid, $NombreArchivo));
 	FieldStaticGenerate("Propiedad",$TranslationIdPropiedad);
 	FieldStaticMemoGenerate("Notas",$Notas);
 	FieldStaticGenerate("Es La Foto Principal",TranslateBoolean($Principal, 'S&iacute;', 'No'));
