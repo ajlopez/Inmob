@@ -16,6 +16,7 @@
 	include_once($Page->Prefix.'includes/PropiedadFunctions.inc.php');
 	include_once($Page->Prefix.'includes/MonedaFunctions.inc.php');
 	include_once($Page->Prefix.'includes/ImagenPropiedadFunctions.inc.php');
+	include_once($Page->Prefix.'includes/ImagenPropiedadFunctionsEx.inc.php');
 	include_once($Page->Prefix.'includes/ComentarioFunctions.inc.php');
 
 	DbConnect();
@@ -60,8 +61,8 @@
 
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
-<div class='propiedad'>
-<div class="prop1">
+
+<div class='row-fluid'>
 <div>
 <span class='proptipo'><?= $TranslationIdTipo ?></span> <span class='propoper'>en <?= $TranslationOperacion ?></span>
 </div>
@@ -79,15 +80,33 @@
     }
 ?>
 </div>
-<div class="prop2">
-<div class="caption">Descripción</div>
 <div>
 <?= $Ambientes ? $Ambientes : '' ?>
 <?= $Ambientes == 1 ? ' Ambiente. ' : ($Ambientes ? ' Ambientes. ' : ' ') ?>
 <?= $Metros ? $Metros : '' ?>
 <?= $Metros ? ' Metros Cuadrados. ' : '' ?>
 </div>
+</div>
+
+<div class='row-fluid'>
+<?
+    if ($regImagen) {
+        $Uuid = $regImagen['Uuid'];
+        $NombreArchivo = $regImagen['NombreArchivo'];
+		$archivoimagen = ImagenPropiedadNombreArchivo($Uuid, $NombreArchivo);
+?>
+<div class="propimagen">
+<a data-jkit="[lightbox:group=images]" href="<?= $Page->Prefix ?>images/photos/<?= $archivoimagen ?>">
+<img src="<?= $Page->Prefix ?>images/photos/<?= $archivoimagen ?>" border="0"/>
+<br/>
+<?= $regImagen['Nombre'] ?>
+</a>
+</div>
+<?
+    }
+?>
 <div>
+<div class="caption">Descripción</div>
 <?= $Descripcion ?>
 </div>
 <div class="caption">Inmobiliaria</div>
@@ -98,19 +117,26 @@
 <?= $inmobiliaria['Contacto'] ?>
 </div>
 </div>
+</div>
+
+<div class='row-fluid' style='clear: both'>
 <?
-    if ($regImagen) {
-        $Uuid = $regImagen['Uuid'];
-        $NombreArchivo = $regImagen['NombreArchivo'];
+	$rsImagenesPropiedad = ImagenPropiedadGetList("IdPropiedad = $Id and Habilitada <> 0 and Principal = 0");
+
+	while ($reg=DbNextRow($rsImagenesPropiedad)) {
+		$archivoimagen = ImagenPropiedadNombreArchivo($reg['Uuid'], $reg['NombreArchivo']);
 ?>
-<div class="propimagen">
-<img src="<?= $Page->Prefix ?>images/photos/<?= $Uuid . '.' . pathinfo($NombreArchivo, PATHINFO_EXTENSION)?>" border="0"/>
+<div class='galleryitem'>
+<a data-jkit="[lightbox:group=images]" href="<?= $Page->Prefix ?>images/photos/<?= $archivoimagen ?>">
+<img src="<?= $Page->Prefix ?>images/photos/<?= $archivoimagen ?>" border="0" width="200"/>
+<?= $reg['Nombre'] ?>
+</a>
 </div>
 <?
-    }
-?>
+	}
 
-<div class="prop2">
+	DbFreeResult($rsImagenesPropiedad);
+?>
 </div>
 </div>
 
@@ -118,3 +144,11 @@
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>
+<script type="text/javascript" src="<?= $Page->Prefix ?>js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="<?= $Page->Prefix ?>js/jquery.jkit.1.1.15.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('body').jKit();
+});
+</script>

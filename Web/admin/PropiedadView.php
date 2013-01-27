@@ -16,12 +16,13 @@
 	include_once($Page->Prefix.'includes/Enumerations.inc.php');
 	include_once($Page->Prefix.'includes/PropiedadFunctions.inc.php');
 	include_once($Page->Prefix.'includes/ImagenPropiedadFunctions.inc.php');
+	include_once($Page->Prefix.'includes/ImagenPropiedadFunctionsEx.inc.php');
 	include_once($Page->Prefix.'includes/ComentarioFunctions.inc.php');
 
 	DbConnect();
 	
 	SessionPut('PropiedadLink',PageCurrent());
-
+	SessionPut('ImagenPropiedadLink',PageCurrent());
 
 	if (!isset($Id))
 		PageExit();
@@ -53,6 +54,7 @@
 
 <div class="btn-group">
 <a class="btn btn-info" href="PropiedadList.php">Propiedades</a>
+<a class="btn btn-info" href="<?= $Page->Prefix ?>PropiedadView.php?Id=<? echo $Id; ?>">Ve</a>
 <a class="btn btn-primary" href="PropiedadForm.php?Id=<? echo $Id; ?>">Actualiza</a>
 <a class="btn btn-danger" href="PropiedadDelete.php?Id=<? echo $Id; ?>">Elimina</a>
 </div>
@@ -73,6 +75,24 @@
 	TableClose();
 ?>
 
+<div class='row-fluid'>
+<?
+	$rsImagenesPropiedad = ImagenPropiedadGetByPropiedad($Id);
+
+	while ($reg=DbNextRow($rsImagenesPropiedad)) {
+		$archivoimagen = ImagenPropiedadNombreArchivo($reg['Uuid'], $reg['NombreArchivo']);
+?>
+<div class='galleryitem'>
+<a href="ImagenPropiedadView.php?Id=<?= $reg['Id'] ?>">
+<img src="<?= $Page->Prefix ?>images/photos/<?= $archivoimagen ?>" border="0" width="200"/>
+</a>
+</div>
+<?
+	}
+
+	DbFreeResult($rsImagenesPropiedad);
+?>
+</div>
 
 <h2>Imágenes de Propiedades</h2>
 <div class="btn-group">

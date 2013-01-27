@@ -142,3 +142,77 @@ table {
     font-weight: bold;
     color: #606060;
 }
+
+.galleryitem {
+    width: 200px;
+    align: center;
+
+    border: 1px dotted #7F7F7F;
+    padding: 5px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+div#jkit-lightbox-bg {
+	display: none;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	z-index: 10000;
+	width: 100%;
+	height: 100%;
+	background: #000;
+}
+
+div#jkit-lightbox-content {
+	display: none;
+	position: fixed;
+	border: none;
+	left: 10%;
+	top: 100px;
+	z-index: 10001;
+	width: 80%;
+	height: 80%;
+	background: #fff;
+	padding: 10px;
+}
+
+div#jkit-lightbox-title {
+	display: none;
+	position: fixed;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	height: 20px;
+	left: 0px;
+	top: 0px;
+	z-index: 10002;
+	text-align: left;
+}
+
+div#jkit-lightbox-nav {
+	display: none;
+	position: fixed;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	height: 20px;
+	left: 0px;
+	top: 0px;
+	z-index: 10003;
+	text-align: right;
+	width: 50px;
+	cursor: pointer;
+	cursor: hand;
+}
+
+span#jkit-lightbox-nav-next {
+	margin-right: 20px;
+}
+
+span#jkit-lightbox-nav-prev {
+	margin-right: 10px;
+}
