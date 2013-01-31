@@ -28,6 +28,7 @@ create table inmob_propiedades (
 		Operacion int,
 		IdZona int,
 		IdInmobiliaria int,
+		IdAgente int,
 		Notas text,
 		Habilitada tinyint(4),
 		AceptaComentarios tinyint(4),

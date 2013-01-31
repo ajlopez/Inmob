@@ -12,7 +12,7 @@
 function PropiedadGetById($Id) {
 	global $Cfg;
 
-	$sql = "select Id, Nombre, Domicilio, Metros, Ambientes, IdTipo, Descripcion, Precio, IdMoneda, Operacion, IdZona, IdInmobiliaria, Notas, Habilitada, AceptaComentarios from $Cfg[SqlPrefix]propiedades where Id = $Id";
+	$sql = "select Id, Nombre, Domicilio, Metros, Ambientes, IdTipo, Descripcion, Precio, IdMoneda, Operacion, IdZona, IdInmobiliaria, IdAgente, Notas, Habilitada, AceptaComentarios from $Cfg[SqlPrefix]propiedades where Id = $Id";
 
 	$rs = DbExecuteQuery($sql);
 	return DbNextRow($rs);
@@ -21,7 +21,7 @@ function PropiedadGetById($Id) {
 function PropiedadGetList($where='',$order='') {
 	global $Cfg;
 
-	$sql = "select Id, Nombre, Domicilio, Metros, Ambientes, IdTipo, Descripcion, Precio, IdMoneda, Operacion, IdZona, IdInmobiliaria, Notas, Habilitada, AceptaComentarios from $Cfg[SqlPrefix]propiedades";
+	$sql = "select Id, Nombre, Domicilio, Metros, Ambientes, IdTipo, Descripcion, Precio, IdMoneda, Operacion, IdZona, IdInmobiliaria, IdAgente, Notas, Habilitada, AceptaComentarios from $Cfg[SqlPrefix]propiedades";
 
 	if ($where)
 		$sql .= " where $where";
@@ -54,7 +54,7 @@ function PropiedadGetView($where='',$order='') {
 //	function GetListBy...
 //	function GetViewBy...
 
-function PropiedadInsert($Nombre, $Domicilio, $Metros, $Ambientes, $IdTipo, $Descripcion, $Precio, $IdMoneda, $Operacion, $IdZona, $IdInmobiliaria, $Notas, $Habilitada, $AceptaComentarios) {
+function PropiedadInsert($Nombre, $Domicilio, $Metros, $Ambientes, $IdTipo, $Descripcion, $Precio, $IdMoneda, $Operacion, $IdZona, $IdInmobiliaria, $IdAgente, $Notas, $Habilitada, $AceptaComentarios) {
 	global $Cfg;
 
 	$sql = "insert $Cfg[SqlPrefix]propiedades set
@@ -69,6 +69,7 @@ function PropiedadInsert($Nombre, $Domicilio, $Metros, $Ambientes, $IdTipo, $Des
 		Operacion = '$Operacion',
 		IdZona = $IdZona,
 		IdInmobiliaria = $IdInmobiliaria,
+		IdAgente = $IdAgente,
 		Notas = '$Notas',
 		Habilitada = '$Habilitada',
 		AceptaComentarios = '$AceptaComentarios'";
@@ -78,7 +79,7 @@ function PropiedadInsert($Nombre, $Domicilio, $Metros, $Ambientes, $IdTipo, $Des
 	return DbLastId();
 }
 
-function PropiedadUpdate($Id, $Nombre, $Domicilio, $Metros, $Ambientes, $IdTipo, $Descripcion, $Precio, $IdMoneda, $Operacion, $IdZona, $IdInmobiliaria, $Notas, $Habilitada, $AceptaComentarios) {
+function PropiedadUpdate($Id, $Nombre, $Domicilio, $Metros, $Ambientes, $IdTipo, $Descripcion, $Precio, $IdMoneda, $Operacion, $IdZona, $IdInmobiliaria, $IdAgente, $Notas, $Habilitada, $AceptaComentarios) {
 	global $Cfg;
 
 	$sql = "update $Cfg[SqlPrefix]propiedades set
@@ -93,6 +94,7 @@ function PropiedadUpdate($Id, $Nombre, $Domicilio, $Metros, $Ambientes, $IdTipo,
 		Operacion = '$Operacion',
 		IdZona = $IdZona,
 		IdInmobiliaria = $IdInmobiliaria,
+		IdAgente = $IdAgente,
 		Notas = '$Notas',
 		Habilitada = '$Habilitada',
 		AceptaComentarios = '$AceptaComentarios' where Id = $Id";
@@ -136,6 +138,10 @@ function PropiedadGetByZona($IdZona) {
 
 function PropiedadGetByInmobiliaria($IdInmobiliaria) {
 	return PropiedadGetList("IdInmobiliaria = $IdInmobiliaria");
+}
+
+function PropiedadGetByAgente($IdAgente) {
+	return PropiedadGetList("IdAgente = $IdAgente");
 }
 
 ?>

@@ -94,6 +94,13 @@
 			<Reference>Inmobiliaria</Reference>
             <Required>True</Required>
 		</Property>
+        
+		<Property>
+			<Name>IdAgente</Name>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>Agente</Reference>
+		</Property>
 
 		<Property>
 			<Name>Notas</Name>
