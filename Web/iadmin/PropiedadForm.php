@@ -61,6 +61,7 @@
 	$rsIdTipo = TranslateQuery("$Cfg[SqlPrefix]tipospropiedad","Nombre as Nombre");
 	$rsIdMoneda = TranslateQuery("$Cfg[SqlPrefix]monedas","Nombre as Nombre");
 	$rsIdZona = TranslateQuery("$Cfg[SqlPrefix]zonas","Nombre as Nombre");
+	$rsIdAgente = TranslateQuery("$Cfg[SqlPrefix]agentes","Nombre as Nombre");
 
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
