@@ -21,12 +21,19 @@
 	if (empty($IdZona))
 		ErrorAdd('Debe ingresar Zona');
 	$Metros += 0;
+	$Lote += 0;
 	$Ambientes += 0;
+	$Dormitorios += 0;
+	$Banios += 0;
+	$Toilettes += 0;
+	$Plantas += 0;
 	$IdTipo += 0;
 	$Precio += 0;
 	$IdMoneda += 0;
 	$Operacion += 0;
 	$IdZona += 0;
+	$IdAgente += 0;
+	
 	$IdInmobiliaria = UserIdInmobiliaria();
 
 	DbConnect();
@@ -47,7 +54,12 @@
 		Nombre = '$Nombre' , 
 		Domicilio = '$Domicilio' , 
 		Metros = '$Metros' , 
+		Lote = '$Lote' , 
 		Ambientes = '$Ambientes' , 
+		Dormitorios = '$Dormitorios' , 
+		Banios = '$Banios' , 
+		Toilettes = '$Toilettes' , 
+		Plantas = '$Plantas' , 
 		IdTipo = $IdTipo , 
 		Descripcion = '$Descripcion' , 
 		Precio = '$Precio' , 
@@ -55,6 +67,7 @@
 		Operacion = '$Operacion' , 
 		IdZona = $IdZona , 
 		IdInmobiliaria = $IdInmobiliaria , 
+		IdAgente = $IdAgente , 
 		Notas = '$Notas' , 
 		Habilitada = '$Habilitada' , 
 		AceptaComentarios = '$AceptaComentarios' 		";
@@ -67,7 +80,7 @@
 	}
 
 	if (!empty($Id))
-		$sql .= " where Id=$Id";
+		$sql .= " where Id=$Id and IdInmobiliaria=$IdInmobiliaria";
 
 	DbExecuteUpdate($sql);
     

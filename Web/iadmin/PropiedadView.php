@@ -32,7 +32,12 @@
 	$Nombre = $rs['Nombre'];
 	$Domicilio = $rs['Domicilio'];
 	$Metros = $rs['Metros'];
+	$Lote = $rs['Lote'];
 	$Ambientes = $rs['Ambientes'];
+	$Dormitorios = $rs['Dormitorios'];
+	$Banios = $rs['Banios'];
+	$Toilettes = $rs['Toilettes'];
+	$Plantas = $rs['Plantas'];
 	$IdTipo = $rs['IdTipo'];
 	$Descripcion = $rs['Descripcion'];
 	$Precio = $rs['Precio'];
@@ -40,6 +45,7 @@
 	$Operacion = $rs['Operacion'];
 	$IdZona = $rs['IdZona'];
 	$IdInmobiliaria = $rs['IdInmobiliaria'];
+	$IdAgente = $rs['IdAgente'];
 	$Notas = $rs['Notas'];
 	$Habilitada = $rs['Habilitada'];
 	$AceptaComentarios = $rs['AceptaComentarios'];
@@ -51,6 +57,7 @@
 	$TranslationIdMoneda = TranslateDescription("$Cfg[SqlPrefix]monedas",$IdMoneda,"Nombre","Id");
 	$TranslationIdZona = TranslateDescription("$Cfg[SqlPrefix]zonas",$IdZona,"Nombre","Id");
 	$TranslationIdInmobiliaria = TranslateDescription("$Cfg[SqlPrefix]inmobiliarias",$IdInmobiliaria,"Nombre","Id");
+	$TranslationIdAgente = "<a href='AgenteView.php?Id=".$IdAgente. "'>".TranslateDescription("$Cfg[SqlPrefix]agentes",$IdAgente,"Nombre","Id")."</a>";
 	$TranslationOperacion = TranslateEnumeration($EnumOperacion,$Operacion);
 
 	include_once($Page->Prefix.'includes/Header.inc.php');
@@ -69,13 +76,22 @@
 	FieldStaticGenerate("Domicilio",$Domicilio);
 	FieldStaticGenerate("Tipo de Propiedad",$TranslationIdTipo);
 	FieldStaticMemoGenerate("Descripción",$Descripcion);
+	FieldStaticGenerate("Precio",$Precio);
 	FieldStaticGenerate("Moneda",$TranslationIdMoneda);
 	FieldStaticGenerate("Operacion",$TranslationOperacion);
 	FieldStaticGenerate("Zona",$TranslationIdZona);
 	FieldStaticGenerate("Inmobiliaria",$TranslationIdInmobiliaria);
+	FieldStaticGenerate("Agente",$TranslationIdAgente);
 	FieldStaticMemoGenerate("Notas",$Notas);
 	FieldStaticGenerate("Habilitada",TranslateBoolean($Habilitada, 'S&iacute;', 'No'));
 	FieldStaticGenerate("Acepta Comentarios",TranslateBoolean($AceptaComentarios, 'S&iacute;', 'No'));
+	FieldStaticGenerate("Ambientes",$Ambientes);
+	FieldStaticGenerate("Dormitorios",$Dormitorios);
+	FieldStaticGenerate("Baños",$Banios);
+	FieldStaticGenerate("Toilettes",$Toilettes);
+	FieldStaticGenerate("Plantas",$Plantas);
+	FieldStaticGenerate("Metros Cuadrados",$Metros);
+	FieldStaticGenerate("Metros Cuadrados de Lote",$Lote);
 	TableClose();
 ?>
 
