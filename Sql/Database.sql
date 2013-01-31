@@ -196,3 +196,24 @@ create table inmob_eventos (
 		primary key (Id)
 ) TYPE=InnoDB;
 
+
+--
+--		Entity:		Agente
+--		Description:	Agente
+--
+
+
+drop table if exists inmob_agentes;
+
+
+create table inmob_agentes (
+		Id int NOT NULL auto_increment,
+		Nombre varchar(200),
+		Contacto text,
+		Notas text,
+		NombreArchivo varchar(200),
+		Uuid varchar(200),
+		IdInmobiliaria int,
+		primary key (Id)
+) TYPE=InnoDB;
+

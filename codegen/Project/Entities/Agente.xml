@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<Entity>
+	<Name>Agente</Name>
+	<Description>Agente</Description>
+	<SetName>Agentes</SetName>
+	<Descriptor>Agente</Descriptor>
+	<SetDescriptor>Agentes</SetDescriptor>
+	<SqlTable>agentes</SqlTable>
+	
+	<Properties>
+		<Property>
+			<Name>Id</Name>
+			<Type>Id</Type>
+		</Property>
+
+		<Property>
+			<Name>Nombre</Name>
+			<Description>Nombre</Description>
+			<Type>Text</Type>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Contacto</Name>
+			<Description>Datos de Contacto</Description>
+			<Type>Memo</Type>
+			<SqlType>text</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Notas</Name>
+			<Type>Memo</Type>
+			<SqlType>text</SqlType>
+		</Property>
+
+		<Property>
+			<Name>NombreArchivo</Name>
+			<Description>Nombre de Archivo</Description>
+			<Type>Text</Type>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Uuid</Name>
+			<Description>Código Interno</Description>
+			<Type>Text</Type>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>IdInmobiliaria</Name>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>Inmobiliaria</Reference>
+		</Property>
+	</Properties>
+</Entity>
