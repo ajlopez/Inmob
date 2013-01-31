@@ -35,8 +35,43 @@
 		</Property>
 
 		<Property>
+			<Name>Lote</Name>
+			<Description>Metros Cuadrados Lote</Description>
+			<Type>Integer</Type>
+			<SqlType>int</SqlType>
+		</Property>
+
+		<Property>
 			<Name>Ambientes</Name>
 			<Description>Ambientes</Description>
+			<Type>Integer</Type>
+			<SqlType>int</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Dormitorios</Name>
+			<Description>Dormitorios</Description>
+			<Type>Integer</Type>
+			<SqlType>int</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Banios</Name>
+			<Description>Baños</Description>
+			<Type>Integer</Type>
+			<SqlType>int</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Toilettes</Name>
+			<Description>Toilettes</Description>
+			<Type>Integer</Type>
+			<SqlType>int</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Plantas</Name>
+			<Description>Plantas</Description>
 			<Type>Integer</Type>
 			<SqlType>int</SqlType>
 		</Property>

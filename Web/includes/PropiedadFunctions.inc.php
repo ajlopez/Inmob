@@ -12,7 +12,7 @@
 function PropiedadGetById($Id) {
 	global $Cfg;
 
-	$sql = "select Id, Nombre, Domicilio, Metros, Ambientes, IdTipo, Descripcion, Precio, IdMoneda, Operacion, IdZona, IdInmobiliaria, IdAgente, Notas, Habilitada, AceptaComentarios from $Cfg[SqlPrefix]propiedades where Id = $Id";
+	$sql = "select Id, Nombre, Domicilio, Metros, Lote, Ambientes, Dormitorios, Banios, Toilettes, Plantas, IdTipo, Descripcion, Precio, IdMoneda, Operacion, IdZona, IdInmobiliaria, IdAgente, Notas, Habilitada, AceptaComentarios from $Cfg[SqlPrefix]propiedades where Id = $Id";
 
 	$rs = DbExecuteQuery($sql);
 	return DbNextRow($rs);
@@ -21,7 +21,7 @@ function PropiedadGetById($Id) {
 function PropiedadGetList($where='',$order='') {
 	global $Cfg;
 
-	$sql = "select Id, Nombre, Domicilio, Metros, Ambientes, IdTipo, Descripcion, Precio, IdMoneda, Operacion, IdZona, IdInmobiliaria, IdAgente, Notas, Habilitada, AceptaComentarios from $Cfg[SqlPrefix]propiedades";
+	$sql = "select Id, Nombre, Domicilio, Metros, Lote, Ambientes, Dormitorios, Banios, Toilettes, Plantas, IdTipo, Descripcion, Precio, IdMoneda, Operacion, IdZona, IdInmobiliaria, IdAgente, Notas, Habilitada, AceptaComentarios from $Cfg[SqlPrefix]propiedades";
 
 	if ($where)
 		$sql .= " where $where";
@@ -54,14 +54,19 @@ function PropiedadGetView($where='',$order='') {
 //	function GetListBy...
 //	function GetViewBy...
 
-function PropiedadInsert($Nombre, $Domicilio, $Metros, $Ambientes, $IdTipo, $Descripcion, $Precio, $IdMoneda, $Operacion, $IdZona, $IdInmobiliaria, $IdAgente, $Notas, $Habilitada, $AceptaComentarios) {
+function PropiedadInsert($Nombre, $Domicilio, $Metros, $Lote, $Ambientes, $Dormitorios, $Banios, $Toilettes, $Plantas, $IdTipo, $Descripcion, $Precio, $IdMoneda, $Operacion, $IdZona, $IdInmobiliaria, $IdAgente, $Notas, $Habilitada, $AceptaComentarios) {
 	global $Cfg;
 
 	$sql = "insert $Cfg[SqlPrefix]propiedades set
 		Nombre = '$Nombre',
 		Domicilio = '$Domicilio',
 		Metros = '$Metros',
+		Lote = '$Lote',
 		Ambientes = '$Ambientes',
+		Dormitorios = '$Dormitorios',
+		Banios = '$Banios',
+		Toilettes = '$Toilettes',
+		Plantas = '$Plantas',
 		IdTipo = $IdTipo,
 		Descripcion = '$Descripcion',
 		Precio = '$Precio',
@@ -79,14 +84,19 @@ function PropiedadInsert($Nombre, $Domicilio, $Metros, $Ambientes, $IdTipo, $Des
 	return DbLastId();
 }
 
-function PropiedadUpdate($Id, $Nombre, $Domicilio, $Metros, $Ambientes, $IdTipo, $Descripcion, $Precio, $IdMoneda, $Operacion, $IdZona, $IdInmobiliaria, $IdAgente, $Notas, $Habilitada, $AceptaComentarios) {
+function PropiedadUpdate($Id, $Nombre, $Domicilio, $Metros, $Lote, $Ambientes, $Dormitorios, $Banios, $Toilettes, $Plantas, $IdTipo, $Descripcion, $Precio, $IdMoneda, $Operacion, $IdZona, $IdInmobiliaria, $IdAgente, $Notas, $Habilitada, $AceptaComentarios) {
 	global $Cfg;
 
 	$sql = "update $Cfg[SqlPrefix]propiedades set
 		Nombre = '$Nombre',
 		Domicilio = '$Domicilio',
 		Metros = '$Metros',
+		Lote = '$Lote',
 		Ambientes = '$Ambientes',
+		Dormitorios = '$Dormitorios',
+		Banios = '$Banios',
+		Toilettes = '$Toilettes',
+		Plantas = '$Plantas',
 		IdTipo = $IdTipo,
 		Descripcion = '$Descripcion',
 		Precio = '$Precio',
