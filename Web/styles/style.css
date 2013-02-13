@@ -145,6 +145,7 @@ table {
 
 .galleryitem {
     width: 200px;
+	height: 180px;
     align: center;
 
     border: 1px dotted #7F7F7F;

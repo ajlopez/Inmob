@@ -126,9 +126,9 @@
 	while ($reg=DbNextRow($rsImagenesPropiedad)) {
 		$archivoimagen = ImagenPropiedadNombreArchivo($reg['Uuid'], $reg['NombreArchivo']);
 ?>
-<div class='galleryitem'>
+<div class='galleryitem' style=>
 <a data-jkit="[lightbox:group=images]" href="<?= $Page->Prefix ?>images/photos/<?= $archivoimagen ?>">
-<img src="<?= $Page->Prefix ?>images/photos/<?= $archivoimagen ?>" border="0" width="200"/>
+<div style="width:200px;height:140px;border:1px solid #000;background-position:left top;background-image:url('<?= $Page->Prefix ?>images/photos/<?= $archivoimagen ?>');background-size:100%;"></div>
 <?= $reg['Nombre'] ?>
 </a>
 </div>
