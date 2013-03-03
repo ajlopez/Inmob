@@ -7,6 +7,7 @@
 	include_once($Page->Prefix.'ajfwk/PostParameters.inc.php');
 	
 	include_once($Page->Prefix.'includes/Users.inc.php');
+	include_once($Page->Prefix.'includes/EventoFunctionsEx.inc.php');
 
 	if (empty($UserName))
 		ErrorAdd('Debe ingresar Código');
@@ -42,6 +43,8 @@
 	}
 
 	UserLogin($user);
+	
+	EventoWrite('LIN');
 
 	DbDisconnect();
 

@@ -7,8 +7,11 @@
 	include_once($Page->Prefix.'ajfwk/Forms.inc.php');
 	include_once($Page->Prefix.'ajfwk/PostParameters.inc.php');
 	include_once($Page->Prefix.'includes/Enumerations.inc.php');
+	include_once($Page->Prefix.'includes/EventoFunctionsEx.inc.php');
 
 	DbConnect();
+	
+	EventoWrite('HOME');
 
     $sql = "select prop.Id, prop.Nombre, prop.Domicilio, prop.IdTipo,
                 prop.Operacion, prop.IdZona, prop.Precio, prop.Ambientes,

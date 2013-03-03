@@ -58,6 +58,7 @@ function MenuTopClose()
         MenuTopOption('Zonas','admin/ZonaList.php');
         MenuTopOption('Tipos de Propiedad','admin/TipoPropiedadList.php');
         MenuTopOption('Monedas','admin/MonedaList.php');
+        MenuTopOption('Eventos','admin/EventoList.php');
         MenuTopClose();
     }
     else if (UserEsAdmInmobiliaria()) {

@@ -18,6 +18,7 @@
 	include_once($Page->Prefix.'includes/ImagenPropiedadFunctions.inc.php');
 	include_once($Page->Prefix.'includes/ImagenPropiedadFunctionsEx.inc.php');
 	include_once($Page->Prefix.'includes/ComentarioFunctions.inc.php');
+	include_once($Page->Prefix.'includes/EventoFunctionsEx.inc.php');
 
 	DbConnect();
 	
@@ -25,6 +26,8 @@
 
 	if (!isset($Id))
 		PageExit();
+
+	EventoWrite('VIEW', $Id);
 
 	$rs = PropiedadGetById($Id);
 	$Nombre = $rs['Nombre'];
