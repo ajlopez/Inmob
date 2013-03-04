@@ -14,6 +14,7 @@
 	include_once($Page->Prefix . 'includes/Enumerations.inc.php');
 	include_once($Page->Prefix . 'includes/EventoFunctions.inc.php');
 	include_once($Page->Prefix . 'includes/UserFunctions.inc.php');
+	include_once($Page->Prefix . 'includes/PropiedadFunctions.inc.php');
 	include_once($Page->Prefix . 'includes/InmobiliariaFunctions.inc.php');
 
 	SessionPut('EventoLink',PageCurrent());
@@ -34,8 +35,17 @@
 		RowOpen();
 		DatumGenerate($reg['Id']);
 		DatumGenerate($reg['Tipo']);
-		DatumGenerate($reg['IdParametro']);
-		DatumGenerate($reg['IdUsuario']);
+		
+		if ($reg['IdParametro'] && $reg['Tipo'] == 'VIEW')
+			DatumLinkGenerate(PropiedadTranslate($reg['IdParametro']), "PropiedadView.php?Id=".$reg['IdParametro']);
+		else
+			DatumGenerate($reg['IdParametro']);
+
+		if ($reg['IdUsuario'])
+			DatumLinkGenerate(UserTranslate($reg['IdUsuario']), "UserView.php?Id=".$reg['IdUsuario']);
+		else
+			DatumGenerate('');
+			
 		DatumGenerate($reg['FechaHora']);
 		RowClose();
 	}
