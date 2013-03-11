@@ -8,6 +8,7 @@
 
 	include_once($Page->Prefix.'ajfwk/Translations.inc.php');
 	include_once($Page->Prefix . 'ajfwk/Database.inc.php');
+	include_once($Page->Prefix.'includes/Enumerations.inc.php');
 
 	DbConnect();
 
