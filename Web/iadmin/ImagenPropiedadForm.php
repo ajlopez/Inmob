@@ -69,7 +69,7 @@
 	FieldMemoGenerate("Descripcion", "Descripción", $Descripcion, 10, 30, False);
 	FieldFileGenerate("Archivo", "Archivo");
 	FieldComboRsGenerate("IdPropiedad", "Propiedad", $rsIdPropiedad, $IdPropiedad,"Id","Nombre", False, true);
-	FieldMemoGenerate("Notas", "Notas", $Notas, 10, 30, False);
+	FieldMemoGenerate("Notas", "Notas (uso interno)", $Notas, 10, 30, False);
 	FieldCheckGenerate("Principal", "Es La Foto Principal", $Principal, False);
 	FieldCheckGenerate("Habilitada", "Habilitada", $Habilitada, False);
 

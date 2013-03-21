@@ -54,7 +54,7 @@
 	FieldStaticGenerate("Domicilio",$Domicilio);
 	FieldStaticMemoGenerate("Descripción",$Descripcion);
 	FieldStaticMemoGenerate("Datos de Contacto",$Contacto);
-	FieldStaticMemoGenerate("Notas",$Notas);
+	FieldStaticMemoGenerate("Notas (uso interno)",$Notas);
 	FieldStaticGenerate("Sucursal de",$TranslationIdInmobiliaria);
 	FieldStaticGenerate("Habilitada",TranslateBoolean($Habilitada, 'S&iacute;', 'No'));
 	TableClose();

@@ -78,7 +78,7 @@
 	FieldStaticGenerate("Zona",$TranslationIdZona);
 	FieldStaticGenerate("Inmobiliaria",$TranslationIdInmobiliaria);
 	FieldStaticGenerate("Agente",$TranslationIdAgente);
-	FieldStaticMemoGenerate("Notas",$Notas);
+	FieldStaticMemoGenerate("Notas (uso interno)",$Notas);
 	FieldStaticGenerate("Habilitada",TranslateBoolean($Habilitada, 'S&iacute;', 'No'));
 	FieldStaticGenerate("Acepta Comentarios",TranslateBoolean($AceptaComentarios, 'S&iacute;', 'No'));
 	FieldStaticGenerate("Ambientes",$Ambientes);

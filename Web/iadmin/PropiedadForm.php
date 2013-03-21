@@ -105,7 +105,7 @@
 	FieldComboHashGenerate("Operacion", "Operacion", $EnumOperacion, $Operacion, False, True);
 	FieldComboRsGenerate("IdZona", "Zona", $rsIdZona, $IdZona,"Id","Nombre", False, True);
 	FieldComboRsGenerate("IdAgente", "Agente", $rsIdAgente, $IdAgente,"Id","Nombre", True, False);
-	FieldMemoGenerate("Notas", "Notas", $Notas, 10, 30, False);
+	FieldMemoGenerate("Notas", "Notas (Uso Interno)", $Notas, 10, 30, False);
 	FieldCheckGenerate("Habilitada", "Habilitada", $Habilitada, False);
 	FieldCheckGenerate("AceptaComentarios", "Acepta Comentarios", $AceptaComentarios, False);
 

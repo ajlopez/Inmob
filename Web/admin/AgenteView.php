@@ -47,7 +47,7 @@
 	TableOpen('', '', 'view');
 	FieldStaticGenerate("Nombre",$Nombre);
 	FieldStaticMemoGenerate("Datos de Contacto",$Contacto);
-	FieldStaticMemoGenerate("Notas",$Notas);
+	FieldStaticMemoGenerate("Notas (uso interno)",$Notas);
 	FieldStaticGenerate("Nombre de Archivo",$NombreArchivo);
 	FieldStaticGenerate("Código Interno",$Uuid);
 	FieldStaticGenerate("Inmobiliaria",$TranslationIdInmobiliaria);

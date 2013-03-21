@@ -77,7 +77,7 @@
 	FieldTextGenerate("Email", "Correo Electrónico", $Email, 30, False);
 	FieldTextGenerate("Genre", "Género", $Genre, 30, False);
 	FieldCheckGenerate("Habilitado", "Habilitado", $Habilitado, False);
-	FieldMemoGenerate("Notas", "Notas", $Notas, 10, 30, False);
+	FieldMemoGenerate("Notas", "Notas (Uso Interno)", $Notas, 10, 30, False);
 	FieldCheckGenerate("EsAdmInmobiliaria", "Es Administrador de Inmobiliaria", $EsAdmInmobiliaria, False);
 
 	FieldOkGenerate();

@@ -72,8 +72,8 @@
         FieldStaticGenerate("Nombre Interno de Archivo", ImagenPropiedadNombreArchivo($Uuid, $NombreArchivo));
 	FieldStaticGenerate("Propiedad",$TranslationIdPropiedad);
 	FieldStaticGenerate("Domicilio", $Domicilio);
-	FieldStaticMemoGenerate("Notas de la Propiedad", $NotasPropiedad);
-	FieldStaticMemoGenerate("Notas de la Imagen",$Notas);
+	FieldStaticMemoGenerate("Notas de la Propiedad (uso interno)", $NotasPropiedad);
+	FieldStaticMemoGenerate("Notas de la Imagen (uso interno)",$Notas);
 	FieldStaticGenerate("Es La Foto Principal",TranslateBoolean($Principal, 'S&iacute;', 'No'));
 	FieldStaticGenerate("Habilitada",TranslateBoolean($Habilitada, 'S&iacute;', 'No'));
 	TableClose();

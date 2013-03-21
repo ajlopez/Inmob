@@ -65,7 +65,7 @@
 
 	FieldTextGenerate("Nombre", "Nombre", $Nombre, 30, False);
 	FieldMemoGenerate("Contacto", "Datos de Contacto", $Contacto, 10, 30, False);
-	FieldMemoGenerate("Notas", "Notas", $Notas, 10, 30, False);
+	FieldMemoGenerate("Notas", "Notas (uso interno)", $Notas, 10, 30, False);
 	FieldTextGenerate("NombreArchivo", "Nombre de Archivo", $NombreArchivo, 30, False);
 	FieldTextGenerate("Uuid", "Código Interno", $Uuid, 30, False);
 	FieldComboRsGenerate("IdInmobiliaria", "Inmobiliaria", $rsIdInmobiliaria, $IdInmobiliaria,"Id","Nombre", True, False);

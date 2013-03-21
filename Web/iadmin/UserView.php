@@ -64,7 +64,7 @@
 	FieldStaticGenerate("Correo Electrónico",$Email);
 	FieldStaticGenerate("Género",$Genre);
 	FieldStaticGenerate("Habilitado",TranslateBoolean($Habilitado, 'S&iacute;', 'No'));
-	FieldStaticMemoGenerate("Notas",$Notas);
+	FieldStaticMemoGenerate("Notas (uso interno)",$Notas);
 	FieldStaticGenerate("Inmobiliaria",$TranslationIdInmobiliaria);
 	FieldStaticGenerate("Es Administrador de Inmobiliaria",TranslateBoolean($EsAdmInmobiliaria, 'S&iacute;', 'No'));
 	TableClose();

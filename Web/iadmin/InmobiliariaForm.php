@@ -55,7 +55,7 @@
 	FieldTextGenerate("Domicilio", "Domicilio", $Domicilio, 30, False);
 	FieldMemoGenerate("Descripcion", "Descripción", $Descripcion, 10, 30, False);
 	FieldMemoGenerate("Contacto", "Datos de Contacto", $Contacto, 10, 30, False);
-	FieldMemoGenerate("Notas", "Notas", $Notas, 10, 30, False);
+	FieldMemoGenerate("Notas", "Notas (uso interno)", $Notas, 10, 30, False);
 
 	FieldOkGenerate();
 	TableClose();

@@ -102,10 +102,10 @@
 	FieldMemoGenerate("Descripcion", "Descripción", $Descripcion, 10, 30, False);
 	FieldTextGenerate("Precio", "Precio", $Precio, 30, False);
 	FieldComboRsGenerate("IdMoneda", "Moneda", $rsIdMoneda, $IdMoneda,"Id","Nombre", False, True);
-	FieldComboHashGenerate("Operacion", "Operacion", $EnumOperacion, $Operacion, False, True);
+	FieldComboHashGenerate("Operacion", "Operación", $EnumOperacion, $Operacion, False, True);
 	FieldComboRsGenerate("IdZona", "Zona", $rsIdZona, $IdZona,"Id","Nombre", False, True);
 	FieldComboRsGenerate("IdAgente", "Agente", $rsIdAgente, $IdAgente,"Id","Nombre", True, False);
-	FieldMemoGenerate("Notas", "Notas", $Notas, 10, 30, False);
+	FieldMemoGenerate("Notas", "Notas (uso interno)", $Notas, 10, 30, False);
 	FieldCheckGenerate("Habilitada", "Habilitada", $Habilitada, False);
 	FieldCheckGenerate("AceptaComentarios", "Acepta Comentarios", $AceptaComentarios, False);
 

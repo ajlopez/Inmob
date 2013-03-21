@@ -80,7 +80,7 @@
 	FieldTextGenerate("Genre", "Género", $Genre, 30, False);
 	FieldCheckGenerate("IsAdministrator", "Es Administrador", $IsAdministrator, False);
 	FieldCheckGenerate("Habilitado", "Habilitado", $Habilitado, False);
-	FieldMemoGenerate("Notas", "Notas", $Notas, 10, 30, False);
+	FieldMemoGenerate("Notas", "Notas (uso interno)", $Notas, 10, 30, False);
 	FieldComboRsGenerate("IdInmobiliaria", "Inmobiliaria", $rsIdInmobiliaria, $IdInmobiliaria,"Id","Nombre", True, False);
 	FieldCheckGenerate("EsAdmInmobiliaria", "Es Administrador de Inmobiliaria", $EsAdmInmobiliaria, False);
 
