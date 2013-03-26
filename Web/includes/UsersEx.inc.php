@@ -8,6 +8,8 @@ function UserIdInmobiliaria() {
 
 function UserEsAdmInmobiliaria() {
 	$User = UserCurrent();
+	if (!UserIdInmobiliaria())
+		return false;
 	return($User->EsAdmInmobiliaria);
 }
 

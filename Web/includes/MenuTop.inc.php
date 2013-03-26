@@ -68,7 +68,7 @@ function MenuTopClose()
 		MenuTopOption('Usuarios','iadmin/UserList.php');
         MenuTopClose();
     }
-    else if (UserIdentified()) {
+    else if (UserIdentified() && UserIdInmobiliaria()) {
         MenuTopOpen('Datos');
 		MenuTopOption('Inmobiliaria','iusers/InmobiliariaView.php');
 		MenuTopOption('Propiedades','iusers/PropiedadList.php');
@@ -76,12 +76,11 @@ function MenuTopClose()
     }
 
 	if (UserIdentified()) {
-		MenuTopOpen(UserName());
-        if (UserIdentified()) {
-            MenuTopOption('Mis Datos','iusers/UserView.php');
-        }
-		//MenuTopOption('Salir','users/Logout.php');
-		MenuTopClose();
+		if (UserIdInmobiliaria()) {
+			MenuTopOpen(UserName());
+			MenuTopOption('Mis Datos','iusers/UserView.php');
+			MenuTopClose();
+		}
 		MenuTop('Salir','users/Logout.php');
 	}
 	else {
