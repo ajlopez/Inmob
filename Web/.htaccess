@@ -1,0 +1,2 @@
+php_value short_open_tag On
+php_value error_reporting 22517

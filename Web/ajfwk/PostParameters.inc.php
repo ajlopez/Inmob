@@ -1,4 +1,4 @@
 <?
-	foreach ($HTTP_POST_VARS as $name => $value)
+	foreach ($_POST as $name => $value)
 		$$name = $value;
 ?>

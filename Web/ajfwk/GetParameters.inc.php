@@ -1,4 +1,4 @@
 <?
-	foreach ($HTTP_GET_VARS as $name => $value)
+	foreach ($_GET as $name => $value)
 		$$name = $value;
 ?>
