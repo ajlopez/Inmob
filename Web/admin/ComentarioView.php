@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Comentario';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -37,11 +39,11 @@
 
 <div class="btn-group">
 <a class="btn btn-info" href="ComentarioList.php">Comentarios</a>
-<a class="btn btn-primary" href="ComentarioForm.php?Id=<? echo $Id; ?>">Actualiza</a>
-<a class="btn btn-danger" href="ComentarioDelete.php?Id=<? echo $Id; ?>">Elimina</a>
+<a class="btn btn-primary" href="ComentarioForm.php?Id=<?php echo $Id; ?>">Actualiza</a>
+<a class="btn btn-danger" href="ComentarioDelete.php?Id=<?php echo $Id; ?>">Elimina</a>
 </div>
 
-<?
+<?php
 	TableOpen('', '', 'view');
 	FieldStaticMemoGenerate("Texto",$Texto);
 	FieldStaticGenerate("Propiedad",$TranslationIdPropiedad);
@@ -51,7 +53,7 @@
 
 
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>
