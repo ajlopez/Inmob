@@ -1,4 +1,5 @@
-<?
+<?php
+    include_once('./Configuration.inc.php');
 	$Page->Title = 'Propiedades';
 	include_once('./Security.inc.php');
 	include_once($Page->Prefix.'includes/Header.inc.php');
@@ -51,7 +52,7 @@ Operación <? ComboHashGenerate('Operacion', $EnumOperacion, $Operacion, true); ?
 <input class='btn btn-primary' type='submit' name='Ok' value='Buscar'>
 </form>
 </div>
-<?
+<?php
 	while ($reg=DbNextRow($rs)) {
         $TranslationOperacion = TranslateEnumeration($EnumOperacion,$reg['Operacion']);
 ?>
@@ -61,7 +62,7 @@ Operación <? ComboHashGenerate('Operacion', $EnumOperacion, $Operacion, true); ?
 <div>
 <span class='proptipo'><?= $reg['TipoNombre'] ?></span> <span class='propoper'>en <?= $TranslationOperacion ?></span>
 </div>
-<?
+<?php
     if ($reg['Uuid']) {
 ?>
 <div class='propimagen'>
@@ -69,40 +70,40 @@ Operación <? ComboHashGenerate('Operacion', $EnumOperacion, $Operacion, true); ?
 <img src="<?= $Page->Prefix ?>images/photos/<?= $reg['Uuid'] . '.' . pathinfo($reg['NombreArchivo'], PATHINFO_EXTENSION)?>" border="0" width="200"/>
 </a>
 </div>
-<?
+<?php
     }
 ?>
 <div class='propzona'><?= $reg['ZonaNombre'] ?></div>
 <div>
-<?
+<?php
     if ($reg['Precio']) {
 ?>
 <?= $reg['Simbolo'] ?> <?= $reg['Precio'] ?>.
-<?
+<?php
     }
 ?>
-<?
+<?php
     if ($reg['Ambientes']) {
 ?>
 <?= $reg['Ambientes'] ?> <?= $reg['Ambientes'] == 1 ? 'Ambiente' : 'Ambientes' ?>.
-<?
+<?php
     }
 ?>
-<?
+<?php
     if ($reg['Metros']) {
 ?>
 <?= $reg['Metros'] ?> m2.
-<?
+<?php
     }
 ?>
 </div>
 <div><a href="<?= $Page->Prefix ?>PropiedadView.php?Id=<?= $reg['Id'] ?>">Ver...</a></div>
 </div>
-<?
+<?php
     }
 ?>
 
-<?
+<?php
     DbFreeResult($rs);
 	DbDisconnect();
 	include_once('includes/Footer.inc.php');
