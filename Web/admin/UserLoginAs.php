@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Prefix = '../';
 	
 	include_once('./Security.inc.php');
