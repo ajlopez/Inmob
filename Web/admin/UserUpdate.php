@@ -1,6 +1,9 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
+        
 	include_once('./Security.inc.php');
 	include_once($Page->Prefix.'ajfwk/GetParameters.inc.php');
 	include_once($Page->Prefix.'ajfwk/Database.inc.php');

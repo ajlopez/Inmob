@@ -1,5 +1,8 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Actualiza Propiedad';
+    
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
 
@@ -60,23 +63,22 @@
 
 <div class="btn-group">
 <a class="btn btn-info" href="PropiedadList.php">Propiedades</a>
-<?
+<?php
 	if (!$IsNew) {
 ?>
-<a class="btn btn-info" href="PropiedadView.php?Id=<? echo $Id; ?>">Propiedad</a>
-<?
+<a class="btn btn-info" href="PropiedadView.php?Id=<?php echo $Id; ?>">Propiedad</a>
+<?php
 	}
 ?>
 </div>
 
-
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="PropiedadUpdate.php" method=post>
 
-<?
+<?php
 	TableOpen('','','form');
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
@@ -106,14 +108,14 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	if (!$IsNew)
 		FieldIdGenerate($Id);
 ?>
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

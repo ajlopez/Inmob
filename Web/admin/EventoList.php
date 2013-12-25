@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Eventos';
 
 	if (!$Page->Prefix)
@@ -28,7 +30,7 @@
 	include_once($Page->Prefix . 'includes/Header.inc.php');
 ?>
 
-<?		
+<?php	
 	TableOpen($titles, '', 'list');
 
 	while ($reg=DbNextRow($rs)) {
@@ -53,7 +55,7 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	include_once($Page->Prefix . 'includes/Footer.inc.php');
 	DbDisconnect();
 ?>

@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Actualiza Zona';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -38,23 +40,23 @@
 
 <div class="btn-group">
 <a class="btn btn-info" href="ZonaList.php">Zonas</a>
-<?
+<?php
 	if (!$IsNew) {
 ?>
-<a class="btn btn-info" href="ZonaView.php?Id=<? echo $Id; ?>">Zona</a>
-<?
+<a class="btn btn-info" href="ZonaView.php?Id=<?php echo $Id; ?>">Zona</a>
+<?php
 	}
 ?>
 </div>
 
 
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="ZonaUpdate.php" method=post>
 
-<?
+<?php
 	TableOpen('','','form');
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
@@ -66,14 +68,14 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	if (!$IsNew)
 		FieldIdGenerate($Id);
 ?>
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

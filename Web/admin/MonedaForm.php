@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Actualiza Moneda';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -37,23 +39,23 @@
 
 <div class="btn-group">
 <a class="btn btn-info" href="MonedaList.php">Monedas</a>
-<?
+<?php
 	if (!$IsNew) {
 ?>
-<a class="btn btn-info" href="MonedaView.php?Id=<? echo $Id; ?>">Moneda</a>
-<?
+<a class="btn btn-info" href="MonedaView.php?Id=<?php echo $Id; ?>">Moneda</a>
+<?php
 	}
 ?>
 </div>
 
 
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="MonedaUpdate.php" method=post>
 
-<?
+<?php
 	TableOpen('','','form');
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
@@ -65,14 +67,14 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	if (!$IsNew)
 		FieldIdGenerate($Id);
 ?>
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

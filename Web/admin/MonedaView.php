@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Moneda';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -38,11 +40,11 @@
 
 <div class="btn-group">
 <a class="btn btn-info" href="MonedaList.php">Monedas</a>
-<a class="btn btn-primary" href="MonedaForm.php?Id=<? echo $Id; ?>">Actualiza</a>
-<a class="btn btn-danger" href="MonedaDelete.php?Id=<? echo $Id; ?>">Elimina</a>
+<a class="btn btn-primary" href="MonedaForm.php?Id=<?php echo $Id; ?>">Actualiza</a>
+<a class="btn btn-danger" href="MonedaDelete.php?Id=<?php echo $Id; ?>">Elimina</a>
 </div>
 
-<?
+<?php
 	TableOpen('', '', 'view');
 	FieldStaticGenerate("Nombre",$Nombre);
 	FieldStaticGenerate("Símbolo",$Simbolo);
@@ -58,7 +60,7 @@
 <br />
 
 <div>
-<?
+<?php
 	$rsPropiedades = PropiedadGetByMoneda($Id);
 
 	$titles = array('', 'Nombre', 'Domicilio', 'Zona', 'Inmobiliaria', 'Tipo de Propiedad', 'Habilitada');
@@ -86,7 +88,7 @@
 ?>
 </div>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

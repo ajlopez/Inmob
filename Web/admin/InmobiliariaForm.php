@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Actualiza Inmobiliaria';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -46,7 +48,7 @@
 <?
 	if (!$IsNew) {
 ?>
-<a class="btn btn-info" href="InmobiliariaView.php?Id=<? echo $Id; ?>">Inmobiliaria</a>
+<a class="btn btn-info" href="InmobiliariaView.php?Id=<?php echo $Id; ?>">Inmobiliaria</a>
 <?
 	}
 ?>
@@ -59,7 +61,7 @@
 
 <form action="InmobiliariaUpdate.php" method=post>
 
-<?
+<?php
 	TableOpen('','','form');
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
@@ -76,14 +78,14 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	if (!$IsNew)
 		FieldIdGenerate($Id);
 ?>
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

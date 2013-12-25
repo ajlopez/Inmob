@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Propiedades';
 
 	if (!$Page->Prefix)
@@ -32,7 +34,7 @@
 <a class="btn btn-primary" href="PropiedadForm.php">Nueva Propiedad...</a>
 </div>
 
-<?		
+<?php
 	TableOpen($titles, '', 'list');
 
 	while ($reg=DbNextRow($rs)) {
@@ -53,7 +55,7 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	include_once($Page->Prefix . 'includes/Footer.inc.php');
 	DbDisconnect();
 ?>

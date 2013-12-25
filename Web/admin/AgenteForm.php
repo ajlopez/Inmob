@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Actualiza Agente';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -42,23 +44,22 @@
 
 <div class="btn-group">
 <a class="btn btn-info" href="AgenteList.php">Agentes</a>
-<?
+<?php
 	if (!$IsNew) {
 ?>
-<a class="btn btn-info" href="AgenteView.php?Id=<? echo $Id; ?>">Agente</a>
-<?
+<a class="btn btn-info" href="AgenteView.php?Id=<?php echo $Id; ?>">Agente</a>
+<?php
 	}
 ?>
 </div>
 
-
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="AgenteUpdate.php" method=post>
 
-<?
+<?php
 	TableOpen('','','form');
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
@@ -74,14 +75,14 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	if (!$IsNew)
 		FieldIdGenerate($Id);
 ?>
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

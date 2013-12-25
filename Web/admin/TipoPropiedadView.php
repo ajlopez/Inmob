@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Tipo de Propiedad';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -36,11 +38,11 @@
 
 <div class="btn-group">
 <a class="btn btn-info" href="TipoPropiedadList.php">Tipos de Propiedad</a>
-<a class="btn btn-primary" href="TipoPropiedadForm.php?Id=<? echo $Id; ?>">Actualiza</a>
-<a class="btn btn-danger" href="TipoPropiedadDelete.php?Id=<? echo $Id; ?>">Elimina</a>
+<a class="btn btn-primary" href="TipoPropiedadForm.php?Id=<?php echo $Id; ?>">Actualiza</a>
+<a class="btn btn-danger" href="TipoPropiedadDelete.php?Id=<?php echo $Id; ?>">Elimina</a>
 </div>
 
-<?
+<?php
 	TableOpen('', '', 'view');
 	FieldStaticGenerate("Nombre",$Nombre);
 	TableClose();
@@ -55,7 +57,7 @@
 <br />
 
 <div>
-<?
+<?php
 	$rsPropiedades = PropiedadGetByTipoPropiedad($Id);
 
 	$titles = array('', 'Nombre', 'Domicilio', 'Zona', 'Inmobiliaria', 'Habilitada');
@@ -81,7 +83,7 @@
 ?>
 </div>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

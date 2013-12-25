@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Zona';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -38,11 +40,11 @@
 
 <div class="btn-group">
 <a class="btn btn-info" href="ZonaList.php">Zonas</a>
-<a class="btn btn-primary" href="ZonaForm.php?Id=<? echo $Id; ?>">Actualiza</a>
-<a class="btn btn-danger" href="ZonaDelete.php?Id=<? echo $Id; ?>">Elimina</a>
+<a class="btn btn-primary" href="ZonaForm.php?Id=<?php echo $Id; ?>">Actualiza</a>
+<a class="btn btn-danger" href="ZonaDelete.php?Id=<?php echo $Id; ?>">Elimina</a>
 </div>
 
-<?
+<?php
 	TableOpen('', '', 'view');
 	FieldStaticGenerate("Nombre",$Nombre);
 	FieldStaticGenerate("Zona Padre",$TranslationIdZonaPadre);
@@ -58,7 +60,7 @@
 <br />
 
 <div>
-<?
+<?php
 	$rsPropiedades = PropiedadGetByZona($Id);
 
 	$titles = array('', 'Nombre', 'Domicilio', 'Inmobiliaria', 'Tipo de Propiedad', 'Habilitada');
@@ -91,7 +93,7 @@
 <br />
 
 <div>
-<?
+<?php
 	$rsZonas = ZonaGetByZona($Id);
 
 	$titles = array('', 'Nombre');
@@ -111,7 +113,7 @@
 ?>
 </div>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

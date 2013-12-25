@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Actualiza Comentario';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -40,23 +42,22 @@
 
 <div class="btn-group">
 <a class="btn btn-info" href="ComentarioList.php">Comentarios</a>
-<?
+<?php
 	if (!$IsNew) {
 ?>
-<a class="btn btn-info" href="ComentarioView.php?Id=<? echo $Id; ?>">Comentario</a>
-<?
+<a class="btn btn-info" href="ComentarioView.php?Id=<?php echo $Id; ?>">Comentario</a>
+<?php
 	}
 ?>
 </div>
 
-
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="ComentarioUpdate.php" method=post>
 
-<?
+<?php
 	TableOpen('','','form');
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
@@ -69,14 +70,14 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	if (!$IsNew)
 		FieldIdGenerate($Id);
 ?>
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php
 	$Page->Title = 'Monedas';
 
 	if (!$Page->Prefix)
@@ -29,7 +29,7 @@
 <a class="btn btn-primary" href="MonedaForm.php">Nueva Moneda...</a>
 </div>
 
-<?		
+<?php	
 	TableOpen($titles, '', 'list');
 
 	while ($reg=DbNextRow($rs)) {
@@ -42,7 +42,7 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	include_once($Page->Prefix . 'includes/Footer.inc.php');
 	DbDisconnect();
 ?>

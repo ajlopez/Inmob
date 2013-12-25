@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Agente';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -39,11 +41,11 @@
 
 <div class="btn-group">
 <a class="btn btn-info" href="AgenteList.php">Agentes</a>
-<a class="btn btn-primary" href="AgenteForm.php?Id=<? echo $Id; ?>">Actualiza</a>
-<a class="btn btn-danger" href="AgenteDelete.php?Id=<? echo $Id; ?>">Elimina</a>
+<a class="btn btn-primary" href="AgenteForm.php?Id=<?php echo $Id; ?>">Actualiza</a>
+<a class="btn btn-danger" href="AgenteDelete.php?Id=<?php echo $Id; ?>">Elimina</a>
 </div>
 
-<?
+<?php
 	TableOpen('', '', 'view');
 	FieldStaticGenerate("Nombre",$Nombre);
 	FieldStaticMemoGenerate("Datos de Contacto",$Contacto);
@@ -54,9 +56,7 @@
 	TableClose();
 ?>
 
-
-
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>
