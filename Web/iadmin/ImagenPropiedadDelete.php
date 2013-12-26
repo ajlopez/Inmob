@@ -1,4 +1,4 @@
-<?
+<?php
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
 	include_once('./Security.inc.php');
