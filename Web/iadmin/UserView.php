@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Usuario de Inmobiliaria';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -51,12 +53,12 @@
 
 <div class="btn-group">
 <a class="btn btn-info" href="UserList.php">Usuarios</a>
-<a class="btn btn-primary" href="UserForm.php?Id=<? echo $Id; ?>">Actualiza Datos</a>
-<a class="btn btn-primary" href="UserPasswordForm.php?Id=<? echo $Id; ?>">Cambia Contraseña</a>
-<a class="btn btn-danger" href="UserDelete.php?Id=<? echo $Id; ?>">Elimina Usuario</a>
+<a class="btn btn-primary" href="UserForm.php?Id=<?php echo $Id; ?>">Actualiza Datos</a>
+<a class="btn btn-primary" href="UserPasswordForm.php?Id=<?php echo $Id; ?>">Cambia Contraseña</a>
+<a class="btn btn-danger" href="UserDelete.php?Id=<?php echo $Id; ?>">Elimina Usuario</a>
 </div>
 
-<?
+<?php
 	TableOpen('', '', 'view');
 	FieldStaticGenerate("Código",$UserName);
 	FieldStaticGenerate("Nombre",$FirstName);
@@ -79,7 +81,7 @@
 <br />
 
 <div>
-<?
+<?php
 	$rsComentarios = ComentarioGetByUser($Id);
 
 	$titles = array();
@@ -104,7 +106,7 @@
 <br />
 
 <div>
-<?
+<?php
 	$rsEventos = EventoGetByUser($Id);
 
 	$titles = array();
@@ -122,7 +124,7 @@
 ?>
 </div>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>
