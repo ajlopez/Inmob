@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Actualiza Usuario de Inmobiliaria';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -44,23 +46,22 @@
 
 <div class="btn-group">
 <a class="btn btn-info" href="UserList.php">Usuarios</a>
-<?
+<?php
 	if (!$IsNew) {
 ?>
-<a class="btn btn-info" href="UserView.php?Id=<? echo $Id; ?>">Usuario</a>
-<?
+<a class="btn btn-info" href="UserView.php?Id=<?php echo $Id; ?>">Usuario</a>
+<?php
 	}
 ?>
 </div>
 
-
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="UserUpdate.php" method=post>
 
-<?
+<?php
 	TableOpen('','','form');
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
@@ -84,14 +85,14 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	if (!$IsNew)
 		FieldIdGenerate($Id);
 ?>
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

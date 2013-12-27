@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Inmobiliaria';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -48,7 +50,7 @@
 <a class="btn btn-primary" href="InmobiliariaForm.php">Actualiza</a>
 </div>
 
-<?
+<?php
 	TableOpen('', '', 'view');
 	FieldStaticGenerate("Nombre",$Nombre);
 	FieldStaticGenerate("Domicilio",$Domicilio);
@@ -68,7 +70,7 @@
 <br />
 
 <div>
-<?
+<?php
 	$rsPropiedades = PropiedadGetByInmobiliaria($Id);
 
 	$titles = array('', 'Nombre', 'Domicilio', 'Zona', 'Tipo de Propiedad', 'Habilitada');
@@ -102,7 +104,7 @@
 <br />
 
 <div>
-<?
+<?php
 	$rsUsers = UserGetByInmobiliaria($Id);
 
 	$titles = array('', 'Código', 'Nombre', 'Apellido', 'Habilitado', 'Es Administrador de Inmobiliaria');
@@ -126,7 +128,7 @@
 ?>
 </div>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Actualiza Inmobiliaria';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -41,14 +43,13 @@
 <a class="btn btn-info" href="InmobiliariaView.php">Inmobiliaria</a>
 </div>
 
-
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="InmobiliariaUpdate.php" method=post>
 
-<?
+<?php
 	TableOpen('','','form');
 
 	FieldTextGenerate("Nombre", "Nombre", $Nombre, 30, true);
@@ -63,7 +64,7 @@
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

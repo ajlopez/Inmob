@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Imagen de Propiedad';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -48,17 +50,17 @@
 
 <div class="btn-group">
 <a class="btn btn-info" href="ImagenPropiedadList.php">Imágenes de Propiedades</a>
-<a class="btn btn-info" href="PropiedadView.php?Id=<? echo $IdPropiedad; ?>">Propiedad</a>
-<a class="btn btn-primary" href="ImagenPropiedadForm.php?Id=<? echo $Id; ?>">Actualiza</a>
-<a class="btn btn-danger" href="ImagenPropiedadDelete.php?Id=<? echo $Id; ?>">Elimina</a>
+<a class="btn btn-info" href="PropiedadView.php?Id=<?php echo $IdPropiedad; ?>">Propiedad</a>
+<a class="btn btn-primary" href="ImagenPropiedadForm.php?Id=<?php echo $Id; ?>">Actualiza</a>
+<a class="btn btn-danger" href="ImagenPropiedadDelete.php?Id=<?php echo $Id; ?>">Elimina</a>
 </div>
-<?
+<?php
     if ($Uuid && $NombreArchivo) {
 ?>
 <div>
 <img src="<?= $Page->Prefix ?>images/photos/<?= $Uuid . '.' . pathinfo($NombreArchivo, PATHINFO_EXTENSION)?>" border="0"/>
 </div>
-<?
+<?php
     }
     
 	TableOpen('', '', 'view');
@@ -75,9 +77,7 @@
 	TableClose();
 ?>
 
-
-
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>
