@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('./Configuration.inc.php');
+    
 	$Page->Title = 'Propiedad';
 
 	include_once('./Security.inc.php');
@@ -73,13 +75,13 @@
 <div>
 <?= $Domicilio ?>
 </div>
-<?
+<?php
     if ($Precio) {
 ?>
 <div>
 <?= $Precio ? $regMoneda['Simbolo'] . ' ' . $Precio: '' ?>
 </div>
-<?
+<?php
     }
 ?>
 </div>
@@ -92,7 +94,7 @@
 </div>
 
 <div class='row-fluid'>
-<?
+<?php
     if ($regImagen) {
         $Uuid = $regImagen['Uuid'];
         $NombreArchivo = $regImagen['NombreArchivo'];
@@ -105,7 +107,7 @@
 <?= $regImagen['Nombre'] ?>
 </a>
 </div>
-<?
+<?php
     }
 ?>
 <div>
@@ -123,7 +125,7 @@
 </div>
 
 <div class='row-fluid' style='clear: both'>
-<?
+<?php
 	$rsImagenesPropiedad = ImagenPropiedadGetList("IdPropiedad = $Id and Habilitada <> 0 and Principal = 0");
 
 	while ($reg=DbNextRow($rsImagenesPropiedad)) {
@@ -135,7 +137,7 @@
 <?= $reg['Nombre'] ?>
 </a>
 </div>
-<?
+<?php
 	}
 
 	DbFreeResult($rsImagenesPropiedad);
@@ -143,7 +145,7 @@
 </div>
 </div>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

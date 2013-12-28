@@ -1,5 +1,8 @@
-<?
+<?php
+    include_once('./Configuration.inc.php');
+    
 	$Page->Prefix = '../';
+    
 	include_once($Page->Prefix.'ajfwk/Pages.inc.php');
 	include_once($Page->Prefix.'includes/Users.inc.php');
 	include_once($Page->Prefix.'ajfwk/Database.inc.php');
