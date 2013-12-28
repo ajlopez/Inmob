@@ -1,9 +1,9 @@
-<?
+<?php
 	include_once($Page->Prefix.'includes/Users.inc.php');
 ?>
 <br>
 
-<?
+<?php
 function MenuLeftOpen($title)
 {
 ?>
@@ -11,23 +11,27 @@ function MenuLeftOpen($title)
 <table class="menu" cellspacing=1 cellpadding=2>
 <tr>
 <td align=center class="menutitle">
-<? echo $title; ?>
+<?php echo $title; ?>
 </td>
 </tr>
 <tr>
 <td valign="top" class="menuoption">
-<?
+<?php
 }
 
 function MenuLeftOption($text,$link)
 {
 	global $Page;
-	global $Cfg;
-	
-	$url = $Cfg['SiteUrl'];
 
 	echo "&nbsp;";
-	echo "<a target='_top' href='$url$link' class='menuoption'>$text</a>";
+	echo "<a target='_top' href='$Page->Prefix$link' class='menuoption'>$text</a>";
+	echo "<br>\n";
+}
+
+function MenuLeftAbsoluteOption($text,$link)
+{
+	echo "&nbsp;";
+	echo "<a target='_top' href='$link' class='menuoption'>$text</a>";
 	echo "<br>\n";
 }
 
@@ -42,11 +46,11 @@ function MenuLeftClose()
 
 </div>
 
-<?
+<?php
 }
 ?>
 
-<?
+<?php
 	MenuLeftOpen($Cfg['SiteName']);
 	MenuLeftOption('Inicio','index.php');
 	MenuLeftClose();
@@ -57,6 +61,7 @@ function MenuLeftClose()
 		MenuLeftOption('Unidades','admin/UnidadList.php');
 		MenuLeftOption('Documentos','admin/DocumentoConsorcioList.php');
 		MenuLeftOption('Usuarios','admin/UserList.php');
+		MenuLeftOption('Eventos','admin/EventoList.php');
 		MenuLeftClose();
 	}
 	
@@ -71,7 +76,10 @@ function MenuLeftClose()
 	}
 	else {
 		MenuLeftOpen('Usuarios');
-		MenuLeftOption('Ingreso','users/Login.php');
+		if ($Cfg['UserLogin'])
+			MenuLeftAbsoluteOption('Ingreso',$Cfg['UserLogin']);
+		else
+			MenuLeftOption('Ingreso','users/Login.php');
 		MenuLeftOption('Registración','users/Register.php');
 		MenuLeftClose();
 	}

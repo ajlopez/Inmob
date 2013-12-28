@@ -1,4 +1,4 @@
-<?
+<?php
 
 /*
  *	Functions
@@ -13,7 +13,6 @@ function UsoMultipleGetListByUser($iduser) {
     
     $where = "IdConsorcio in (SELECT DISTINCT u.idconsorcio FROM $Cfg[SqlPrefix]unidades u, $Cfg[SqlPrefix]userunidades uu WHERE u.id = uu.idunidad AND uu.iduser = $iduser)";
     $order = "Codigo";
-
 	return UsoMultipleGetList($where, $order);
 }
 

@@ -1,4 +1,4 @@
-<?
+<?php
 include_once($Page->Prefix.'ajfwk/Pages.inc.php');
 include_once($Page->Prefix.'ajfwk/Database.inc.php');
 include_once($Page->Prefix.'ajfwk/Session.inc.php');
@@ -8,6 +8,7 @@ include_once('Events.inc.php');
 function UserControl($link='') {
 	global $PHP_SELF;
 	global $HTTP_SERVER_VARS;
+	global $Cfg;
 
 	$User = SessionGet("CurrentUser");
 	$UserId = $User->Id;
@@ -19,8 +20,13 @@ function UserControl($link='') {
 				$enlace .= "?" . $HTTP_SERVER_VARS["QUERY_STRING"];
 		}
 		SessionPut("UserLink", $link);
-		PageRedirect(PageLogin());
-		exit;
+		
+		if ($Cfg['UserLogin'])
+			PageAbsoluteRedirect($Cfg['UserLogin']);
+		else		
+			PageRedirect(PageLogin());
+
+			exit;
 	}
 }
 
@@ -118,10 +124,12 @@ function AdministratorControl($link='') {
 }
 
 function UserLogin($user) {
+	global $Cfg;
+
 	SessionPut("CurrentUser", $user);
-	EventLogin();
+	//EventLogin();
 	DbConnect();
-	DbExecuteUpdate("update users set DateTimeLastLogin = now(), LoginCount = LoginCount+1 where Id = " . UserId());
+	DbExecuteUpdate("update $Cfg[SqlPrefix]users set DateTimeLastLogin = now(), LoginCount = LoginCount+1 where Id = " . UserId());
 	$rs = UsoMultipleGetListByUser($user->Id);
 	$multiple = DbNextRow($rs);
 	if ($multiple) {

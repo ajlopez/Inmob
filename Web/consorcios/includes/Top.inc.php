@@ -1,4 +1,4 @@
-<?
+<?php
 	include_once($Page->Prefix.'ajfwk/Configuration.inc.php');
 	include_once($Page->Prefix.'ajfwk/Pages.inc.php');
 ?>
@@ -9,11 +9,11 @@
 </div>
 
 <div id="subheader">
-<? echo $Cfg['SiteDescription'] ?>
+<?php echo $Cfg['SiteDescription'] ?>
 </div>
 <div id=menu>
-<? include_once("MenuLeft.inc.php"); ?>
+<?php include_once("MenuLeft.inc.php"); ?>
 </div>			
 
 <div id=content>
-<h2><? echo $Page->Title ?></h2>
+<h2><?php echo $Page->Title ?></h2>

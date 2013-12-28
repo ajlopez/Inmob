@@ -1,4 +1,4 @@
-<?
+<?php
 	include_once($Page->Prefix.'ajfwk/includes/Pages.inc.php');
 	include_once($Page->Prefix.'ajfwk/includes/Users.inc.php');
 ?>
@@ -19,7 +19,7 @@
 
 	<td>
 		<table align="center">
-<?
+<?php
 function MenuTopeOpcion($texto,$enlace)
 {
 	global $PaginaPrefijo;
@@ -31,7 +31,7 @@ function MenuTopeOpcion($texto,$enlace)
 					</td>
 				</table>
 			</td>
-<?
+<?php
 }
 	MenuTopeOpcion("Principal",PageMain());
 	MenuTopeOpcion("Cursos","CursosMuestra.php");

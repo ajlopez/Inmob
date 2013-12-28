@@ -1,4 +1,4 @@
-<?
+<?php
 	include_once('Configuration.inc.php');
 
 	$Connected = 0;

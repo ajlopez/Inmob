@@ -1,4 +1,4 @@
-<?
+<?php
 
 function TableOpen($titles='',$width='') {
 	if ($width)

@@ -1,4 +1,4 @@
-<?
+<?php
 
 function DateValidate($anio,$mes,$dia) {
 	if (!$anio || !$mes || !$dia)

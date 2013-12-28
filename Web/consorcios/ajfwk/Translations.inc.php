@@ -1,4 +1,4 @@
-<?
+<?php
 include_once('Database.inc.php');
 
 function TranslateDescription($table,$id,$description='DESCRIPTION',$idfld='ID')

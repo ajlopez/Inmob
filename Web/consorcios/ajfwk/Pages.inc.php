@@ -1,4 +1,4 @@
-<?
+<?php
 	include_once('Random.inc.php');
 
 function PageCurrent() {

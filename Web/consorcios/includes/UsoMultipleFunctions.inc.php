@@ -1,4 +1,4 @@
-<?
+<?php
 
 /*
  *	Functions
@@ -28,7 +28,6 @@ function UsoMultipleGetList($where='',$order='') {
 	if (!$order)
 		$order = 'Id';
 	$sql .= " order by $order";
-
 	return DbExecuteQuery($sql);
 }
 

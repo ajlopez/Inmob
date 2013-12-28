@@ -1,4 +1,4 @@
-<?
+<?php
 $Cfg['SiteName']='AjConsorSite';
 //$Cfg['SiteLogo']='AjConsorSite.gif';
 $Cfg['SiteDescription']='Sitio de Consorcios y Negocios Inmobiliarios';
