@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Mis Datos';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -53,7 +55,7 @@
 <a class="btn btn-primary" href="UserPasswordForm.php">Cambia Contraseña</a>
 </div>
 
-<?
+<?php
 	TableOpen('', '', 'view');
 	FieldStaticGenerate("Código",$UserName);
 	FieldStaticGenerate("Nombre",$FirstName);
@@ -72,7 +74,7 @@
 <br />
 
 <div>
-<?
+<?php
 	$rsComentarios = ComentarioGetByUser($Id);
 
 	$titles = array();
@@ -90,7 +92,7 @@
 ?>
 </div>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

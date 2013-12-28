@@ -1,5 +1,8 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Actualiza Mis Datos';
+    
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
 
@@ -44,14 +47,13 @@
 <a class="btn btn-info" href="UserView.php">Mis Datos</a>
 </div>
 
-
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="UserUpdate.php" method=post>
 
-<?
+<?php
 	TableOpen('','','form');
     FieldStaticGenerate("Código",$UserName);
 
@@ -67,7 +69,7 @@
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

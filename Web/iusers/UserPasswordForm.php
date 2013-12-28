@@ -1,5 +1,8 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Cambia Contraseña';
+    
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
 
@@ -29,13 +32,13 @@
 <a class="btn btn-info" href="UserView.php">Mis Datos</a>
 </div>
 
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="UserPasswordUpdate.php" method=post>
 
-<?
+<?php
 	TableOpen();
 	
 	FieldPasswordGenerate("Password", "Nueva Contraseña", '', 10, True);
@@ -47,7 +50,7 @@
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

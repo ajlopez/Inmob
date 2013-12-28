@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Actualiza Imagen de Propiedad';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -44,23 +46,22 @@
 
 <div class="btn-group">
 <a class="btn btn-info" href="ImagenPropiedadList.php">Imágenes de Propiedades</a>
-<?
+<?php
 	if (!$IsNew) {
 ?>
-<a class="btn btn-info" href="ImagenPropiedadView.php?Id=<? echo $Id; ?>">Imagen de Propiedad</a>
-<?
+<a class="btn btn-info" href="ImagenPropiedadView.php?Id=<?php echo $Id; ?>">Imagen de Propiedad</a>
+<?php
 	}
 ?>
 </div>
 
-
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="ImagenPropiedadUpdate.php" method=post enctype="multipart/form-data">
 
-<?
+<?php
 	TableOpen('','','form');
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
@@ -77,7 +78,7 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	if (!$IsNew)
     {
 		FieldIdGenerate($Id);
@@ -88,7 +89,7 @@
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>
