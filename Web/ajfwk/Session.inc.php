@@ -1,4 +1,4 @@
-<?
+<?php
 	if ($Page->NoCache)
 		session_cache_limiter('must-revalidate');
 

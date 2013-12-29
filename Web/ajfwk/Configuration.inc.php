@@ -1,6 +1,6 @@
-<?
+<?php
 
-$Cfg['Host'] = $HTTP_SERVER_VARS["HTTP_HOST"];
+$Cfg['Host'] = $_SERVER["HTTP_HOST"];
 
 	include_once($Page->Prefix.'includes/Configuration.inc.php');
 

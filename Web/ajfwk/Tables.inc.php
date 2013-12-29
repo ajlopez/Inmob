@@ -1,10 +1,10 @@
-<?
+<?php
 
-function TableOpen($titles='',$width='',$class='') {
+function TableOpen($titles='',$width='') {
 	if ($width)
-		echo "<table class='table-striped table-bordered $class' width='$width'>\n";
+		echo "<table class='table-striped table-bordered' width='$width'>\n";
 	else
-		echo "<table class='table-striped table-bordered $class'>\n";	
+		echo "<table class='table-striped table-bordered'>\n";	
 
 	if (is_array($titles)) {
 		echo "<tr>\n";
@@ -47,6 +47,25 @@ echo "\n";
 function RowClose() {
 	  echo "</tr>\n";
 }
+
+/*function DatumGenerate($datum,$align='left',$colspan=1) {
+    echo "<td class='datum' colspan=$colspan valign='top' align=$align>$datum&nbsp;</td>\n";
+}
+
+function DatumNumGenerate($datum) {
+    echo "<td class='datum' align='right'>$datum&nbsp;</td>\n";
+}
+
+function DatumCurrencyGenerate($datum) {
+    echo "<td class='datum' align='right'>" . number_format($datum+0,2) . "&nbsp;</td>\n";
+}
+
+function DatumLinkGenerate($datum,$link,$align='left',$target='') {
+	echo "<td class='datum' align='$align'><a href='$link'";
+	if ($target)
+		echo " target='$target'";
+	echo ">$datum</a>&nbsp;</td>\n";
+}*/
 
 function DatumGenerate($datum,$align='left',$colspan=1) {
     echo "<td colspan=$colspan valign='top' align=$align>$datum&nbsp;</td>\n";

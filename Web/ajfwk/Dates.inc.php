@@ -1,4 +1,4 @@
-<?
+<?php
 
 $DaySpanishNames = array(
 	'Sunday' => 'Domingo',
