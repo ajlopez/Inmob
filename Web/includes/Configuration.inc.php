@@ -1,4 +1,4 @@
-<?
+<?php
 $Cfg['SiteName']='Inmob';
 //$Cfg['SiteLogo']='Inmob.gif';
 $Cfg['SiteDescription']='Sitio de Negocios Inmobiliarios';

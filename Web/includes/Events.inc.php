@@ -1,4 +1,4 @@
-<?
+<?php
 	include_once($Page->Prefix.'ajfwk/Database.inc.php');
 	include_once($Page->Prefix.'ajfwk/Pages.inc.php');
 	include_once('Users.inc.php');

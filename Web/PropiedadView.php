@@ -4,6 +4,7 @@
 	$Page->Title = 'Propiedad';
 
 	include_once('./Security.inc.php');
+	include_once($Page->Prefix.'ajfwk/Configuration.inc.php');
 	include_once($Page->Prefix.'ajfwk/GetParameters.inc.php');
 	include_once($Page->Prefix.'ajfwk/Database.inc.php');
 	include_once($Page->Prefix.'ajfwk/Errors.inc.php');
