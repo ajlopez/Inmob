@@ -1,5 +1,5 @@
 <?php
-    include_once('./Configuration.inc.php');
+    include_once('../Configuration.inc.php');
 
 	$Page->Prefix = '../';
 	
